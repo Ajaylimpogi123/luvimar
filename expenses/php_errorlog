@@ -1,0 +1,22 @@
+[27-Sep-2022 09:22:27 Asia/Manila] PHP Notice:  Undefined variable: developer in /home/customer/www/nts.triapps.co/public_html/include/template.php on line 24
+[27-Sep-2022 09:22:37 Asia/Manila] PHP Notice:  Undefined variable: developer in /home/customer/www/nts.triapps.co/public_html/include/template.php on line 24
+[27-Sep-2022 09:22:47 Asia/Manila] PHP Notice:  Undefined variable: developer in /home/customer/www/nts.triapps.co/public_html/include/template.php on line 24
+[27-Sep-2022 09:24:07 Asia/Manila] PHP Notice:  Undefined variable: developer in /home/customer/www/nts.triapps.co/public_html/include/template.php on line 24
+[27-Sep-2022 09:24:14 Asia/Manila] PHP Notice:  Undefined variable: developer in /home/customer/www/nts.triapps.co/public_html/include/template.php on line 24
+[27-Sep-2022 09:24:19 Asia/Manila] PHP Notice:  Undefined variable: developer in /home/customer/www/nts.triapps.co/public_html/include/template.php on line 24
+[27-Sep-2022 09:24:25 Asia/Manila] PHP Notice:  Undefined variable: developer in /home/customer/www/nts.triapps.co/public_html/include/template.php on line 24
+[27-Sep-2022 09:24:26 Asia/Manila] PHP Notice:  Undefined variable: developer in /home/customer/www/nts.triapps.co/public_html/include/template.php on line 24
+[27-Sep-2022 09:24:26 Asia/Manila] PHP Notice:  Array to string conversion in /home/customer/www/nts.triapps.co/public_html/expenses/list.php on line 81
+[27-Sep-2022 09:24:26 Asia/Manila] PHP Notice:  Undefined variable: Array in /home/customer/www/nts.triapps.co/public_html/expenses/list.php on line 81
+[27-Sep-2022 09:24:26 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/nts.triapps.co/public_html/expenses/list.php on line 81
+[27-Sep-2022 09:27:21 Asia/Manila] PHP Notice:  Undefined variable: developer in /home/customer/www/nts.triapps.co/public_html/include/template.php on line 24
+[27-Sep-2022 09:27:25 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to undefined function execute() in /home/customer/www/nts.triapps.co/public_html/expenses/process.php:85
+Stack trace:
+#0 /home/customer/www/nts.triapps.co/public_html/expenses/process.php(15): modify()
+#1 {main}
+  thrown in /home/customer/www/nts.triapps.co/public_html/expenses/process.php on line 85
+[27-Sep-2022 09:28:15 Asia/Manila] PHP Notice:  Undefined variable: developer in /home/customer/www/nts.triapps.co/public_html/include/template.php on line 24
+[27-Sep-2022 09:28:17 Asia/Manila] PHP Notice:  Undefined variable: developer in /home/customer/www/nts.triapps.co/public_html/include/template.php on line 24
+[27-Sep-2022 09:28:17 Asia/Manila] PHP Notice:  Array to string conversion in /home/customer/www/nts.triapps.co/public_html/expenses/list.php on line 81
+[27-Sep-2022 09:28:17 Asia/Manila] PHP Notice:  Undefined variable: Array in /home/customer/www/nts.triapps.co/public_html/expenses/list.php on line 81
+[27-Sep-2022 09:28:17 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/nts.triapps.co/public_html/expenses/list.php on line 81

@@ -1,0 +1,91 @@
+[24-May-2021 15:51:11 Asia/Manila] PHP Notice:  Undefined index: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 32
+[24-May-2021 15:51:11 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 68
+[24-May-2021 15:51:21 Asia/Manila] PHP Notice:  Undefined index: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 32
+[24-May-2021 15:51:21 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 68
+[24-May-2021 15:51:43 Asia/Manila] PHP Notice:  Undefined index: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 32
+[24-May-2021 15:51:43 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 68
+[25-May-2021 13:26:19 Asia/Manila] PHP Notice:  Undefined index: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 32
+[25-May-2021 13:26:19 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 68
+[25-May-2021 13:29:58 Asia/Manila] PHP Notice:  Undefined index: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 32
+[25-May-2021 13:29:58 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 68
+[25-May-2021 13:31:03 Asia/Manila] PHP Notice:  Undefined index: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 32
+[25-May-2021 13:31:03 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 68
+[27-May-2021 11:07:11 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 69
+[28-May-2021 17:04:49 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 69
+[01-Jun-2021 17:02:02 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 69
+[01-Jun-2021 17:02:42 Asia/Manila] PHP Notice:  Undefined index: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/process.php on line 82
+[22-Jun-2021 13:33:28 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 86
+[23-Jun-2021 15:44:31 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 86
+[02-Jul-2021 16:02:43 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/return/detail.php on line 86
+[14-Feb-2022 14:34:04 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 23
+[14-Feb-2022 14:34:04 Asia/Manila] PHP Notice:  Undefined variable: prodId in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 43
+[14-Feb-2022 14:34:04 Asia/Manila] PHP Notice:  Undefined variable: pcost in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 53
+[14-Feb-2022 14:34:04 Asia/Manila] PHP Notice:  Undefined variable: pc_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 53
+[14-Feb-2022 14:34:04 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' 0, '', '', 'ece2f5ac72080d0857471effac9981bf', NOW(), '1002', '1')' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php:54
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/return/detail.php(54): PDOStatement->execute()
+#1 /home/customer/www/tabletas.triapps.co/public_html/return/list.php(82): require_once('/home/customer/...')
+#2 /home/customer/www/tabletas.triapps.co/public_html/include/template.php(119): require_once('/home/customer/...')
+#3 /home/customer/www/tabletas.triapps.co/public_html/return/index.php(65): require_once('/home/customer/...')
+#4 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 54
+[16-Feb-2022 15:23:03 Asia/Manila] PHP Notice:  Undefined variable: pd_image in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 79
+[16-Feb-2022 15:23:03 Asia/Manila] PHP Notice:  Undefined variable: pd_name in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 84
+[16-Feb-2022 15:23:03 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[16-Feb-2022 15:23:03 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[16-Feb-2022 15:23:06 Asia/Manila] PHP Notice:  Undefined variable: pd_image in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 79
+[16-Feb-2022 15:23:06 Asia/Manila] PHP Notice:  Undefined variable: pd_name in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 84
+[16-Feb-2022 15:23:06 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[16-Feb-2022 15:23:06 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[16-Feb-2022 15:23:17 Asia/Manila] PHP Notice:  Undefined variable: pd_image in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 79
+[16-Feb-2022 15:23:17 Asia/Manila] PHP Notice:  Undefined variable: pd_name in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 84
+[16-Feb-2022 15:23:17 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[16-Feb-2022 15:23:17 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[16-Feb-2022 17:04:44 Asia/Manila] PHP Notice:  Undefined variable: pd_image in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 79
+[16-Feb-2022 17:04:44 Asia/Manila] PHP Notice:  Undefined variable: pd_name in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 84
+[16-Feb-2022 17:04:44 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[16-Feb-2022 17:04:44 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[16-Feb-2022 17:04:48 Asia/Manila] PHP Notice:  Undefined variable: pd_image in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 79
+[16-Feb-2022 17:04:48 Asia/Manila] PHP Notice:  Undefined variable: pd_name in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 84
+[16-Feb-2022 17:04:48 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[16-Feb-2022 17:04:48 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[16-Feb-2022 17:04:51 Asia/Manila] PHP Notice:  Undefined variable: pd_image in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 79
+[16-Feb-2022 17:04:51 Asia/Manila] PHP Notice:  Undefined variable: pd_name in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 84
+[16-Feb-2022 17:04:51 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[16-Feb-2022 17:04:51 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[18-Feb-2022 20:05:31 Asia/Manila] PHP Notice:  Undefined variable: pd_image in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 79
+[18-Feb-2022 20:05:31 Asia/Manila] PHP Notice:  Undefined variable: pd_name in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 84
+[18-Feb-2022 20:05:31 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[18-Feb-2022 20:05:31 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[18-Feb-2022 20:10:22 Asia/Manila] PHP Notice:  Undefined variable: pd_image in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 79
+[18-Feb-2022 20:10:22 Asia/Manila] PHP Notice:  Undefined variable: pd_name in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 84
+[18-Feb-2022 20:10:22 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[18-Feb-2022 20:10:22 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[18-Feb-2022 20:11:13 Asia/Manila] PHP Notice:  Undefined variable: pd_image in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 79
+[18-Feb-2022 20:11:13 Asia/Manila] PHP Notice:  Undefined variable: pd_name in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 84
+[18-Feb-2022 20:11:13 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[18-Feb-2022 20:11:13 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[31-Mar-2022 16:58:57 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[31-Mar-2022 16:58:57 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[31-Mar-2022 16:59:30 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[31-Mar-2022 16:59:30 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[31-Mar-2022 16:59:42 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[31-Mar-2022 16:59:42 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[31-Mar-2022 17:36:00 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[31-Mar-2022 17:36:00 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[09-Apr-2022 09:22:01 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[09-Apr-2022 09:22:01 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[09-Apr-2022 15:43:11 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[09-Apr-2022 15:43:11 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[14-Apr-2022 16:47:46 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[14-Apr-2022 16:47:46 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[20-Apr-2022 14:08:03 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[20-Apr-2022 14:08:03 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[22-Apr-2022 16:01:14 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[22-Apr-2022 16:01:14 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[07-Nov-2022 11:08:03 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[07-Nov-2022 11:08:03 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[07-Nov-2022 11:08:29 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[07-Nov-2022 11:08:29 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64
+[07-Nov-2022 11:08:34 Asia/Manila] PHP Notice:  Undefined variable: pd_price in /home/customer/www/tabletas.triapps.co/public_html/return/detail.php on line 85
+[07-Nov-2022 11:08:34 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/tabletas.triapps.co/public_html/global-library/common.php on line 64

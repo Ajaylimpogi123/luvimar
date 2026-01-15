@@ -1,0 +1,40 @@
+/* receivables */
+table.receivables		{ width:500px; height:77px; border-left:0px solid #0e75b8; margin:auto; }
+tr.receivables-row	{  }
+td.receivables-day	{ background:transparent; min-height:70px; font-size:11px; position:relative; vertical-align:top; height:40px; width:180px; border:solid 1px #0e75b8; border-radius: 10px;}
+td.receivables-day:hover	{ background:#000000; color:#ffffff; }
+td.receivables-day:hover a	{ background:none; color:#0e75b8; }
+td.receivables-day-np	{ background:transparent; min-height:80px; } * html div.receivables-day-np { height:80px; }
+td.receivables-day-head { background:#0e75b8;color:#ffffff; font-weight:bold; text-align:center; width:120px; height:20px; padding:5px; border-bottom:1px solid #999; border-top:0px solid #999; border-right:0px solid #999; border-radius: 30px; }
+div.day-number		{ background:none; padding:5px; color:#0e75b8; font-weight:bold; float:right; margin:1px 1px 0 0; width:20px; text-align:center; }
+div.day-today		{ background:#0e75b8; padding:5px; color:#fff; font-weight:bold; float:right; margin:1px 1px 0 0; width:20px; text-align:center; border-radius: 30px; }
+/* shared */
+td.receivables-day, td.receivables-day-np { width:140px; padding:5px; border-bottom:1px solid #999; border-right:1px solid #999; border-radius: 10px; }
+
+
+
+h2 {
+	font-family: Cambria, Georgia, serif;
+	margin:auto;
+	color:#000000;
+	text-align:center;
+}
+
+b {
+	font-size:14px;
+	color:#006600;
+}
+
+a{
+	font-family: Calibri;
+	font-size:14px;
+	text-decoration:none;
+	color:#0e75b8;
+}
+div.holiday2{
+	font-family: Cambria, Georgia, serif;
+	color:#003399;
+	background-color: #003300;
+	height:40px;
+}
+

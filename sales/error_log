@@ -1,0 +1,27 @@
+[27-Nov-2019 15:37:51 Asia/Manila] PHP Notice:  Undefined offset: 1 in /home/u44egv3u9w3q/public_html/powertrac/sales/process.php on line 63
+[27-Nov-2019 07:41:32 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/u44egv3u9w3q/public_html/powertrac/sales/checkout.php on line 112
+[27-Nov-2019 07:41:32 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/u44egv3u9w3q/public_html/powertrac/sales/checkout.php on line 119
+[27-Nov-2019 07:41:32 UTC] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/u44egv3u9w3q/public_html/powertrac/sales/checkout.php on line 133
+[27-Nov-2019 07:54:30 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:54:30 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:58:54 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:58:54 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:58:59 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:58:59 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:58:59 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:58:59 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:58:59 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:58:59 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:59:12 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:59:12 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:59:12 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:59:12 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:59:12 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:59:12 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:59:50 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[27-Nov-2019 07:59:50 UTC] PHP Notice:  Undefined variable: cid in /home/u44egv3u9w3q/public_html/powertrac/sales/search.php on line 59
+[14-Jan-2020 09:51:23 Asia/Manila] PHP Notice:  Undefined variable: cust_id in /home/u44egv3u9w3q/public_html/pos/sales/customer.php on line 129
+[14-Jan-2020 09:52:03 Asia/Manila] PHP Notice:  Undefined variable: cust_id in /home/u44egv3u9w3q/public_html/pos/sales/customer.php on line 129
+[14-Jan-2020 09:53:28 Asia/Manila] PHP Notice:  Undefined variable: cust_id in /home/u44egv3u9w3q/public_html/pos/sales/customer.php on line 129
+[14-Jan-2020 09:55:28 Asia/Manila] PHP Notice:  Undefined variable: cust_id in /home/u44egv3u9w3q/public_html/pos/sales/customer.php on line 129
+[14-Jan-2020 10:26:24 Asia/Manila] PHP Notice:  Undefined variable: cust_id in /home/u44egv3u9w3q/public_html/pos/sales/customer.php on line 129

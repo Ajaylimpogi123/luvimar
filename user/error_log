@@ -1,0 +1,12 @@
+[13-Nov-2019 09:21:26 UTC] PHP Notice:  Undefined variable: is_brand_access in /home/u44egv3u9w3q/public_html/powertrac/user/modify.php on line 126
+[13-Nov-2019 09:21:26 UTC] PHP Notice:  Undefined variable: is_brand_access in /home/u44egv3u9w3q/public_html/powertrac/user/modify.php on line 129
+[13-Nov-2019 09:21:26 UTC] PHP Notice:  Undefined variable: is_customer_access in /home/u44egv3u9w3q/public_html/powertrac/user/modify.php on line 144
+[13-Nov-2019 09:21:26 UTC] PHP Notice:  Undefined variable: is_customer_access in /home/u44egv3u9w3q/public_html/powertrac/user/modify.php on line 147
+[13-Nov-2019 09:21:26 UTC] PHP Notice:  Undefined variable: is_supplier_access in /home/u44egv3u9w3q/public_html/powertrac/user/modify.php on line 162
+[13-Nov-2019 09:21:26 UTC] PHP Notice:  Undefined variable: is_supplier_access in /home/u44egv3u9w3q/public_html/powertrac/user/modify.php on line 165
+[13-Nov-2019 09:21:26 UTC] PHP Notice:  Undefined variable: is_product_access in /home/u44egv3u9w3q/public_html/powertrac/user/modify.php on line 180
+[13-Nov-2019 09:21:26 UTC] PHP Notice:  Undefined variable: is_product_access in /home/u44egv3u9w3q/public_html/powertrac/user/modify.php on line 183
+[13-Nov-2019 09:21:26 UTC] PHP Notice:  Undefined variable: is_transaction_access in /home/u44egv3u9w3q/public_html/powertrac/user/modify.php on line 198
+[13-Nov-2019 09:21:26 UTC] PHP Notice:  Undefined variable: is_transaction_access in /home/u44egv3u9w3q/public_html/powertrac/user/modify.php on line 201
+[13-Nov-2019 09:21:26 UTC] PHP Notice:  Undefined variable: is_report_access in /home/u44egv3u9w3q/public_html/powertrac/user/modify.php on line 216
+[13-Nov-2019 09:21:26 UTC] PHP Notice:  Undefined variable: is_report_access in /home/u44egv3u9w3q/public_html/powertrac/user/modify.php on line 219

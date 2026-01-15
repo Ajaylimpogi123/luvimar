@@ -1,0 +1,16 @@
+[26-Nov-2019 16:08:25 UTC] PHP Notice:  Undefined index: from in /home/u44egv3u9w3q/public_html/powertrac/report/receive.php on line 10
+[26-Nov-2019 16:08:25 UTC] PHP Notice:  Undefined index: to in /home/u44egv3u9w3q/public_html/powertrac/report/receive.php on line 11
+[26-Nov-2019 16:08:49 UTC] PHP Notice:  Undefined index: from in /home/u44egv3u9w3q/public_html/powertrac/report/release.php on line 10
+[26-Nov-2019 16:08:49 UTC] PHP Notice:  Undefined index: to in /home/u44egv3u9w3q/public_html/powertrac/report/release.php on line 11
+[26-Nov-2019 16:11:51 UTC] PHP Notice:  Undefined index: from in /home/u44egv3u9w3q/public_html/powertrac/report/sales.php on line 10
+[26-Nov-2019 16:11:51 UTC] PHP Notice:  Undefined index: to in /home/u44egv3u9w3q/public_html/powertrac/report/sales.php on line 11
+[27-Nov-2019 06:33:42 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/u44egv3u9w3q/public_html/powertrac/report/search.php on line 61
+[27-Nov-2019 06:40:19 UTC] PHP Notice:  Undefined variable: product in /home/u44egv3u9w3q/public_html/powertrac/report/inventory.php on line 10
+[28-Nov-2019 03:18:17 UTC] PHP Notice:  Undefined variable: wfrom in /home/u44egv3u9w3q/public_html/pos/report/inventory.php on line 50
+[28-Nov-2019 03:18:17 UTC] PHP Notice:  Undefined variable: wto in /home/u44egv3u9w3q/public_html/pos/report/inventory.php on line 50
+[02-Dec-2019 14:14:30 UTC] PHP Notice:  Undefined index: product in /home/u44egv3u9w3q/public_html/pos/report/inventory.php on line 10
+[02-Dec-2019 14:14:54 UTC] PHP Notice:  Undefined index: from in /home/u44egv3u9w3q/public_html/pos/report/sales.php on line 10
+[02-Dec-2019 14:14:54 UTC] PHP Notice:  Undefined index: to in /home/u44egv3u9w3q/public_html/pos/report/sales.php on line 11
+[02-Dec-2019 14:15:40 UTC] PHP Notice:  Undefined index: from in /home/u44egv3u9w3q/public_html/pos/report/release.php on line 10
+[02-Dec-2019 14:15:40 UTC] PHP Notice:  Undefined index: to in /home/u44egv3u9w3q/public_html/pos/report/release.php on line 11
+[02-Dec-2019 14:15:40 UTC] PHP Notice:  Undefined index: product in /home/u44egv3u9w3q/public_html/pos/report/release.php on line 20

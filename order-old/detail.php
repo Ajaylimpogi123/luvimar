@@ -1,0 +1,153 @@
+<?php
+if (!defined('WEB_ROOT')) {
+	exit;
+}
+
+if (!isset($_GET['oid']) || (int)$_GET['oid'] <= 0) {
+	header('Location: index.php');
+}
+
+$orderId = (int)$_GET['oid'];
+
+?>
+<form action="process.php?action=saveorder" method="post" name="frmCart" id="frmCart">
+	<div class="box span6">
+		<div class="box-header well" data-original-title>
+			<h2><i class="icon-file"></i> Job Order Details</h2>
+		</div>
+
+		<div class="box-content">
+			<?php
+			$sql = $conn->prepare("SELECT * FROM tbl_order o, tbl_order_item i, tbl_product p
+									WHERE o.od_id = i.od_id AND i.pd_id = p.pd_id AND o.od_id = '$orderId'");
+			$sql->execute();
+			if ($sql->rowCount() > 0) {
+			?>
+				<div class="cart_details"> <?php echo $sql->rowCount(); ?> item(s)</div>
+				<br />
+				<table border="0" width="100%">
+					<tr>
+						<td width="100px;"><b>Product</b></td>
+						<td width="10px;">&nbsp;</td>
+						<td width="150px;"><b>Description</b></td>
+						<td width="10px;">&nbsp;</td>
+						<td width="150px;"><b>Job Description</b></td>
+						<td width="10px;">&nbsp;</td>
+						<td width="100px;"><b>Price</b></td>
+						<td width="10px;">&nbsp;</td>
+						<td width="20px;" align="center"><b>Qty</b></td>
+						<td width="10px;">&nbsp;</td>
+						<td width="100px;"><b>Sub-Total</b></td>
+					</tr>
+					<?php
+					$subTotal = 0;
+					$total = 0;
+					while ($sql_data = $sql->fetch()) {
+						if ($sql_data['pd_thumbnail']) {
+							$image = WEB_ROOT . 'images/product/' . $sql_data['pd_thumbnail'];
+						} else {
+							$image = WEB_ROOT . 'images/product/noimagelarge.png';
+						}
+
+						$subTotal = $sql_data['od_price'] * $sql_data['od_qty'];
+						$total += $sql_data['od_price'] * $sql_data['od_qty'];
+
+						$dcamt = ($sql_data['od_discount'] / 100) * $sql_data['od_amount_due'];
+
+						$orderdate = date("M d, Y | h:i a", strtotime($sql_data['od_date']));
+					?>
+						<tr>
+
+							<td><span class="border_cart"></span><?php echo word_split($sql_data['pd_name'], 2); ?></td>
+							<td width="10px;">&nbsp;</td>
+							<td><span class="border_cart"></span><?php echo $sql_data['odi_description']; ?></td>
+							<td width="10px;">&nbsp;</td>
+							<td><span class="border_cart"></span><?php echo $sql_data['odi_job_description']; ?></td>
+							<td width="10px;">&nbsp;</td>
+							<td><span class="border_cart"></span>Php <?php echo number_format($sql_data['od_price'], 2); ?></td>
+							<td width="10px;">&nbsp;</td>
+							<td align="center"><?php echo $sql_data['od_qty']; ?></td>
+							<td width="10px;">&nbsp;</td>
+							<td><span class="border_cart"></span>Php <?php echo number_format($subTotal, 2); ?></td>
+						</tr>
+					<?php
+					} // End For
+
+					?>
+					<tr>
+						<td colspan="7">
+							<hr style="border: 0; height: 1px; background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));  background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); " />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><span class="border_cart"></span><b>Total:</b></td>
+						<td></td>
+						<td><span class="border_cart"></span><b>&#x20B1; <?php echo number_format($total, 2); ?></b></td>
+					</tr>
+				</table>
+
+			<?php
+			} else {
+				echo "Shopping Cart Is Empty";
+			}
+			?>
+		</div>
+	</div>
+
+	<?php
+	$sql = $conn->prepare("SELECT * FROM tbl_order o, tbl_order_item i, tbl_product p
+							WHERE o.od_id = i.od_id AND i.pd_id = p.pd_id AND o.od_id = '$orderId'");
+	$sql->execute();
+	$sql_data = $sql->fetch();
+	?>
+	<div class="box span6">
+		<div class="box-header well" data-original-title>
+			<h2><i class="icon-user"></i> Customer Information</h2>
+		</div>
+
+		<div class="box-content">
+			<table class="table table-striped table-bordered">
+				<tr>
+					<td width="150">Customer Name</td>
+					<td><input name="fname" type="text" id="fname" size="30" maxlength="50" value="<?php echo $sql_data['customer_name']; ?>" readonly /></td>
+				</tr>
+				<tr>
+					<td width="150"><span class="black" style="font-size:11px; font-weight:bold;">Order Date</span></td>
+					<td><span class="black" style="font-size:11px; font-weight:bold;"><?php echo $orderdate; ?></span></td>
+				</tr>
+				<tr>
+					<td width="150"><span class="blue" style="font-size:14px; font-weight:bold;">Amount Due</span></td>
+					<td><span class="blue" style="font-size:14px; font-weight:bold;">&#x20B1; <?php echo number_format($sql_data['od_amount_due'], 2); ?></span></td>
+				</tr>
+				<tr>
+					<td width="150"><span class="red" style="font-size:14px; font-weight:bold;">&#x20B1; Discount</span></td>
+					<td><span class="red" style="font-size:14px; font-weight:bold;">&#x20B1; <?php echo number_format($sql_data['od_discount'], 2); ?></span></td>
+				</tr>
+				<tr>
+					<td width="150"><span class="red" style="font-size:14px; font-weight:bold;">% Discount</span></td>
+					<td><span class="red" style="font-size:14px; font-weight:bold;"><?php echo $sql_data['percent_discount']; ?>%</span></td>
+				</tr>
+				<tr>
+					<td width="150"><span class="blue" style="font-size:14px; font-weight:bold;">Total Amount Due</span></td>
+					<td><span class="blue" style="font-size:14px; font-weight:bold;">&#x20B1; <?php echo number_format($sql_data['od_total_amt_due'], 2); ?></span></td>
+				</tr>
+				<tr>
+					<td width="150"><span class="green" style="font-size:14px; font-weight:bold;">Payment</span></td>
+					<td><span class="green" style="font-size:14px; font-weight:bold;">&#x20B1; <?php echo number_format($sql_data['od_payment'], 2); ?></span></td>
+				</tr>
+				<tr>
+					<td width="150"><span class="red" style="font-size:14px; font-weight:bold;">Change</span></td>
+					<td><span class="red" style="font-size:14px; font-weight:bold;">&#x20B1; <?php echo number_format($sql_data['od_change'], 2); ?></span></td>
+				</tr>
+				<tr>
+					<td colspan="2"><a href="print.php?oid=<?php echo $orderId; ?>" class="btn btn-small" target=_new>Print</a> | <input name="btnBack" type="button" id="btnBack" value="Go Back" onClick="window.location.href='index.php?view=list'" class="btn btn-small"></td>
+
+				</tr>
+			</table>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,372 @@
+[03-Mar-2021 07:10:41 UTC] PHP Warning:  Division by zero in /home/customer/www/panevino.tri-apps.com/public_html/global-library/functions.php on line 118
+[03-Mar-2021 07:10:41 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/panevino.tri-apps.com/public_html/global-library/functions.php:118) in /home/customer/www/panevino.tri-apps.com/public_html/product/processAdd.php on line 113
+[03-Mar-2021 07:24:45 UTC] PHP Warning:  Division by zero in /home/customer/www/panevino.tri-apps.com/public_html/global-library/functions.php on line 118
+[03-Mar-2021 07:24:45 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/panevino.tri-apps.com/public_html/global-library/functions.php:118) in /home/customer/www/panevino.tri-apps.com/public_html/product/processModify.php on line 128
+[06-Mar-2021 08:29:26 UTC] PHP Warning:  Division by zero in /home/customer/www/panevino.tri-apps.com/public_html/global-library/functions.php on line 118
+[06-Mar-2021 08:29:26 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/panevino.tri-apps.com/public_html/global-library/functions.php:118) in /home/customer/www/panevino.tri-apps.com/public_html/product/processAdd.php on line 113
+[06-Mar-2021 08:30:05 UTC] PHP Warning:  Division by zero in /home/customer/www/panevino.tri-apps.com/public_html/global-library/functions.php on line 118
+[06-Mar-2021 08:30:05 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/panevino.tri-apps.com/public_html/global-library/functions.php:118) in /home/customer/www/panevino.tri-apps.com/public_html/product/processAdd.php on line 113
+[06-Mar-2021 08:34:39 UTC] PHP Warning:  Division by zero in /home/customer/www/panevino.tri-apps.com/public_html/global-library/functions.php on line 118
+[06-Mar-2021 08:34:39 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/panevino.tri-apps.com/public_html/global-library/functions.php:118) in /home/customer/www/panevino.tri-apps.com/public_html/product/processAdd.php on line 113
+[27-May-2021 15:13:56 Asia/Manila] PHP Warning:  extract() expects parameter 1 to be array, boolean given in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 17
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: pd_barcode in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 106
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: pd_name7 in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 114
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: pd_description in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 122
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: pd_cost in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 130
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: pc_formula in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 149
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: pc_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 151
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: pc_qty in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 153
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: ib_formula in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 161
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: ib_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 163
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: ib_qty in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 165
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: bx_formula in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 173
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: bx_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 175
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: bx_qty in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 177
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: pd_expiration in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 185
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: pd_id in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 198
+[27-May-2021 15:13:56 Asia/Manila] PHP Notice:  Undefined variable: pd_image in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/modify.php on line 213
+[01-Jun-2021 09:02:47 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[01-Jun-2021 09:03:32 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[01-Jun-2021 09:06:55 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[03-Jun-2021 08:09:00 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[04-Jun-2021 03:54:52 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[08-Jun-2021 08:35:44 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[09-Jun-2021 06:24:53 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[23-Jun-2021 07:26:56 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[23-Jun-2021 07:36:59 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[23-Jun-2021 07:37:31 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[23-Jun-2021 08:12:30 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[23-Jun-2021 08:12:36 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[01-Jul-2021 05:38:48 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[01-Jul-2021 06:02:39 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[01-Jul-2021 06:02:40 UTC] PHP Notice:  Undefined variable: pd_price in /home/customer/www/dailydoctors.tri-apps.com/public_html/product/belowminimum.php on line 85
+[09-Feb-2022 14:09:13 Asia/Manila] PHP Notice:  Undefined variable: pd_id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 196
+[09-Feb-2022 14:09:13 Asia/Manila] PHP Notice:  Undefined variable: pd_id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 196
+[09-Feb-2022 14:09:14 Asia/Manila] PHP Notice:  Undefined variable: pd_id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 196
+[10-Feb-2022 11:32:44 Asia/Manila] PHP Notice:  Undefined variable: pd_id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 196
+[10-Feb-2022 11:41:05 Asia/Manila] PHP Notice:  Undefined variable: pd_id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 196
+[10-Feb-2022 11:42:44 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[10-Feb-2022 11:42:44 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[10-Feb-2022 11:43:38 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 66
+[10-Feb-2022 11:54:36 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 66
+[10-Feb-2022 12:02:47 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 66
+[10-Feb-2022 12:03:47 Asia/Manila] PHP Notice:  Undefined index: catname in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[10-Feb-2022 12:03:47 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[10-Feb-2022 12:03:47 Asia/Manila] PHP Notice:  Undefined index: catname in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[10-Feb-2022 12:05:09 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[10-Feb-2022 12:05:41 Asia/Manila] PHP Notice:  Undefined variable: pd_id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 196
+[10-Feb-2022 12:06:01 Asia/Manila] PHP Warning:  Header may not contain more than a single header, new line detected in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 113
+[10-Feb-2022 12:07:06 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[10-Feb-2022 12:07:16 Asia/Manila] PHP Notice:  Undefined variable: pd_id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 196
+[10-Feb-2022 12:31:03 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[10-Feb-2022 12:31:08 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[10-Feb-2022 12:31:20 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[10-Feb-2022 12:31:26 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[14-Feb-2022 20:55:21 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[14-Feb-2022 20:55:21 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[14-Feb-2022 20:55:57 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[14-Feb-2022 20:55:57 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[14-Feb-2022 20:57:40 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[14-Feb-2022 20:57:40 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[14-Feb-2022 20:58:02 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[14-Feb-2022 20:58:02 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[14-Feb-2022 21:07:47 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[14-Feb-2022 21:07:47 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[14-Feb-2022 21:09:15 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[14-Feb-2022 21:09:15 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[15-Feb-2022 08:55:55 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[15-Feb-2022 08:55:55 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[15-Feb-2022 08:56:12 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[15-Feb-2022 08:56:34 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[16-Feb-2022 13:20:36 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'S - 1970-01-01', 'product', '1002', NOW())' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDeleteImage.php:32
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDeleteImage.php(32): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDeleteImage.php on line 32
+[16-Feb-2022 19:47:15 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 10
+[16-Feb-2022 19:47:15 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 14
+[16-Feb-2022 19:47:51 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 10
+[16-Feb-2022 19:47:51 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 14
+[16-Feb-2022 19:47:57 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/processDeleteImage.php on line 16
+[16-Feb-2022 19:47:57 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3 in /home/customer/www/tabletas.triapps.co/public_html/product/processDeleteImage.php:47
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDeleteImage.php(47): PDOStatement->execute()
+#1 /home/customer/www/tabletas.triapps.co/public_html/product/processDeleteImage.php(21): _deleteImage(NULL)
+#2 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDeleteImage.php on line 47
+[16-Feb-2022 19:48:04 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 10
+[16-Feb-2022 19:48:04 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 14
+[16-Feb-2022 19:48:12 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/processDeleteImage.php on line 16
+[16-Feb-2022 19:48:12 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3 in /home/customer/www/tabletas.triapps.co/public_html/product/processDeleteImage.php:47
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDeleteImage.php(47): PDOStatement->execute()
+#1 /home/customer/www/tabletas.triapps.co/public_html/product/processDeleteImage.php(21): _deleteImage(NULL)
+#2 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDeleteImage.php on line 47
+[16-Feb-2022 19:49:31 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 16
+[16-Feb-2022 19:49:31 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:24
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php(24): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 24
+[16-Feb-2022 19:49:48 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 16
+[16-Feb-2022 19:49:48 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:24
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php(24): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 24
+[16-Feb-2022 20:39:03 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 10
+[16-Feb-2022 20:39:03 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 14
+[16-Feb-2022 20:40:11 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 10
+[16-Feb-2022 20:40:11 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 14
+[16-Feb-2022 20:40:27 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 16
+[16-Feb-2022 20:40:27 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:24
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php(24): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 24
+[16-Feb-2022 20:40:36 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 16
+[16-Feb-2022 20:40:36 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:24
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php(24): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 24
+[16-Feb-2022 20:40:56 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 16
+[16-Feb-2022 20:40:56 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:24
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php(24): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 24
+[16-Feb-2022 20:42:10 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 10
+[16-Feb-2022 20:42:10 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 14
+[16-Feb-2022 21:05:18 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 10
+[16-Feb-2022 21:05:18 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 14
+[16-Feb-2022 21:06:47 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 10
+[16-Feb-2022 21:06:47 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 14
+[16-Feb-2022 21:07:11 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 10
+[16-Feb-2022 21:07:11 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 14
+[17-Feb-2022 08:16:45 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 10
+[17-Feb-2022 08:16:45 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 14
+[17-Feb-2022 09:04:22 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[17-Feb-2022 09:04:22 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[17-Feb-2022 09:05:24 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 09:17:29 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 10
+[17-Feb-2022 09:17:29 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 14
+[17-Feb-2022 09:20:05 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 09:20:18 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 66
+[17-Feb-2022 09:21:36 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 09:26:30 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 10
+[17-Feb-2022 09:26:30 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 14
+[17-Feb-2022 09:29:18 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 09:29:24 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/include/template.php:26) in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 10
+[17-Feb-2022 09:29:24 Asia/Manila] PHP Notice:  Undefined variable: id in /home/customer/www/tabletas.triapps.co/public_html/product/modify.php on line 14
+[17-Feb-2022 09:31:29 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 09:39:07 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 09:41:38 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[17-Feb-2022 09:41:38 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[17-Feb-2022 09:43:23 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 09:48:04 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 09:55:10 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[17-Feb-2022 09:55:10 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[17-Feb-2022 09:55:32 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 09:56:20 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 09:58:15 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:00:35 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:09:38 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:13:11 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:14:54 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:15:01 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:18:33 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:20:51 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:21:11 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:25:26 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:26:15 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:26:20 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:26:58 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:32:01 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:32:04 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:38:29 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:41:05 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 71
+[17-Feb-2022 10:42:41 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:02:41 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:16:14 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:17:35 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:18:16 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:19:03 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:20:47 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:25:03 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:26:55 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:30:25 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:33:16 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:33:43 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:34:18 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:34:53 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:35:03 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:35:30 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:35:57 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:36:25 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:36:55 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:37:04 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:37:29 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:37:55 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:38:17 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:38:34 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:38:59 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:40:42 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:41:14 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:41:46 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:42:08 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:42:28 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:42:48 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:43:52 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:44:15 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:44:57 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:45:50 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 11:46:23 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 12:22:57 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[17-Feb-2022 12:22:57 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[17-Feb-2022 13:42:37 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[17-Feb-2022 13:42:37 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[17-Feb-2022 13:43:20 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 13:45:44 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 120
+[17-Feb-2022 13:45:44 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:120) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[17-Feb-2022 13:55:06 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 13:58:00 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 14:00:03 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 14:01:22 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 14:01:47 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 14:12:01 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[17-Feb-2022 14:12:13 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'S - 1970-01-01', 'product', '1002', NOW())' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:30
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php(30): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 30
+[17-Feb-2022 15:17:47 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[17-Feb-2022 15:17:47 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[17-Feb-2022 15:18:02 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[21-Feb-2022 12:49:14 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[21-Feb-2022 12:49:14 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 12:51:44 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[21-Feb-2022 12:51:44 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 12:52:21 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[21-Feb-2022 12:52:21 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 12:52:43 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[21-Feb-2022 12:52:43 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 13:00:12 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[21-Feb-2022 13:00:12 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 13:09:26 Asia/Manila] PHP Notice:  Undefined variable: ctname in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 128
+[21-Feb-2022 13:09:26 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:128) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 13:10:00 Asia/Manila] PHP Notice:  Undefined variable: ctname in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 128
+[21-Feb-2022 13:10:00 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:128) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 13:11:35 Asia/Manila] PHP Notice:  Undefined variable: ctname in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 128
+[21-Feb-2022 13:11:35 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:128) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 13:12:45 Asia/Manila] PHP Notice:  Undefined variable: ctname in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 128
+[21-Feb-2022 13:12:45 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:128) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 13:13:12 Asia/Manila] PHP Notice:  Undefined variable: ctname in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 128
+[21-Feb-2022 13:13:12 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:128) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 13:13:55 Asia/Manila] PHP Notice:  Undefined variable: ctname in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 128
+[21-Feb-2022 13:13:55 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:128) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 13:14:11 Asia/Manila] PHP Notice:  Undefined variable: ctname in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 128
+[21-Feb-2022 13:14:11 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:128) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 13:52:14 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[21-Feb-2022 13:52:14 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 13:54:02 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 126
+[21-Feb-2022 13:54:02 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php:126) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[21-Feb-2022 14:26:31 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'S', 'product', '1002', NOW())' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:30
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php(30): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 30
+[21-Feb-2022 14:26:57 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'S', 'product', '1002', NOW())' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:30
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php(30): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 30
+[21-Feb-2022 14:27:14 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'S ASSORTED', 'product', '1002', NOW())' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:30
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php(30): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 30
+[21-Feb-2022 16:01:20 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[21-Feb-2022 16:01:20 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[21-Feb-2022 16:01:24 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[21-Feb-2022 16:01:28 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[21-Feb-2022 16:01:56 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[21-Feb-2022 16:02:10 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[22-Feb-2022 08:31:38 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'S', 'product', '1002', NOW())' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:30
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php(30): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 30
+[22-Feb-2022 08:31:55 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'S', 'product', '1002', NOW())' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:30
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php(30): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 30
+[23-Feb-2022 12:11:08 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[23-Feb-2022 12:11:08 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[23-Feb-2022 12:11:20 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[23-Feb-2022 12:11:21 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[23-Feb-2022 15:29:51 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[23-Feb-2022 15:29:51 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[23-Feb-2022 15:30:01 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[23-Feb-2022 15:30:24 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[23-Feb-2022 15:30:24 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[10-Mar-2022 14:45:22 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[10-Mar-2022 14:45:22 Asia/Manila] PHP Warning:  Division by zero in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[10-Mar-2022 14:45:22 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php:121) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[15-Mar-2022 09:15:47 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'S - 1970-01-01', 'product', '1002', NOW())' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:30
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php(30): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 30
+[22-Apr-2022 14:09:59 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[22-Apr-2022 14:09:59 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[22-Apr-2022 14:12:10 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[06-Aug-2022 14:36:20 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[06-Aug-2022 14:36:21 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[06-Aug-2022 14:37:25 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[06-Aug-2022 14:38:22 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[06-Aug-2022 15:16:30 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[06-Aug-2022 15:16:30 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[06-Aug-2022 15:17:28 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[06-Aug-2022 15:18:20 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[06-Aug-2022 15:18:20 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[06-Aug-2022 15:24:41 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[06-Aug-2022 15:25:00 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70
+[07-Sep-2022 13:21:47 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 19
+[07-Sep-2022 13:21:47 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:19) in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 33
+[22-Jan-2023 11:02:37 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 11:02:37 Asia/Manila] PHP Warning:  Division by zero in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 11:02:37 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php:121) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[22-Jan-2023 11:03:14 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 11:03:14 Asia/Manila] PHP Warning:  Division by zero in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 11:03:14 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php:121) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[22-Jan-2023 11:19:53 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 11:19:53 Asia/Manila] PHP Warning:  Division by zero in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 11:19:53 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php:121) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[22-Jan-2023 11:20:47 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 11:20:47 Asia/Manila] PHP Warning:  Division by zero in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 11:20:47 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php:121) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[22-Jan-2023 11:33:08 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 11:33:08 Asia/Manila] PHP Warning:  Division by zero in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 11:33:08 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php:121) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[22-Jan-2023 13:56:34 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 13:56:34 Asia/Manila] PHP Warning:  Division by zero in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 13:56:34 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php:121) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[22-Jan-2023 14:04:28 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 14:04:28 Asia/Manila] PHP Warning:  Division by zero in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[22-Jan-2023 14:04:28 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php:121) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[23-Jan-2023 10:24:16 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[23-Jan-2023 10:24:16 Asia/Manila] PHP Warning:  Division by zero in /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php on line 121
+[23-Jan-2023 10:24:16 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/global-library/functions.php:121) in /home/customer/www/tabletas.triapps.co/public_html/product/processModify.php on line 144
+[12-May-2023 14:03:50 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 19
+[12-May-2023 14:03:50 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:19) in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 33
+[04-Jul-2023 16:40:32 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'S - 1970-01-01', 'product', '1002', NOW())' at line 2 in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php:30
+Stack trace:
+#0 /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php(30): PDOStatement->execute()
+#1 {main}
+  thrown in /home/customer/www/tabletas.triapps.co/public_html/product/processDelete.php on line 30
+[25-Aug-2023 03:56:11 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 105
+[25-Aug-2023 03:56:11 Asia/Manila] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php:105) in /home/customer/www/tabletas.triapps.co/public_html/product/processAdd.php on line 128
+[25-Aug-2023 03:59:18 Asia/Manila] PHP Notice:  Trying to access array offset on value of type bool in /home/customer/www/tabletas.triapps.co/public_html/product/list.php on line 70

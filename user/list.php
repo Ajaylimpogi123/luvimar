@@ -1,0 +1,112 @@
+<?php
+if (!defined('WEB_ROOT')) {
+	exit;
+}
+$userId = $_SESSION['user_id'];
+
+$user = $conn->prepare("SELECT * FROM bs_user
+			WHERE user_id = '$userId'");
+$user->execute();
+$user_data = $user->fetch();
+
+/* Select books from database */
+$sql = $conn->prepare("SELECT * FROM bs_user WHERE is_deleted != '1'");
+$sql->execute();
+
+$errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error'] : '&nbsp;'
+?>
+<div class="row-fluid sortable">
+	<div class="box span12">
+		<div class="box-header well" data-original-title>
+			<h2><i class="icon icon-black icon-users"></i> List of Users</h2>
+			<?php if ($user_data['is_user_a_access'] == 1) { ?>
+				&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:add();" class="btn btn-success">Add New</a>
+				&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;
+				<!-- <a href="sync.php" class="btn btn-primary">Upload</a> -->
+			<?php } else {
+			} ?>
+			<div class="box-icon">
+				<a href="../" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+			</div>
+
+		</div>
+		<div class="box-content">
+			<?php
+			if ($errorMessage == 'Deleted successfully') {
+			?>
+				<div class="valid_box">
+					<b><?php echo $errorMessage; ?></b>
+				</div>
+			<?php
+			} else {
+			}
+			?>
+			<table class="table table-striped table-bordered bootstrap-datatable datatable">
+				<thead>
+					<tr>
+						<th style="display:none;">Access Level</th>
+						<th>Name</th>
+						<th>Username</th>
+						<th>Picture</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+					if ($sql->rowCount() > 0) {
+						while ($sql_data = $sql->fetch()) {
+
+							$name = $sql_data['firstname'] . '&nbsp;' . $sql_data['lastname'];
+							if ($sql_data['image']) {
+								$image7 = WEB_ROOT . 'images/user/' . $sql_data['image'];
+							} else {
+								$image7 = WEB_ROOT . 'images/user/noimagelarge.jpg';
+							}
+
+					?>
+							<!-- Start display list of users !-->
+							<tr>
+								<th style="display:none;"><?php $sql_data['access_level']; ?></th>
+								<td><?php echo $name; ?></td>
+								<td><?php echo $sql_data['username']; ?></td>
+								<td><img class="dashboard-avatar" alt="<?php echo $sql_data['lastname']; ?>" src="<?php echo $image7; ?>" /></td>
+								<td class="center">
+									<?php if ($user_data['is_user_e_access'] == 1) { ?>
+										<a class="btn btn-primary" href="javascript:mod(<?php echo $sql_data['user_id']; ?>);">
+											<i class="icon-edit icon-white"></i>
+											Edit
+										</a>
+									<?php } else {
+										echo "-- --";
+									} ?>
+									<?php if ($user_data['is_user_d_access'] == 1) { ?>
+										<!-- Disable delete button for admin user level !-->
+										<?php if ($sql_data['access_level'] != "1") { ?>
+											<a class="btn btn-danger" href="javascript:del(<?php echo $sql_data['user_id']; ?>);">
+												<i class="icon-trash icon-white"></i>
+												Delete
+											</a>
+										<?php } else { ?>
+											<a class="btn btn-danger disabled">
+												<i class="icon-trash icon-white"></i>
+												Delete
+											</a>
+										<?php } ?>
+									<?php } else {
+										echo "-- --";
+									} ?>
+								</td>
+							</tr>
+							<!-- End display list of users !-->
+					<?php
+						}
+					} else {
+					}
+					?>
+
+				</tbody>
+			</table>
+		</div>
+	</div><!--/span-->
+
+</div><!--/row-->

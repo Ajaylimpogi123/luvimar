@@ -43,7 +43,7 @@ if ($sql_data['is_admin'] == 1) {
 <div>
 	<ul class="breadcrumb">
 		<li>
-			<b <?php echo $csscolor; ?>>Dashboard</b>
+			<b <?php echo $csscolor; ?>>Dashboard Sample</b>
 		</li>
 		<li style="float:right;"><?php echo date('F d, Y | l'); ?></li>
 	</ul>

@@ -57,22 +57,19 @@ if ($errorMessage == 'Modified successfully') {
                     <div id="refill" class="control-group">
                         <label class="control-label" for="focusedInput">Product Name</label>
                         <div class="controls">
-                            <select id="selectError4" name="pdId" id="pid" data-rel="chosen" disabled>
+                     
+                     <?php
+                     $prd = $conn->prepare("SELECT * FROM tbl_product WHERE is_deleted != '1' AND pd_id = '$pd_Id'");
+                     $prd->execute();
+                       $prd_data = $prd->fetch();
+                     ?>
 
-                                <?php
-                                $prd = $conn->prepare("SELECT * FROM tbl_product WHERE is_deleted != '1' AND pd_id = '$pd_Id'");
-                                $prd->execute();
-                                if ($prd->rowCount() > 0) {
-                                    while ($prd_data = $prd->fetch()) {
-                                ?>
-                                        <option value="<?php echo $prd_data['pd_id']; ?>"><?php echo $prd_data['pd_name']; ?>- <?php echo $prd_data['pd_barcode']; ?> - <b><?php echo $prd_data['pd_keyword']; ?></b></option>
-                                <?php
-                                    } // End While
-                                } else {
-                                }
-                                ?>
-                            </select>
-                        </div>
+                             <input readonly class="input-xlarge focused" name="pdId" id="barcode"type="text" value="<?php echo $prd_data['pd_name']; ?>" />
+                  <?php
+                    
+                     ?>
+             
+             </div>
                     </div>
 
                     <div class="control-group">
@@ -82,7 +79,7 @@ if ($errorMessage == 'Modified successfully') {
                             <div id="status"></div>
                         </div>
                     </div>
-                    <div class="control-group">
+                    <!-- <div class="control-group">
                         <label class="control-label" for="focusedInput">Serial Number</label>
                         <div class="controls">
 
@@ -97,7 +94,7 @@ if ($errorMessage == 'Modified successfully') {
                             <input class="input-xlarge focused" id="barcode" name="barcode" type="text" value="<?php echo $sql_data['pr_serial']; ?>" />
                             <div id="status"></div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="control-group">
                         <label class="control-label" for="focusedInput">Product Price</label>

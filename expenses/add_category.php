@@ -9,13 +9,13 @@
             <div class="form-group">
                 <label for="inputField">Expense Name</label>
                 <input type="text" id="inputField" name="exp_name" placeholder="Enter expense name" required>
-                
+
             </div>
             <div class="form-group">
-              <label for="inputField">Details</label>
-            <center><textarea name="details" id=""></textarea></center>
-              
-                
+                <label for="inputField">Details</label>
+                <center><textarea name="details" id=""></textarea></center>
+
+
             </div>
 
             <div class="modal-actions">

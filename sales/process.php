@@ -44,6 +44,7 @@ function saveOrder()
 	$tidays = $_POST['tidays'];
 	$perdisc = $_POST['perdisc'];
 	$remarks = $_POST['remarks'];
+	
 
 
 	$deldate = $_POST['deldate'];
@@ -63,13 +64,6 @@ function saveOrder()
 	$custname = mysqli_real_escape_string($link, $cus_data['client_name'] ?? '');
 	$custid = $cus_data['cust_id'] ?? '';
 
-	$brnNme = $_POST['brnName'] ?? '';
-
-	$cus = $conn->prepare("SELECT * FROM bs_branch WHERE branch_id = '$brnNme'");
-	$cus->execute();
-	$cus_data = $cus->fetch();
-	$branchName = mysqli_real_escape_string($link, $cus_data['branch_name'] ?? '');
-	$brnId = $cus_data['branch_id'] ?? '';
 
 	if ($top == 'Cash') {
 
@@ -120,14 +114,15 @@ function saveOrder()
 			// $url = "print.php?oid=$orderId&pg=1";
 			echo "<meta http-equiv=\"refresh\" content=\"1;URL=$url\">";
 		}
-	} elseif ($top == 'Charge') {
+	} elseif ($top == 'collection') {
 		$deldate = $_POST['deldate'];
 		$deliverydate = date("Y-m-d", strtotime($deldate));
 		$deladd = mysqli_real_escape_string($link, $_POST['deladd']);
 		$driver = mysqli_real_escape_string($link, $_POST['driver']);
 		$isdelivery = 1;
-
-		$pmode  = '';
+		
+		$duedate = $_POST['duedate'] ?? NULL;
+		$pmode  = 'collection';
 		$transac = '';
 
 		$ordernum = mysqli_real_escape_string($link, $_POST['cinum']);

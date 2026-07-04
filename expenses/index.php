@@ -7,29 +7,37 @@ checkUser();
 
 $view = (isset($_GET['view']) && $_GET['view'] != '') ? $_GET['view'] : '';
 
-	# Get setting details
-	$sett = $conn->prepare("SELECT * FROM bs_setting");
-	$sett->execute();
-	$sett_data = $sett->fetch();
+# Get setting details
+$sett = $conn->prepare("SELECT * FROM bs_setting");
+$sett->execute();
+$sett_data = $sett->fetch();
 
 switch ($view) {
-	case 'list' :
-		$content 	= 'list.php';		
+	case 'list':
+		$content 	= 'list.php';
 		$pageTitle 	= $sett_data['system_title'];
 		break;
 
-	case 'add' :
-		$content 	= 'add.php';		
+	case 'add':
+		$content 	= 'add.php';
 		$pageTitle 	= $sett_data['system_title'];
 		break;
 
-	case 'modify' :
-		$content 	= 'modify.php';		
+	case 'modify':
+		$content 	= 'modify.php';
+		$pageTitle 	= $sett_data['system_title'];
+		break;
+	case 'cat_modify':
+		$content 	= 'edit_category.php';
+		$pageTitle 	= $sett_data['system_title'];
+		break;
+	case 'cat':
+		$content 	= 'category.php';
 		$pageTitle 	= $sett_data['system_title'];
 		break;
 
-	default :
-		$content 	= 'list.php';		
+	default:
+		$content 	= 'list.php';
 		$pageTitle 	= $sett_data['system_title'];
 }
 
@@ -37,4 +45,3 @@ switch ($view) {
 $script    = array('expenses.js');
 
 require_once '../include/template.php';
-?>

@@ -72,7 +72,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 									<input class="input-file uniform_on" name="fileImage" id="fileInput" type="file" />
 								</div>
 							  </div>
-							  <div class="control-group">
+							  <!-- <div class="control-group">
 								<label class="control-label" for="focusedInput">Branch</label>
 								<div class="controls">
 									<select name="branch" id="branch">
@@ -88,7 +88,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 									</select>
 								  <div id="status"></div>
 								</div>
-							  </div>
+							  </div> -->
 							</fieldset>
 					</div>
 							<div class="form-actions">

@@ -109,7 +109,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 		$cat1->execute();
 		if ($cat1->rowCount() > 0) {
 			while ($cat1_data = $cat1->fetch()) {
-				$prod = $conn->prepare("SELECT * FROM tbl_product WHERE cat_id = '$cat1_data[cat_id]' AND is_deleted != '1' ORDER BY pd_name ASC");
+				$prod = $conn->prepare("SELECT * FROM tbl_product WHERE cat_id = '$cat1_data[cat_id]' AND is_deleted != '1' AND pc_qty != 0 ORDER BY pd_name ASC");
 				$prod->execute();
 		?>
 				<div class="tab-pane" id="<?php echo $cat1_data['cat_id']; ?>">
@@ -142,7 +142,8 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 											<td align="center">
 												<a href="detail.php?id=<?php echo $prod_data['pd_id']; ?>" class="nyroModal"><img src="<?php echo $thumbnail; ?>" /></a><br />
 												<?php echo $catname; ?><br />
-												<a href="detail.php?id=<?php echo $prod_data['pd_id']; ?>" class="nyroModal"><?php echo $prod_data['pd_name7']; ?></a><br />
+												
+												<a href="detail.php?id=<?php echo $prod_data['pd_id']; ?>" class="nyroModal"><?php echo $prod_data['pd_name7']; ?></a> <strong style="color:#000000"><?php echo $prod_data['pd_barcode']; ?></strong><br />
 												<br />
 												<a href="index.php?pid=<?php echo $prod_data['pd_id']; ?>&id=<?php echo $cid; ?>&v=1" class="btn btn-mini btn-primary" title="Piece" style="font-size:13px; font-weight:normal; color:#000000; width:100px;">
 													PC | &#x20B1;<?php echo number_format($prod_data['pc_price'], 2); ?> <br /> <?php echo number_format($prod_data['pc_qty'], 0); ?> left

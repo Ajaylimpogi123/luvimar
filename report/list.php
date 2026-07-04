@@ -53,30 +53,47 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 			</table>
 
 			<form action="daily.php" method="post" target="_new">
-				<div class="report-header">
-					<div class="header-content">
-						<div class="header-title">
-							<h2><i class="fas fa-chart-line"></i> Daily Sales Report</h2>
-							<p class="subtitle">View and analyze daily sales performance</p>
-						</div>
+			<div class="report-header">
+    <div class="header-content">
 
-						<div class="report-controls">
-							<div class="date-control">
-								<label for="txtFromDate"><i class="fas fa-calendar-alt"></i> Select Date:</label>
-								<div class="input-group">
-									<input type="text" class="form-control input-date" id="txtFromDate" name="date1"
-										placeholder="MM/DD/YYYY" onkeypress="return isNumberKey(event)"
-										autocomplete="off" required />
-									<span class="input-group-btn">
-										<button class="btn btn-submit" type="submit">
-											<i class="fas fa-search"></i> Generate Report
-										</button>
-									</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+        <div class="header-title">
+            <h2><i class="fas fa-chart-line"></i> Daily Sales Report</h2>
+            <p class="subtitle">View and analyze daily sales performance</p>
+        </div>
+
+        <div class="report-controls">
+            <div class="date-control">
+                <label for="txtFromDate">
+                    <i class="fas fa-calendar-alt"></i> Select Date:
+                </label>
+
+                <div class="input-group-custom">
+                    
+                    <select name="branch" class="form-control" required>
+                        <option value="">--Select Branch--</option>
+                        <option value="db_luvimar">Bacolod</option>
+                    </select>
+
+                    <input type="text"
+                        class="form-control input-date"
+                        id="txtFromDate"
+                        name="date1"
+                        placeholder="MM/DD/YYYY"
+                        onkeypress="return isNumberKey(event)"
+                        autocomplete="off"
+                        required />
+
+                   
+
+                </div>
+					<button class="btn btn-submit" type="submit">
+                        <i class="fas fa-search"></i> Generate Report
+                    </button>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 				<style>
 					/* Main Header Styles */
@@ -163,22 +180,22 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 						background: #e74c3c;
 						color: white;
 						border: none;
-						border-radius: 0 4px 4px 0;
-						padding: 0 20px;
+						border-radius: 4px;
+						padding: 20px;
 						font-weight: 500;
 						cursor: pointer;
 						transition: background 0.3s;
 						display: flex;
 						align-items: center;
+						width: 100%;
+						margin-left: 5px;
 					}
 
 					.btn-submit:hover {
 						background: #c0392b;
 					}
 
-					.btn-submit i {
-						margin-right: 8px;
-					}
+	
 
 					/* Responsive adjustments */
 					@media (min-width: 768px) {

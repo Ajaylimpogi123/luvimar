@@ -13,6 +13,8 @@ checkUser();
 	$address = mysqli_real_escape_string($link, $_POST['address']);
 	$cp = mysqli_real_escape_string($link, $_POST['cp']);
 	$cn = mysqli_real_escape_string($link, $_POST['cn']);
+	$scn = mysqli_real_escape_string($link, $_POST['scn']);
+	$messenger = mysqli_real_escape_string($link, $_POST['messenger']);
 	$email = mysqli_real_escape_string($link, $_POST['email']);
 	
 	$images = uploadimage('fileImage', SRV_ROOT . 'images/customer/');
@@ -98,7 +100,7 @@ function uploadimage($inputName, $uploadDir)
 		else
 		{
 				/* Update Customer */
-				$sql = $conn->prepare("UPDATE bs_customer SET client_name = '$cname', address = '$address', customer_name = '$custname', contact_person = '$cp', contactno = '$cn', email = '$email', image = $mainImage, thumbnail = $thumbnail, date_modified = NOW() 
+				$sql = $conn->prepare("UPDATE bs_customer SET client_name = '$cname', address = '$address', customer_name = '$custname', contact_person = '$cp', contactno = '$cn', s_contactno = '$scn', messenger = '$messenger', email = '$email', image = $mainImage, thumbnail = $thumbnail, date_modified = NOW() 
 							WHERE cust_id = '$id'");
 				$sql->execute();
 				/* End Customer */

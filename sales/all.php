@@ -5,7 +5,7 @@ $cat7 = $conn->prepare("SELECT * FROM tbl_category WHERE cat_parent_id = '$cid' 
 $cat7->execute();
 if ($cat7->rowCount() > 0) {
 	while ($cat7_data = $cat7->fetch()) {
-		$prod7 = $conn->prepare("SELECT * FROM tbl_product WHERE cat_parent_id = '$cat7_data[cat_parent_id]' AND is_deleted != '1' ORDER BY pd_name ASC");
+		$prod7 = $conn->prepare("SELECT * FROM tbl_product WHERE cat_parent_id = '$cat7_data[cat_parent_id]' AND is_deleted != '1' AND pc_qty != 0 ORDER BY pd_name ASC");
 		$prod7->execute();
 ?>
 		<div class="tab-pane" id="all">
@@ -37,7 +37,7 @@ if ($cat7->rowCount() > 0) {
 									<td align="center">
 										<a href="detail.php?id=<?php echo $prod7_data['pd_id']; ?>" class="nyroModal"><img src="<?php echo $thumbnail7; ?>" /></a><br />
 										<?php echo $catname7; ?><br />
-										<a href="detail.php?id=<?php echo $prod7_data['pd_id']; ?>" class="nyroModal"><?php echo $prod7_data['pd_name7']; ?></a> - <strong style="color:#000000"><?php echo $prod7_data['pd_barcode']; ?></strong><br />
+										<a href="detail.php?id=<?php echo $prod7_data['pd_id']; ?>" class="nyroModal"><?php echo $prod7_data['pd_name7']; ?></a>  <strong style="color:#000000"><?php echo $prod7_data['pd_barcode']; ?></strong><br />
 										<br />
 										<a href="index.php?pid=<?php echo $prod7_data['pd_id']; ?>&id=<?php echo $cid; ?>&v=1" class="btn btn-mini btn-primary" title="Piece" style="font-size:13px; font-weight:normal; color:#000000; width:100px;">
 											PC | &#x20B1;<?php echo number_format($prod7_data['pc_price'], 2); ?> <br /> <?php echo number_format($prod7_data['pc_qty'], 0); ?> left

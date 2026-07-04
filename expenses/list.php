@@ -12,7 +12,7 @@ $user_data = $user->fetch();
 $sql = $conn->prepare("SELECT *
         FROM tr_expense
 		WHERE is_deleted != '1'
-		ORDER BY date_added");
+		ORDER BY exp_date_added DESC");
 $sql->execute();
 $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error'] : '&nbsp;';
 
@@ -119,12 +119,12 @@ $balance = $bg_data['totalbg'] - $ex_data['totalex'];
 </style>
 
 <!-- Open Modal Button -->
-<a href="#modal" class="open-btn">Add Expense Name</a>
+<!-- <a href="#modal" class="open-btn">Add Expense Name</a> -->
 <!-- Dummy target to close modal -->
-<div id="close"></div>
+<!-- <div id="close"></div> -->
 
 <?php
-include 'add_category.php';
+// include 'add_category.php';
 ?>
 
 
@@ -134,7 +134,9 @@ include 'add_category.php';
 			<h2><i class="icon-tag"></i> List of Expenses</h2>
 			<?php if ($user_data['is_exp_a_access'] == 1) { ?>
 				&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.php?view=add" class="btn btn-success">Add Expense</a>
-				&nbsp;&nbsp;&nbsp;&nbsp;<a href="beginning.php" class="btn btn-warning nyroModal">Beginning Balance</a>
+				<!-- &nbsp;&nbsp;&nbsp;&nbsp;<a href="beginning.php" class="btn btn-warning nyroModal">Beginning Balance</a> -->
+				&nbsp;&nbsp;
+				<a href="index.php?view=cat" class="btn btn-primary">Go to Expense Name -></a>
 			<?php } else {
 			} ?>
 			<div class="box-icon">
@@ -161,9 +163,11 @@ include 'add_category.php';
 			<table class="table table-striped table-bordered bootstrap-datatable datatable">
 				<thead>
 					<tr>
+						<th>Expense Name</th>
 						<th>Date</th>
 						<th>Amount</th>
 						<th>Details</th>
+						<th>VAT</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -171,13 +175,21 @@ include 'add_category.php';
 					<?php
 					if ($sql->rowCount() > 0) {
 						while ($sql_data = $sql->fetch()) {
-							$addeddate = date("M d, Y | h:i a", strtotime($sql_data['date_added']));
+							$ec_id = $sql_data['ec_id'];
+							$cat = $conn->prepare("SELECT * FROM tr_expense_category WHERE ec_id = '$ec_id'");
+							$cat->execute();
+							$cat_data = $cat->fetch();
+							$addeddate = date("F d, Y", strtotime($sql_data['exp_date_added']));
 					?>
 							<!-- Start display list of expenses !-->
 							<tr>
+								<td><?php echo $cat_data['expense_category_name'] ?? ''; ?></td>
+
+
 								<td><?php echo $addeddate; ?></td>
 								<td><?php echo number_format($sql_data['amount'], 2); ?></td>
 								<td><?php echo $sql_data['details']; ?></td>
+								<td><?php echo $sql_data['vat']; ?></td>
 								<td class="center">
 									<?php if ($user_data['is_exp_e_access'] == 1) { ?>
 										<a class="btn btn-primary" href="javascript:mod(<?php echo $sql_data['exp_id']; ?>);">

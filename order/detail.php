@@ -8,12 +8,16 @@ if (!isset($_GET['oid']) || (int)$_GET['oid'] <= 0) {
 }
 
 $orderId = (int)$_GET['oid'];
-	
+		$sql2 = $conn->prepare("SELECT * FROM tbl_order o, tbl_order_item i, tbl_product p
+									WHERE o.od_id = i.od_id AND i.pd_id = p.pd_id AND o.od_id = '$orderId'");
+						$sql2->execute();
+						$sql2_data = $sql2->fetch();
+						
 ?>		
 		<form action="process.php?action=saveorder" method="post" name="frmCart" id="frmCart">
 			<div class="box span6">
 				<div class="box-header well" data-original-title>
-					<h2><i class="icon-file"></i> Order Details</h2>
+					<h2><i class="icon-file"></i> Order Details - Ref #: <span style="color: #000000;"><?php echo $sql2_data['ref_num']; ?></span></h2>
 				</div>
 									
 				<div class="box-content">				

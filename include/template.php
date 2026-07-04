@@ -139,6 +139,7 @@ $sett_data = $sett->fetch();
 				<?php if ($sql_data['is_category_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/category"><i class="icon-th-large"></i><span class="hidden-tablet"> CATEGORY</span></a>&nbsp;|&nbsp;<?php endif; ?>
 
 					<?php if ($sql_data['is_product_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/product"><i class="icon-th"></i><span class="hidden-tablet"> INVENTORY</span></a>&nbsp;|&nbsp;<?php endif; ?>
+					<?php if ($sql_data['is_product_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/raw-product"><i class="icon-th"></i><span class="hidden-tablet"> RAW MATERIALS</span></a>&nbsp;|&nbsp;<?php endif; ?>
 
 						<?php if ($sql_data['is_customer_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/customer"><i class="icon-user"></i><span class="hidden-tablet">
 									<font size="2">CUSTOMER</font>
@@ -163,6 +164,8 @@ $sett_data = $sett->fetch();
 										<!-- <?php if ($sql_data['is_delivery_access'] == 1): ?><a href="javascript:delivery();"><i class="icon-road"></i><span class="hidden-tablet"> DELIVERY</span></a>&nbsp;|&nbsp;<?php endif; ?> -->
 
 										<?php if ($sql_data['is_expense_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/expenses"><i class="icon-book"></i><span class="hidden-tablet"> EXPENSE</span></a>&nbsp;|&nbsp;<?php endif; ?>
+										
+											<?php if ($sql_data['is_receivable_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/receivable"><i class="icon-book"></i><span class="hidden-tablet"> COLLECTION</span></a>&nbsp;|&nbsp;<?php endif; ?>
 
 											<?php if ($sql_data['is_report_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/report"><i class="icon-list-alt"></i><span class="hidden-tablet"> REPORTS</span></a>&nbsp;|&nbsp;<?php endif; ?>
 

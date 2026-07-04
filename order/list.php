@@ -58,7 +58,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 								  <th>Order #</th>
 								  <th>Customer</th>								  
 								  <th>Payment Mode</th>								  
-								  <th>Transaction Code</th>								  
+								  <th>Ref No.</th>								  
 								  <th>Amount</th>								 
 								  <th>Order Date</th>
 								  <th>Action</th>
@@ -79,7 +79,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 											<td><?php echo $sql_data['od_id']; ?></td>
 											<td><?php echo $cname; ?></td>
 											<td><?php echo $sql_data['payment_mode']; ?></td>
-											<td><?php echo $sql_data['transaction_code']; ?></td>
+											<td><?php echo $sql_data['ref_num']; ?></td>
 											<td>&#x20B1; <?php echo number_format($sql_data['od_total_amt_due'], 2); ?></td>
 											<td><?php echo $orderdate; ?></td>
 											<td class="center">

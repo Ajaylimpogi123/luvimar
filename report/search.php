@@ -45,6 +45,26 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 									<div id="status"></div>
 								</div>
 							</div>
+
+
+						<div class="control-group">
+							<label class="control-label" for="selectError">Category</label>
+							<div class="controls">
+								<select id="selectError2" name="cat" data-rel="chosen">
+									<option value="0">All</option>
+									<?php
+									$cat = $conn->prepare("SELECT * FROM tbl_category WHERE is_deleted != '1' AND cat_parent_id = '0' GROUP BY cat_name");
+									$cat->execute();
+									while ($cat_data = $cat->fetch()) {
+									?>
+										<option value="<?php echo $cat_data['cat_id']; ?>"><?php echo $cat_data['cat_name']; ?></option>
+									<?php
+									} // End While
+									?>
+								</select>
+							</div>
+						</div>
+
 						<?php 	} else {
 						} ?>
 
@@ -54,7 +74,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 								<select id="selectError1" name="product" data-rel="chosen">
 									<option value="0">All</option>
 									<?php
-									$agt = $conn->prepare("SELECT * FROM tbl_product WHERE is_deleted != '1'");
+									$agt = $conn->prepare("SELECT * FROM tbl_product WHERE is_deleted != '1' GROUP BY pd_name");
 									$agt->execute();
 									while ($agt_data = $agt->fetch()) {
 									?>
@@ -134,10 +154,6 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 						</div>
 					<?php } else {
 					} ?>
-
-
-
-
 					<?php if ($reportId == 1018) { ?>
 
 						<!--<div class="control-group">
@@ -195,6 +211,32 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 					<?php } else {
 					} ?>
 
+					<?php if ($reportId == 1) { ?>
+						<div class="control-group">
+							<label class="control-label" for="focusedInput">Expense Name</label>
+							<div class="controls">
+								<select name="ec_id" id="selectError771" data-rel="chosen">
+								<option value="0">Select</option>
+									<?php
+												
+									$cat2 = $conn->prepare("SELECT * FROM tr_expense_category WHERE is_deleted != '1' ORDER BY ec_id");
+									$cat2->execute();
+									while ($cat2_data = $cat2->fetch()) {
+										$category_name = $cat2_data['expense_category_name'];
+										$ec_id = $cat2_data['ec_id'];
+									?>
+										<option value="<?php echo $ec_id; ?>"><?php echo $category_name; ?></option>
+									<?php
+									} // End While
+									?>
+								</select>
+								
+								<div id="status"></div>
+							</div>
+						</div>
+					<?php } else {
+					} ?>
+
 					<?php if ($reportId == 1013) { ?>
 						<div class="control-group">
 							<label class="control-label" for="focusedInput">Branch</label>
@@ -221,12 +263,13 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 
 
 						<div class="control-group">
-							<label class="control-label" for="selectError">Type</label>
+							<label class="control-label" for="selectError">Payment Type</label>
 							<div class="controls">
 								<select id="selectError1" name="stype" data-rel="chosen">
 									<option value="0">All</option>
 									<option value="Cash">Cash</option>
-									<option value="Gcash">G-Cash</option>
+								
+									<option value="collection">Collection</option>
 								</select>
 							</div>
 						</div>

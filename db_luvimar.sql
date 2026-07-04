@@ -28,10 +28,12 @@ CREATE TABLE IF NOT EXISTS `bs_beginning_balance` (
   `date_modified` varchar(50) DEFAULT NULL,
   `date_deleted` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`beg_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table db_luvimar.bs_beginning_balance: 0 rows
+-- Dumping data for table db_luvimar.bs_beginning_balance: 1 rows
 /*!40000 ALTER TABLE `bs_beginning_balance` DISABLE KEYS */;
+INSERT INTO `bs_beginning_balance` (`beg_id`, `amount`, `is_deleted`, `date_added`, `date_modified`, `date_deleted`) VALUES
+	(1, 1000.00, 0, '2025-09-06 14:46:57', NULL, NULL);
 /*!40000 ALTER TABLE `bs_beginning_balance` ENABLE KEYS */;
 
 -- Dumping structure for table db_luvimar.bs_branch
@@ -71,9 +73,14 @@ CREATE TABLE IF NOT EXISTS `bs_customer` (
   `date_deleted` varchar(50) DEFAULT NULL,
   `last_login` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`cust_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table db_luvimar.bs_customer: ~0 rows (approximately)
+-- Dumping data for table db_luvimar.bs_customer: ~2 rows (approximately)
+INSERT INTO `bs_customer` (`cust_id`, `branch_id`, `client_name`, `address`, `customer_name`, `contact_person`, `contactno`, `email`, `image`, `thumbnail`, `is_deleted`, `is_branch`, `date_added`, `date_modified`, `date_deleted`, `last_login`) VALUES
+	(1, 0, 'Juan De la Cruz', '', 'Juan De la Cruz', '', '09952681811', '', '', '', 0, 0, '2025-09-06 14:12:38', NULL, NULL, NULL),
+	(2, 0, 'Walk In', '', 'Walk in', '', '', '', '', '', 0, 0, '2025-09-06 14:44:59', NULL, NULL, NULL),
+	(3, 0, 'Luvimar', 'Bacolod', 'Luvi', 'Jess', '123456789', '', '', '', 0, 0, '2026-01-09 21:07:56', NULL, NULL, NULL),
+	(4, 0, 'luvim', 'talisay', 'jesss', 'jeeeesss', '123456', '', '', '', 0, 0, '2026-02-01 19:31:19', NULL, NULL, NULL);
 
 -- Dumping structure for table db_luvimar.bs_report
 CREATE TABLE IF NOT EXISTS `bs_report` (
@@ -87,17 +94,18 @@ CREATE TABLE IF NOT EXISTS `bs_report` (
   PRIMARY KEY (`report_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1020 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
--- Dumping data for table db_luvimar.bs_report: 8 rows
+-- Dumping data for table db_luvimar.bs_report: 9 rows
 /*!40000 ALTER TABLE `bs_report` DISABLE KEYS */;
 INSERT INTO `bs_report` (`report_id`, `name`, `description`, `page`, `is_deleted`, `date_added`, `date_deleted`) VALUES
 	(1001, 'Released Product', 'Displays released products', 'release', 0, '2015-07-28 02:51:10', '0000-00-00 00:00:00'),
 	(1013, 'Sales Detail', 'Displays total sales', 'sales', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(1014, 'Received Product', 'Displays received products', 'receive', 0, '2016-05-15 22:35:45', '0000-00-00 00:00:00'),
-	(1015, 'Inventory', 'Displays inventory of products', 'inventory', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(1014, 'Received Product', 'Displays received products', 'receive', 1, '2016-05-15 22:35:45', '0000-00-00 00:00:00'),
+	(1015, 'Inventory', 'Displays inventory of products', 'inventory', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 	(1016, 'Sales Graph', 'Displays sales graph', 'sales_graph', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(1017, 'Accounts Receivable', 'Displays accounts receivable', 'ar_detail', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(1017, 'Accounts Receivable', 'Displays accounts receivable', 'ar_detail', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 	(1018, 'Returned Product', 'Displays returned products', 'returned', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(1019, 'Transfer', 'Displays transfer product', 'transfer', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+	(1019, 'Transfer', 'Displays transfer product', 'transfer', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(1, 'Expenses', 'Display Expense', 'expense', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `bs_report` ENABLE KEYS */;
 
 -- Dumping structure for table db_luvimar.bs_setting
@@ -217,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `bs_user` (
 -- Dumping data for table db_luvimar.bs_user: 1 rows
 /*!40000 ALTER TABLE `bs_user` DISABLE KEYS */;
 INSERT INTO `bs_user` (`user_id`, `emp_id`, `firstname`, `lastname`, `email`, `username`, `password`, `pass_text`, `title`, `contactno`, `address`, `image`, `thumbnail`, `is_admin`, `access_level`, `is_main_access`, `is_masterfile_access`, `is_category_access`, `is_cat_a_access`, `is_cat_e_access`, `is_cat_d_access`, `is_customer_access`, `is_cust_a_access`, `is_cust_e_access`, `is_cust_d_access`, `is_supplier_access`, `is_sup_a_access`, `is_sup_e_access`, `is_sup_d_access`, `is_product_access`, `is_prod_a_access`, `is_prod_e_access`, `is_prod_d_access`, `is_receive_access`, `is_return_access`, `is_sales_access`, `is_sale_v_access`, `is_sale_d_access`, `is_job_order_access`, `is_job_order_a_access`, `is_job_order_e_access`, `is_job_order_d_access`, `is_production_report_access`, `is_production_report_a_access`, `is_production_report_e_access`, `is_production_report_d_access`, `is_delivery_access`, `is_del_v_access`, `is_del_d_access`, `is_expense_access`, `is_exp_a_access`, `is_exp_e_access`, `is_exp_d_access`, `is_report_access`, `is_user_access`, `is_user_a_access`, `is_user_e_access`, `is_user_d_access`, `added_by`, `modified_by`, `deleted_by`, `is_deleted`, `date_added`, `date_modified`, `date_deleted`, `last_login`, `theme`, `branch_num`) VALUES
-	(1002, '1600109', 'Admin', 'Admin', 'admin@gmail.com', 'admin', '81dc9bdb52d04dc20036dbd8313ed055', '1234', 'Senior Programmer', '123456789', 'Bacolod City', '', '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, '2008-08-01 19:18:51', '2022-04-20 12:56:25', '0000-00-00 00:00:00', '2025-09-06 09:09:25', 'cerulean', 0);
+	(1002, '1600109', 'Admin', 'Admin', 'admin@gmail.com', 'admin', '81dc9bdb52d04dc20036dbd8313ed055', '1234', 'Senior Programmer', '123456789', 'Bacolod City', '', '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, '2008-08-01 19:18:51', '2022-04-20 12:56:25', '0000-00-00 00:00:00', '2026-02-16 12:18:44', 'cerulean', 0);
 /*!40000 ALTER TABLE `bs_user` ENABLE KEYS */;
 
 -- Dumping structure for table db_luvimar.tbl_cart
@@ -236,10 +244,12 @@ CREATE TABLE IF NOT EXISTS `tbl_cart` (
   PRIMARY KEY (`ct_id`),
   KEY `pd_id` (`pd_id`),
   KEY `ct_session_id` (`ct_session_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table db_luvimar.tbl_cart: 0 rows
+-- Dumping data for table db_luvimar.tbl_cart: 1 rows
 /*!40000 ALTER TABLE `tbl_cart` DISABLE KEYS */;
+INSERT INTO `tbl_cart` (`ct_id`, `pd_id`, `ct_qty`, `ct_price`, `ct_cost`, `description`, `job_description`, `ct_session_id`, `ct_date`, `user_id`, `is_type`) VALUES
+	(9, 1, 1, 100.00, 100.00, '', NULL, '9hvqm4a5bh9kt7kqr0f6klercn', '2026-02-16 13:13:41', 1002, 1);
 /*!40000 ALTER TABLE `tbl_cart` ENABLE KEYS */;
 
 -- Dumping structure for table db_luvimar.tbl_cart_receive
@@ -291,15 +301,17 @@ CREATE TABLE IF NOT EXISTS `tbl_category` (
   `cat_image` varchar(255) NOT NULL DEFAULT '',
   `is_deleted` int(1) NOT NULL,
   PRIMARY KEY (`cat_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table db_luvimar.tbl_category: 4 rows
+-- Dumping data for table db_luvimar.tbl_category: 6 rows
 /*!40000 ALTER TABLE `tbl_category` DISABLE KEYS */;
 INSERT INTO `tbl_category` (`cat_id`, `cat_parent_id`, `cat_name`, `cat_description`, `cat_image`, `is_deleted`) VALUES
 	(1, 0, 'Finish Product', '', '', 0),
 	(2, 0, 'Raw Material', '', '', 0),
 	(3, 2, 'items', '', '', 0),
-	(4, 1, 'items', '', '', 0);
+	(4, 1, 'items', '', '', 0),
+	(5, 0, 'Other Safety Products', '', '', 0),
+	(6, 5, 'Items', '', '', 0);
 /*!40000 ALTER TABLE `tbl_category` ENABLE KEYS */;
 
 -- Dumping structure for table db_luvimar.tbl_job_order
@@ -316,9 +328,16 @@ CREATE TABLE IF NOT EXISTS `tbl_job_order` (
   PRIMARY KEY (`jo_id`) USING BTREE,
   KEY `joi_id` (`joi_id`),
   KEY `branch_id` (`branch_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table db_luvimar.tbl_job_order: ~0 rows (approximately)
+-- Dumping data for table db_luvimar.tbl_job_order: ~6 rows (approximately)
+INSERT INTO `tbl_job_order` (`jo_id`, `branch_id`, `joi_id`, `job_order_number`, `status`, `added_by`, `date_added`, `is_deleted`, `uid`) VALUES
+	(1, NULL, 0, '123', 'completed', 1002, '2026-01-24', 0, ''),
+	(2, NULL, 0, '1', 'completed', 1002, '2026-01-24', 0, ''),
+	(3, NULL, 0, '12365', 'completed', 1002, '2026-02-01', 0, ''),
+	(4, NULL, 0, '66', 'completed', 1002, '2026-02-09', 0, ''),
+	(5, NULL, 0, '001', 'completed', 1002, '2026-02-16', 0, ''),
+	(6, NULL, 0, '002', 'completed', 1002, '2026-02-16', 0, '');
 
 -- Dumping structure for table db_luvimar.tbl_jo_items
 CREATE TABLE IF NOT EXISTS `tbl_jo_items` (
@@ -343,9 +362,49 @@ CREATE TABLE IF NOT EXISTS `tbl_jo_items` (
   `is_deleted` int(1) NOT NULL DEFAULT 0,
   `is_submitted` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`joi_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table db_luvimar.tbl_jo_items: ~0 rows (approximately)
+-- Dumping data for table db_luvimar.tbl_jo_items: ~3 rows (approximately)
+INSERT INTO `tbl_jo_items` (`joi_id`, `branch_id`, `cust_id`, `pd_id`, `customer_name`, `pd_name`, `qty`, `pd_price`, `pd_serial`, `description`, `job_description`, `date_needed`, `remarks`, `joi_date_added`, `added_by`, `date_modified`, `date_deleted`, `uid`, `is_deleted`, `is_submitted`) VALUES
+	(1, 1006, '1', 1, 'Juan De la Cruz', 'Dry Chemical Fire Extinguisher 10lbs', 1, 100.00, '2026009', 'Dry Chemical Fire Extinguisher 10lbs ', 'refill', '2026-01-25', 'refill', '2026-01-24', '1002', '', '', 'c4ca4238a0b923820dcc509a6f75849b', 0, 1),
+	(2, 1006, '1', 2, 'Juan De la Cruz', 'Dry Chemical Fire Extinguisher 10lbs', 1, 200.00, '2026008', 'Dry Chemical Fire Extinguisher 10lbs ', 'refill', '2026-01-25', 'refilla&nbsp;', '2026-01-24', '1002', '', '', 'c81e728d9d4c2f636f067f89cc14862c', 0, 1),
+	(3, 1006, '1', 3, 'Juan De la Cruz', 'Emergency Light', 1, 100.00, '2026007', 'Emergency Light ', 'refill', '2026-01-26', 'refill', '2026-01-24', '1002', '', '', 'eccbc87e4b5ce2fe28308fd9f2a7baf3', 0, 1),
+	(4, 1006, '4', 1, 'luvim', 'Dry Chemical Fire Extinguisher 10lbs', 1, 100.00, '2026012', 'Dry Chemical Fire Extinguisher 10lbs ', 'refill', '2026-02-03', '', '2026-02-01', '1002', '', '', 'a87ff679a2f3e71d9181a67b7542122c', 0, 1),
+	(5, 1006, '3', 1, 'Luvimar', 'Dry Chemical Fire Extinguisher 10lbs', 1, 100.00, '2026014', 'Dry Chemical Fire Extinguisher 10lbs sample', 'refill', '2026-02-17', '', '2026-02-16', '1002', '', '', 'e4da3b7fbbce2345d7772b0674a318d5', 0, 1);
+
+-- Dumping structure for table db_luvimar.tbl_jo_items_new
+CREATE TABLE IF NOT EXISTS `tbl_jo_items_new` (
+  `join_id` int(11) NOT NULL AUTO_INCREMENT,
+  `branch_id` int(11) NOT NULL DEFAULT 0,
+  `cust_id` varchar(100) NOT NULL,
+  `pd_id` int(11) NOT NULL,
+  `customer_name` varchar(100) NOT NULL,
+  `pd_name` varchar(100) NOT NULL,
+  `qty` int(11) NOT NULL DEFAULT 0,
+  `pd_price` decimal(9,2) NOT NULL DEFAULT 0.00,
+  `pd_serial` varchar(244) NOT NULL,
+  `description` varchar(244) NOT NULL,
+  `job_description` varchar(244) NOT NULL,
+  `date_needed` varchar(110) NOT NULL,
+  `remarks` varchar(244) NOT NULL,
+  `join_date_added` varchar(110) NOT NULL,
+  `added_by` varchar(110) NOT NULL,
+  `date_modified` varchar(110) NOT NULL,
+  `date_deleted` varchar(110) NOT NULL,
+  `uid` varchar(110) NOT NULL,
+  `is_deleted` int(1) NOT NULL DEFAULT 0,
+  `is_submitted` int(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`join_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table db_luvimar.tbl_jo_items_new: ~6 rows (approximately)
+INSERT INTO `tbl_jo_items_new` (`join_id`, `branch_id`, `cust_id`, `pd_id`, `customer_name`, `pd_name`, `qty`, `pd_price`, `pd_serial`, `description`, `job_description`, `date_needed`, `remarks`, `join_date_added`, `added_by`, `date_modified`, `date_deleted`, `uid`, `is_deleted`, `is_submitted`) VALUES
+	(1, 1006, '1', 1, 'Juan De la Cruz', 'Dry Chemical Fire Extinguisher 10lbs', 1, 100.00, '2026006', 'Dry Chemical Fire Extinguisher 10lbs sample', 'brandnew', '2026-01-25', '', '2026-01-24', '1002', '', '', 'c4ca4238a0b923820dcc509a6f75849b', 0, 1),
+	(2, 1006, '1', 2, 'Juan De la Cruz', 'Dry Chemical Fire Extinguisher 10lbs', 1, 200.00, '2026005', 'Dry Chemical Fire Extinguisher 10lbs ', 'brandnew', '2026-01-25', '', '2026-01-24', '1002', '', '', 'c81e728d9d4c2f636f067f89cc14862c', 0, 1),
+	(3, 1006, '1', 3, 'Juan De la Cruz', 'Emergency Light', 1, 100.00, '2026004', 'Emergency Light ', 'brandnew', '2026-01-25', '', '2026-01-24', '1002', '', '', 'eccbc87e4b5ce2fe28308fd9f2a7baf3', 0, 1),
+	(4, 1006, '1', 1, 'Juan De la Cruz', 'Dry Chemical Fire Extinguisher 10lbs', 1, 100.00, '2026013', 'Dry Chemical Fire Extinguisher 10lbs Sample Job order Brandnew', 'brandnew', '2026-02-10', '', '2026-02-09', '1002', '', '', 'a87ff679a2f3e71d9181a67b7542122c', 0, 1),
+	(5, 1006, '1', 1, 'Juan De la Cruz', 'Dry Chemical Fire Extinguisher 10lbs', 1, 100.00, '2026014', 'Dry Chemical Fire Extinguisher 10lbs ', 'brandnew', '2026-02-16', '', '2026-02-16', '1002', '', '', 'e4da3b7fbbce2345d7772b0674a318d5', 0, 1),
+	(6, 1006, '1', 2, 'Juan De la Cruz', 'Dry Chemical Fire Extinguisher 10lbs', 1, 200.00, '2026011', 'Dry Chemical Fire Extinguisher 10lbs ', 'brandnew', '2026-02-17', '', '2026-02-16', '1002', '', '', '1679091c5a880faf6fb5e6087eb1b2dc', 0, 1);
 
 -- Dumping structure for table db_luvimar.tbl_jo_list
 CREATE TABLE IF NOT EXISTS `tbl_jo_list` (
@@ -361,9 +420,40 @@ CREATE TABLE IF NOT EXISTS `tbl_jo_list` (
   `uid` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`jol_id`),
   KEY `joi_id` (`joi_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table db_luvimar.tbl_jo_list: ~0 rows (approximately)
+-- Dumping data for table db_luvimar.tbl_jo_list: ~2 rows (approximately)
+INSERT INTO `tbl_jo_list` (`jol_id`, `joi_id`, `jo_id`, `pd_id`, `cust_id`, `branch_id`, `user_id`, `added_by`, `is_deleted`, `uid`) VALUES
+	(1, 1, 2, 1, 1, 1006, 1002, '1002', 0, NULL),
+	(2, 2, 2, 2, 1, 1006, 1002, '1002', 0, NULL),
+	(3, 3, 2, 3, 1, 1006, 1002, '1002', 0, NULL),
+	(4, 4, 3, 1, 4, 1006, 1002, '1002', 0, NULL),
+	(5, 5, 5, 1, 3, 1006, 1002, '1002', 0, NULL);
+
+-- Dumping structure for table db_luvimar.tbl_jo_list_new
+CREATE TABLE IF NOT EXISTS `tbl_jo_list_new` (
+  `joln_id` int(11) NOT NULL AUTO_INCREMENT,
+  `join_id` int(11) NOT NULL DEFAULT 0,
+  `jo_id` int(11) NOT NULL DEFAULT 0,
+  `pd_id` int(11) NOT NULL DEFAULT 0,
+  `cust_id` int(11) NOT NULL DEFAULT 0,
+  `branch_id` int(11) NOT NULL DEFAULT 0,
+  `user_id` int(11) NOT NULL DEFAULT 0,
+  `added_by` varchar(100) DEFAULT NULL,
+  `is_deleted` int(1) DEFAULT 0,
+  `uid` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`joln_id`),
+  KEY `join_id` (`join_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table db_luvimar.tbl_jo_list_new: ~6 rows (approximately)
+INSERT INTO `tbl_jo_list_new` (`joln_id`, `join_id`, `jo_id`, `pd_id`, `cust_id`, `branch_id`, `user_id`, `added_by`, `is_deleted`, `uid`) VALUES
+	(1, 1, 1, 1, 1, 1006, 1002, '1002', 0, NULL),
+	(2, 2, 1, 2, 1, 1006, 1002, '1002', 0, NULL),
+	(3, 3, 1, 3, 1, 1006, 1002, '1002', 0, NULL),
+	(4, 4, 4, 1, 1, 1006, 1002, '1002', 0, NULL),
+	(5, 5, 6, 1, 1, 1006, 1002, '1002', 0, NULL),
+	(6, 6, 6, 2, 1, 1006, 1002, '1002', 0, NULL);
 
 -- Dumping structure for table db_luvimar.tbl_order
 CREATE TABLE IF NOT EXISTS `tbl_order` (
@@ -371,6 +461,7 @@ CREATE TABLE IF NOT EXISTS `tbl_order` (
   `cust_id` int(10) NOT NULL,
   `branch_id` int(10) NOT NULL,
   `invoice_num` varchar(100) NOT NULL,
+  `or_num` varchar(100) NOT NULL,
   `jo_num` varchar(100) NOT NULL,
   `dr_num` varchar(100) NOT NULL,
   `po_num` varchar(100) NOT NULL,
@@ -408,10 +499,13 @@ CREATE TABLE IF NOT EXISTS `tbl_order` (
   `date_deleted` datetime NOT NULL,
   `remarks` varchar(777) DEFAULT NULL,
   PRIMARY KEY (`od_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table db_luvimar.tbl_order: 0 rows
+-- Dumping data for table db_luvimar.tbl_order: 2 rows
 /*!40000 ALTER TABLE `tbl_order` DISABLE KEYS */;
+INSERT INTO `tbl_order` (`od_id`, `cust_id`, `branch_id`, `invoice_num`, `or_num`, `jo_num`, `dr_num`, `po_num`, `person_received`, `terms_in_days`, `customer_name`, `payment_mode`, `transaction_code`, `od_amount_due`, `od_discount`, `percent_discount`, `od_total_amt_due`, `od_cost`, `od_payment`, `od_change`, `od_collected_amount`, `dc_id`, `od_date`, `od_date_1`, `od_paid_date`, `date_due`, `delivery_date`, `delivery_address`, `driver`, `delivery_id`, `is_delivery`, `is_delivered`, `is_open`, `is_paid`, `is_charge`, `is_foodpanda`, `is_deleted`, `released_by`, `deleted_by`, `date_deleted`, `remarks`) VALUES
+	(1, 1, 0, '', '', '', '021026-1255', '', '', 0.00, 'Juan De la Cruz', 'Cash', '', 200.00, 0.00, 0.00, 200.00, 200.00, 300.00, 100.00, 0.00, 0, '2026-02-10 12:55:43', '2026-02-10', '2026-02-10', '0000-00-00', NULL, NULL, NULL, NULL, 0, 0, 0, 1, 0, 0, 0, 1002, 0, '0000-00-00 00:00:00', '1'),
+	(2, 4, 0, '', '', '', '021626-0109', '', '', 0.00, 'luvim', 'Cash', '', 300.00, 0.00, 0.00, 300.00, 110.00, 1000.00, 700.00, 0.00, 0, '2026-02-16 13:09:49', '2026-02-16', '2026-02-16', '0000-00-00', NULL, NULL, NULL, NULL, 0, 0, 0, 1, 0, 0, 0, 1002, 0, '0000-00-00 00:00:00', 'sample');
 /*!40000 ALTER TABLE `tbl_order` ENABLE KEYS */;
 
 -- Dumping structure for table db_luvimar.tbl_order_item
@@ -431,10 +525,14 @@ CREATE TABLE IF NOT EXISTS `tbl_order_item` (
   `is_accepted` tinyint(1) NOT NULL DEFAULT 0,
   `is_deleted` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`odi_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table db_luvimar.tbl_order_item: 0 rows
+-- Dumping data for table db_luvimar.tbl_order_item: 3 rows
 /*!40000 ALTER TABLE `tbl_order_item` DISABLE KEYS */;
+INSERT INTO `tbl_order_item` (`odi_id`, `od_id`, `pd_id`, `cust_id`, `branch_id`, `od_qty`, `od_price`, `od_cost`, `pd_qty_left`, `pd_type`, `odi_description`, `odi_job_description`, `is_accepted`, `is_deleted`) VALUES
+	(1, 1, 4, 1, 0, 1, 200.00, 200.00, 0.00, 'pc', 'sample2', '', 0, 0),
+	(2, 2, 2, 4, 0, 1, 200.00, 10.00, 21.00, 'pc', '', '', 0, 0),
+	(3, 2, 1, 4, 0, 1, 100.00, 100.00, 2.00, 'pc', '', '', 0, 0);
 /*!40000 ALTER TABLE `tbl_order_item` ENABLE KEYS */;
 
 -- Dumping structure for table db_luvimar.tbl_product
@@ -454,7 +552,7 @@ CREATE TABLE IF NOT EXISTS `tbl_product` (
   `pc_price` decimal(9,2) DEFAULT NULL,
   `ib_price` decimal(9,2) DEFAULT NULL,
   `bx_price` decimal(9,2) DEFAULT NULL,
-  `pc_qty` decimal(9,2) DEFAULT 0.00,
+  `pc_qty` int(100) DEFAULT NULL,
   `ib_qty` decimal(9,2) DEFAULT 0.00,
   `bx_qty` decimal(9,2) DEFAULT 0.00,
   `pd_qty` decimal(9,2) DEFAULT NULL,
@@ -463,18 +561,21 @@ CREATE TABLE IF NOT EXISTS `tbl_product` (
   `pd_image` varchar(200) DEFAULT NULL,
   `pd_thumbnail` varchar(200) DEFAULT NULL,
   `is_deleted` int(1) NOT NULL,
+  `is_added` int(1) NOT NULL,
   `date_added` varchar(50) DEFAULT NULL,
   `date_modified` varchar(50) DEFAULT NULL,
   `date_deleted` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`pd_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table db_luvimar.tbl_product: 3 rows
+-- Dumping data for table db_luvimar.tbl_product: 5 rows
 /*!40000 ALTER TABLE `tbl_product` DISABLE KEYS */;
-INSERT INTO `tbl_product` (`pd_id`, `cat_id`, `cat_parent_id`, `pd_barcode`, `pd_name`, `pd_name7`, `pd_description`, `pd_keyword`, `pd_cost`, `pc_formula`, `ib_formula`, `bx_formula`, `pc_price`, `ib_price`, `bx_price`, `pc_qty`, `ib_qty`, `bx_qty`, `pd_qty`, `pd_mqty`, `pd_expiration`, `pd_image`, `pd_thumbnail`, `is_deleted`, `date_added`, `date_modified`, `date_deleted`) VALUES
-	(1, 4, 1, '123456', '10lbs', '10lbs', '', 'Finish Product', 200.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 1.00, 0.00, 0.00, NULL, 0.00, 'August 31, 2025', '', '', 0, '2025-08-21 12:04:59', '2025-08-31 17:31:34', NULL),
-	(2, 1, 1, '', 'Nozzle', 'Nozzle', '', 'Raw Material', 20.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 1.00, 0.00, 0.00, NULL, 0.00, '', '', '', 0, '2025-08-21 12:07:17', NULL, NULL),
-	(3, 1, 1, '', 'Cylinder', 'Cylinder', '<p>123</p>', 'Raw Material', 123.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 1.00, 0.00, 0.00, NULL, 0.00, '', '', '', 0, '2025-08-22 14:15:37', NULL, NULL);
+INSERT INTO `tbl_product` (`pd_id`, `cat_id`, `cat_parent_id`, `pd_barcode`, `pd_name`, `pd_name7`, `pd_description`, `pd_keyword`, `pd_cost`, `pc_formula`, `ib_formula`, `bx_formula`, `pc_price`, `ib_price`, `bx_price`, `pc_qty`, `ib_qty`, `bx_qty`, `pd_qty`, `pd_mqty`, `pd_expiration`, `pd_image`, `pd_thumbnail`, `is_deleted`, `is_added`, `date_added`, `date_modified`, `date_deleted`) VALUES
+	(1, 6, 5, '2026017', 'Dry Chemical Fire Extinguisher 10lbs', 'Dry Chemical Fire Extinguisher 10lbs', '', 'Other Safety Products', 100.00, 0.00, 0.00, 0.00, 100.00, 0.00, 0.00, 0, 0.00, 0.00, NULL, 0.00, 'February 16, 2028', '', '', 0, 0, '2025-09-06 14:10:55', '2026-02-16 13:32:36', NULL),
+	(2, 4, 1, '2026015', 'Dry Chemical Fire Extinguisher 10lbs', 'Dry Chemical Fire Extinguisher 10lbs', '', 'Finish Product', 10.00, 0.00, 0.00, 0.00, 200.00, 0.00, 0.00, 21, 0.00, 0.00, NULL, 0.00, 'February 16, 2028', '', '', 0, 0, '2025-09-06 14:27:43', NULL, NULL),
+	(3, 6, 5, '', 'Emergency Light', 'Emergency Light', '', 'Other Safety Products', 100.00, 0.00, 0.00, 0.00, 100.00, 0.00, 0.00, 117, 0.00, 0.00, NULL, 0.00, 'September 6, 2025', '', '', 0, 0, '2025-09-06 14:43:46', '2026-02-09 22:21:57', NULL),
+	(4, 4, 1, '', 'sample product', 'sample product', '<p>sample description</p>', 'Finish Product', 200.00, 0.00, 0.00, 0.00, 200.00, 0.00, 0.00, 0, 0.00, 0.00, NULL, 0.00, 'February 10, 2028', '', '', 0, 0, '2026-02-10 12:49:58', NULL, NULL),
+	(5, 3, 2, '', 'Flashligh', 'Flashligh', '<p>asd</p>', 'Raw Material', 1.00, 0.00, 0.00, 0.00, 2.00, 0.00, 0.00, 2, 0.00, 0.00, NULL, 0.00, '', '', '', 0, 0, '2026-02-13 21:23:50', NULL, NULL);
 /*!40000 ALTER TABLE `tbl_product` ENABLE KEYS */;
 
 -- Dumping structure for table db_luvimar.tbl_production_report
@@ -489,9 +590,16 @@ CREATE TABLE IF NOT EXISTS `tbl_production_report` (
   `uid` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`pr_id`),
   KEY `jo_id` (`jo_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table db_luvimar.tbl_production_report: ~0 rows (approximately)
+-- Dumping data for table db_luvimar.tbl_production_report: ~6 rows (approximately)
+INSERT INTO `tbl_production_report` (`pr_id`, `jo_id`, `pr_num`, `added_by`, `status`, `date_added`, `is_deleted`, `uid`) VALUES
+	(1, 1, '123', '1002', 'completed', '2026-01-24', '', 'c4ca4238a0b923820dcc509a6f75849b'),
+	(2, 2, '1', '1002', 'completed', '2026-01-24', '', 'c81e728d9d4c2f636f067f89cc14862c'),
+	(3, 3, '654987', '1002', 'completed', '2026-02-01', '', 'eccbc87e4b5ce2fe28308fd9f2a7baf3'),
+	(4, 4, '12', '1002', 'completed', '2026-02-09', '', 'a87ff679a2f3e71d9181a67b7542122c'),
+	(5, 6, '022', '1002', 'completed', '2026-02-16', '', 'e4da3b7fbbce2345d7772b0674a318d5'),
+	(6, 5, '033', '1002', 'completed', '2026-02-16', '', '1679091c5a880faf6fb5e6087eb1b2dc');
 
 -- Dumping structure for table db_luvimar.tbl_product_log
 CREATE TABLE IF NOT EXISTS `tbl_product_log` (
@@ -537,9 +645,21 @@ CREATE TABLE IF NOT EXISTS `tbl_pr_items` (
   `is_deleted` int(1) DEFAULT 0,
   `is_submitted` int(1) DEFAULT 0,
   PRIMARY KEY (`pri_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table db_luvimar.tbl_pr_items: ~0 rows (approximately)
+-- Dumping data for table db_luvimar.tbl_pr_items: ~11 rows (approximately)
+INSERT INTO `tbl_pr_items` (`pri_id`, `jo_id`, `cust_id`, `branch_id`, `pd_id`, `pr_qty`, `pr_serial`, `pr_price`, `pr_description`, `part_replacement`, `pr_remarks`, `pr_date_added`, `added_by`, `date_modified`, `date_deleted`, `uid`, `is_deleted`, `is_submitted`) VALUES
+	(1, 1, 1, 1006, 1, 1, '2026006', '100.00', 'Dry Chemical Fire Extinguisher 10lbs', NULL, NULL, '2026-01-24', '1002', NULL, NULL, 'c4ca4238a0b923820dcc509a6f75849b', 0, 1),
+	(2, 1, 1, 1006, 2, 1, '2026005', '200.00', 'Dry Chemical Fire Extinguisher 10lbs', NULL, NULL, '2026-01-24', '1002', NULL, NULL, 'c81e728d9d4c2f636f067f89cc14862c', 0, 1),
+	(3, 1, 1, 1006, 3, 1, '2026004', '100.00', 'Emergency Light', NULL, NULL, '2026-01-24', '1002', NULL, NULL, 'eccbc87e4b5ce2fe28308fd9f2a7baf3', 0, 1),
+	(4, 2, 1, 1006, 1, 1, '2026009', '100.00', 'Dry Chemical Fire Extinguisher 10lbs', NULL, NULL, '2026-01-24', '1002', NULL, NULL, 'a87ff679a2f3e71d9181a67b7542122c', 0, 1),
+	(5, 2, 1, 1006, 2, 1, '2026008', '200.00', 'Dry Chemical Fire Extinguisher 10lbs', NULL, NULL, '2026-01-24', '1002', NULL, NULL, 'e4da3b7fbbce2345d7772b0674a318d5', 0, 1),
+	(6, 2, 1, 1006, 3, 1, '2026007', '100.00', 'Emergency Light', NULL, NULL, '2026-01-24', '1002', NULL, NULL, '1679091c5a880faf6fb5e6087eb1b2dc', 0, 1),
+	(7, 3, 4, 1006, 1, 1, '2026012', '100.00', '<p>Dry Chemical Fire Extinguisher 10lbs</p>', '', '', '2026-02-01', '1002', NULL, NULL, '8f14e45fceea167a5a36dedd4bea2543', 0, 1),
+	(8, 4, 1, 1006, 1, 1, '2026013', '100.00', 'Dry Chemical Fire Extinguisher 10lbs', NULL, NULL, '2026-02-09', '1002', NULL, NULL, 'c9f0f895fb98ab9159f51fd0297e236d', 0, 1),
+	(10, 6, 1, 1006, 1, 1, '2026014', '100.00', 'Dry Chemical Fire Extinguisher 10lbs', NULL, NULL, '2026-02-16', '1002', NULL, NULL, 'd3d9446802a44259755d38e6d163e820', 0, 1),
+	(11, 6, 1, 1006, 2, 1, '2026011', '200.00', 'Dry Chemical Fire Extinguisher 10lbs', NULL, NULL, '2026-02-16', '1002', NULL, NULL, '6512bd43d9caa6e02c990b0a82652dca', 0, 1),
+	(12, 5, 3, 1006, 1, 1, '2026014', '100.00', '<p>Dry Chemical Fire Extinguisher 10lbs</p>', '<p>2 gauges number 2</p>\\r\\n<p>333</p>', '<p>sample</p>', '2026-02-16', '1002', NULL, NULL, 'c20ad4d76fe97759aa27a0c99bff6710', 0, 1);
 
 -- Dumping structure for table db_luvimar.tbl_pr_list
 CREATE TABLE IF NOT EXISTS `tbl_pr_list` (
@@ -555,9 +675,21 @@ CREATE TABLE IF NOT EXISTS `tbl_pr_list` (
   `is_deleted` int(1) DEFAULT 0,
   `uid` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`prl_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table db_luvimar.tbl_pr_list: ~0 rows (approximately)
+-- Dumping data for table db_luvimar.tbl_pr_list: ~10 rows (approximately)
+INSERT INTO `tbl_pr_list` (`prl_id`, `pri_id`, `pr_id`, `pd_id`, `branch_id`, `user_id`, `added_by`, `pr_date_added`, `date_deleted`, `is_deleted`, `uid`) VALUES
+	(1, 1, 1, 1, 1006, 1002, '1002', '2026-01-24', NULL, 0, NULL),
+	(2, 2, 1, 2, 1006, 1002, '1002', '2026-01-24', NULL, 0, NULL),
+	(3, 3, 1, 3, 1006, 1002, '1002', '2026-01-24', NULL, 0, NULL),
+	(4, 4, 2, 1, 1006, 1002, '1002', '2026-01-24', NULL, 0, NULL),
+	(5, 5, 2, 2, 1006, 1002, '1002', '2026-01-24', NULL, 0, NULL),
+	(6, 6, 2, 3, 1006, 1002, '1002', '2026-01-24', NULL, 0, NULL),
+	(7, 7, 3, 1, 1006, 1002, '1002', '2026-02-01', NULL, 0, NULL),
+	(8, 8, 4, 1, 1006, 1002, '1002', '2026-02-09', NULL, 0, NULL),
+	(9, 10, 5, 1, 1006, 1002, '1002', '2026-02-16', NULL, 0, NULL),
+	(10, 11, 5, 2, 1006, 1002, '1002', '2026-02-16', NULL, 0, NULL),
+	(11, 12, 6, 1, 1006, 1002, '1002', '2026-02-16', NULL, 0, NULL);
 
 -- Dumping structure for table db_luvimar.tbl_received
 CREATE TABLE IF NOT EXISTS `tbl_received` (
@@ -655,6 +787,7 @@ CREATE TABLE IF NOT EXISTS `tbl_sms` (
   `id_sms` int(11) NOT NULL AUTO_INCREMENT,
   `pd_id` int(11) NOT NULL,
   `cust_id` int(11) NOT NULL,
+  `is_sent` int(1) NOT NULL,
   `status` varchar(100) NOT NULL DEFAULT '',
   `exp_date` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id_sms`)
@@ -665,18 +798,39 @@ CREATE TABLE IF NOT EXISTS `tbl_sms` (
 -- Dumping structure for table db_luvimar.tr_expense
 CREATE TABLE IF NOT EXISTS `tr_expense` (
   `exp_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ec_id` int(10) unsigned DEFAULT NULL,
   `amount` decimal(9,2) NOT NULL,
   `details` text NOT NULL,
   `is_deleted` tinyint(1) unsigned NOT NULL,
-  `date_added` varchar(50) DEFAULT NULL,
+  `exp_date_added` varchar(50) DEFAULT NULL,
   `date_modified` varchar(50) DEFAULT NULL,
   `date_deleted` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`exp_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  PRIMARY KEY (`exp_id`),
+  KEY `ec_id` (`ec_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table db_luvimar.tr_expense: 0 rows
+-- Dumping data for table db_luvimar.tr_expense: 1 rows
 /*!40000 ALTER TABLE `tr_expense` DISABLE KEYS */;
+INSERT INTO `tr_expense` (`exp_id`, `ec_id`, `amount`, `details`, `is_deleted`, `exp_date_added`, `date_modified`, `date_deleted`) VALUES
+	(1, 1, 100.00, '', 0, '2026-02-16', NULL, NULL);
 /*!40000 ALTER TABLE `tr_expense` ENABLE KEYS */;
+
+-- Dumping structure for table db_luvimar.tr_expense_category
+CREATE TABLE IF NOT EXISTS `tr_expense_category` (
+  `ec_id` int(11) NOT NULL AUTO_INCREMENT,
+  `expense_category_name` varchar(255) DEFAULT NULL,
+  `cat_details` varchar(1000) NOT NULL,
+  `expense` bigint(255) NOT NULL,
+  `date_added` varchar(100) NOT NULL DEFAULT '',
+  `date_deleted` varchar(100) NOT NULL DEFAULT '',
+  `date_modified` varchar(100) NOT NULL DEFAULT '',
+  `is_deleted` int(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`ec_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table db_luvimar.tr_expense_category: ~0 rows (approximately)
+INSERT INTO `tr_expense_category` (`ec_id`, `expense_category_name`, `cat_details`, `expense`, `date_added`, `date_deleted`, `date_modified`, `is_deleted`) VALUES
+	(1, 'Rental', '<p>sample</p>', 0, '2026-02-16', '', '', 0);
 
 -- Dumping structure for table db_luvimar.tr_graph_gross_current
 CREATE TABLE IF NOT EXISTS `tr_graph_gross_current` (
@@ -686,104 +840,104 @@ CREATE TABLE IF NOT EXISTS `tr_graph_gross_current` (
   `total_sales` decimal(9,2) NOT NULL,
   `od_date` date DEFAULT NULL,
   PRIMARY KEY (`sg_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15160 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=40455 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Dumping data for table db_luvimar.tr_graph_gross_current: 93 rows
 /*!40000 ALTER TABLE `tr_graph_gross_current` DISABLE KEYS */;
 INSERT INTO `tr_graph_gross_current` (`sg_id`, `branch_id`, `date_name`, `total_sales`, `od_date`) VALUES
-	(15067, 1002, 'Jun 06, 2025', 0.00, '2025-06-06'),
-	(15068, 1002, 'Jun 07, 2025', 0.00, '2025-06-07'),
-	(15069, 1002, 'Jun 08, 2025', 0.00, '2025-06-08'),
-	(15070, 1002, 'Jun 09, 2025', 0.00, '2025-06-09'),
-	(15071, 1002, 'Jun 10, 2025', 0.00, '2025-06-10'),
-	(15072, 1002, 'Jun 11, 2025', 0.00, '2025-06-11'),
-	(15073, 1002, 'Jun 12, 2025', 0.00, '2025-06-12'),
-	(15074, 1002, 'Jun 13, 2025', 0.00, '2025-06-13'),
-	(15075, 1002, 'Jun 14, 2025', 0.00, '2025-06-14'),
-	(15076, 1002, 'Jun 15, 2025', 0.00, '2025-06-15'),
-	(15077, 1002, 'Jun 16, 2025', 0.00, '2025-06-16'),
-	(15078, 1002, 'Jun 17, 2025', 0.00, '2025-06-17'),
-	(15079, 1002, 'Jun 18, 2025', 0.00, '2025-06-18'),
-	(15080, 1002, 'Jun 19, 2025', 0.00, '2025-06-19'),
-	(15081, 1002, 'Jun 20, 2025', 0.00, '2025-06-20'),
-	(15082, 1002, 'Jun 21, 2025', 0.00, '2025-06-21'),
-	(15083, 1002, 'Jun 22, 2025', 0.00, '2025-06-22'),
-	(15084, 1002, 'Jun 23, 2025', 0.00, '2025-06-23'),
-	(15085, 1002, 'Jun 24, 2025', 0.00, '2025-06-24'),
-	(15086, 1002, 'Jun 25, 2025', 0.00, '2025-06-25'),
-	(15087, 1002, 'Jun 26, 2025', 0.00, '2025-06-26'),
-	(15088, 1002, 'Jun 27, 2025', 0.00, '2025-06-27'),
-	(15089, 1002, 'Jun 28, 2025', 0.00, '2025-06-28'),
-	(15090, 1002, 'Jun 29, 2025', 0.00, '2025-06-29'),
-	(15091, 1002, 'Jun 30, 2025', 0.00, '2025-06-30'),
-	(15092, 1002, 'Jul 01, 2025', 0.00, '2025-07-01'),
-	(15093, 1002, 'Jul 02, 2025', 0.00, '2025-07-02'),
-	(15094, 1002, 'Jul 03, 2025', 0.00, '2025-07-03'),
-	(15095, 1002, 'Jul 04, 2025', 0.00, '2025-07-04'),
-	(15096, 1002, 'Jul 05, 2025', 0.00, '2025-07-05'),
-	(15097, 1002, 'Jul 06, 2025', 0.00, '2025-07-06'),
-	(15098, 1002, 'Jul 07, 2025', 0.00, '2025-07-07'),
-	(15099, 1002, 'Jul 08, 2025', 0.00, '2025-07-08'),
-	(15100, 1002, 'Jul 09, 2025', 0.00, '2025-07-09'),
-	(15101, 1002, 'Jul 10, 2025', 0.00, '2025-07-10'),
-	(15102, 1002, 'Jul 11, 2025', 0.00, '2025-07-11'),
-	(15103, 1002, 'Jul 12, 2025', 0.00, '2025-07-12'),
-	(15104, 1002, 'Jul 13, 2025', 0.00, '2025-07-13'),
-	(15105, 1002, 'Jul 14, 2025', 0.00, '2025-07-14'),
-	(15106, 1002, 'Jul 15, 2025', 0.00, '2025-07-15'),
-	(15107, 1002, 'Jul 16, 2025', 0.00, '2025-07-16'),
-	(15108, 1002, 'Jul 17, 2025', 0.00, '2025-07-17'),
-	(15109, 1002, 'Jul 18, 2025', 0.00, '2025-07-18'),
-	(15110, 1002, 'Jul 19, 2025', 0.00, '2025-07-19'),
-	(15111, 1002, 'Jul 20, 2025', 0.00, '2025-07-20'),
-	(15112, 1002, 'Jul 21, 2025', 0.00, '2025-07-21'),
-	(15113, 1002, 'Jul 22, 2025', 0.00, '2025-07-22'),
-	(15114, 1002, 'Jul 23, 2025', 0.00, '2025-07-23'),
-	(15115, 1002, 'Jul 24, 2025', 0.00, '2025-07-24'),
-	(15116, 1002, 'Jul 25, 2025', 0.00, '2025-07-25'),
-	(15117, 1002, 'Jul 26, 2025', 0.00, '2025-07-26'),
-	(15118, 1002, 'Jul 27, 2025', 0.00, '2025-07-27'),
-	(15119, 1002, 'Jul 28, 2025', 0.00, '2025-07-28'),
-	(15120, 1002, 'Jul 29, 2025', 0.00, '2025-07-29'),
-	(15121, 1002, 'Jul 30, 2025', 0.00, '2025-07-30'),
-	(15122, 1002, 'Jul 31, 2025', 0.00, '2025-07-31'),
-	(15123, 1002, 'Aug 01, 2025', 0.00, '2025-08-01'),
-	(15124, 1002, 'Aug 02, 2025', 0.00, '2025-08-02'),
-	(15125, 1002, 'Aug 03, 2025', 0.00, '2025-08-03'),
-	(15126, 1002, 'Aug 04, 2025', 0.00, '2025-08-04'),
-	(15127, 1002, 'Aug 05, 2025', 0.00, '2025-08-05'),
-	(15128, 1002, 'Aug 06, 2025', 0.00, '2025-08-06'),
-	(15129, 1002, 'Aug 07, 2025', 0.00, '2025-08-07'),
-	(15130, 1002, 'Aug 08, 2025', 0.00, '2025-08-08'),
-	(15131, 1002, 'Aug 09, 2025', 0.00, '2025-08-09'),
-	(15132, 1002, 'Aug 10, 2025', 0.00, '2025-08-10'),
-	(15133, 1002, 'Aug 11, 2025', 0.00, '2025-08-11'),
-	(15134, 1002, 'Aug 12, 2025', 0.00, '2025-08-12'),
-	(15135, 1002, 'Aug 13, 2025', 0.00, '2025-08-13'),
-	(15136, 1002, 'Aug 14, 2025', 0.00, '2025-08-14'),
-	(15137, 1002, 'Aug 15, 2025', 0.00, '2025-08-15'),
-	(15138, 1002, 'Aug 16, 2025', 0.00, '2025-08-16'),
-	(15139, 1002, 'Aug 17, 2025', 0.00, '2025-08-17'),
-	(15140, 1002, 'Aug 18, 2025', 0.00, '2025-08-18'),
-	(15141, 1002, 'Aug 19, 2025', 0.00, '2025-08-19'),
-	(15142, 1002, 'Aug 20, 2025', 1466.00, '2025-08-20'),
-	(15143, 1002, 'Aug 21, 2025', 0.00, '2025-08-21'),
-	(15144, 1002, 'Aug 22, 2025', 0.00, '2025-08-22'),
-	(15145, 1002, 'Aug 23, 2025', 0.00, '2025-08-23'),
-	(15146, 1002, 'Aug 24, 2025', 0.00, '2025-08-24'),
-	(15147, 1002, 'Aug 25, 2025', 0.00, '2025-08-25'),
-	(15148, 1002, 'Aug 26, 2025', 0.00, '2025-08-26'),
-	(15149, 1002, 'Aug 27, 2025', 0.00, '2025-08-27'),
-	(15150, 1002, 'Aug 28, 2025', 0.00, '2025-08-28'),
-	(15151, 1002, 'Aug 29, 2025', 1599.00, '2025-08-29'),
-	(15152, 1002, 'Aug 30, 2025', 0.00, '2025-08-30'),
-	(15153, 1002, 'Aug 31, 2025', 400.00, '2025-08-31'),
-	(15154, 1002, 'Sep 01, 2025', 0.00, '2025-09-01'),
-	(15155, 1002, 'Sep 02, 2025', 0.00, '2025-09-02'),
-	(15156, 1002, 'Sep 03, 2025', 0.00, '2025-09-03'),
-	(15157, 1002, 'Sep 04, 2025', 0.00, '2025-09-04'),
-	(15158, 1002, 'Sep 05, 2025', 0.00, '2025-09-05'),
-	(15159, 1002, 'Sep 06, 2025', 0.00, '2025-09-06');
+	(40362, 1002, 'Nov 16, 2025', 0.00, '2025-11-16'),
+	(40363, 1002, 'Nov 17, 2025', 0.00, '2025-11-17'),
+	(40364, 1002, 'Nov 18, 2025', 0.00, '2025-11-18'),
+	(40365, 1002, 'Nov 19, 2025', 0.00, '2025-11-19'),
+	(40366, 1002, 'Nov 20, 2025', 0.00, '2025-11-20'),
+	(40367, 1002, 'Nov 21, 2025', 0.00, '2025-11-21'),
+	(40368, 1002, 'Nov 22, 2025', 0.00, '2025-11-22'),
+	(40369, 1002, 'Nov 23, 2025', 0.00, '2025-11-23'),
+	(40370, 1002, 'Nov 24, 2025', 0.00, '2025-11-24'),
+	(40371, 1002, 'Nov 25, 2025', 0.00, '2025-11-25'),
+	(40372, 1002, 'Nov 26, 2025', 0.00, '2025-11-26'),
+	(40373, 1002, 'Nov 27, 2025', 0.00, '2025-11-27'),
+	(40374, 1002, 'Nov 28, 2025', 0.00, '2025-11-28'),
+	(40375, 1002, 'Nov 29, 2025', 0.00, '2025-11-29'),
+	(40376, 1002, 'Nov 30, 2025', 0.00, '2025-11-30'),
+	(40377, 1002, 'Dec 01, 2025', 0.00, '2025-12-01'),
+	(40378, 1002, 'Dec 02, 2025', 0.00, '2025-12-02'),
+	(40379, 1002, 'Dec 03, 2025', 0.00, '2025-12-03'),
+	(40380, 1002, 'Dec 04, 2025', 0.00, '2025-12-04'),
+	(40381, 1002, 'Dec 05, 2025', 0.00, '2025-12-05'),
+	(40382, 1002, 'Dec 06, 2025', 0.00, '2025-12-06'),
+	(40383, 1002, 'Dec 07, 2025', 0.00, '2025-12-07'),
+	(40384, 1002, 'Dec 08, 2025', 0.00, '2025-12-08'),
+	(40385, 1002, 'Dec 09, 2025', 0.00, '2025-12-09'),
+	(40386, 1002, 'Dec 10, 2025', 0.00, '2025-12-10'),
+	(40387, 1002, 'Dec 11, 2025', 0.00, '2025-12-11'),
+	(40388, 1002, 'Dec 12, 2025', 0.00, '2025-12-12'),
+	(40389, 1002, 'Dec 13, 2025', 0.00, '2025-12-13'),
+	(40390, 1002, 'Dec 14, 2025', 0.00, '2025-12-14'),
+	(40391, 1002, 'Dec 15, 2025', 0.00, '2025-12-15'),
+	(40392, 1002, 'Dec 16, 2025', 0.00, '2025-12-16'),
+	(40393, 1002, 'Dec 17, 2025', 0.00, '2025-12-17'),
+	(40394, 1002, 'Dec 18, 2025', 0.00, '2025-12-18'),
+	(40395, 1002, 'Dec 19, 2025', 0.00, '2025-12-19'),
+	(40396, 1002, 'Dec 20, 2025', 0.00, '2025-12-20'),
+	(40397, 1002, 'Dec 21, 2025', 0.00, '2025-12-21'),
+	(40398, 1002, 'Dec 22, 2025', 0.00, '2025-12-22'),
+	(40399, 1002, 'Dec 23, 2025', 0.00, '2025-12-23'),
+	(40400, 1002, 'Dec 24, 2025', 0.00, '2025-12-24'),
+	(40401, 1002, 'Dec 25, 2025', 0.00, '2025-12-25'),
+	(40402, 1002, 'Dec 26, 2025', 0.00, '2025-12-26'),
+	(40403, 1002, 'Dec 27, 2025', 0.00, '2025-12-27'),
+	(40404, 1002, 'Dec 28, 2025', 0.00, '2025-12-28'),
+	(40405, 1002, 'Dec 29, 2025', 0.00, '2025-12-29'),
+	(40406, 1002, 'Dec 30, 2025', 0.00, '2025-12-30'),
+	(40407, 1002, 'Dec 31, 2025', 0.00, '2025-12-31'),
+	(40408, 1002, 'Jan 01, 2026', 0.00, '2026-01-01'),
+	(40409, 1002, 'Jan 02, 2026', 0.00, '2026-01-02'),
+	(40410, 1002, 'Jan 03, 2026', 0.00, '2026-01-03'),
+	(40411, 1002, 'Jan 04, 2026', 0.00, '2026-01-04'),
+	(40412, 1002, 'Jan 05, 2026', 0.00, '2026-01-05'),
+	(40413, 1002, 'Jan 06, 2026', 0.00, '2026-01-06'),
+	(40414, 1002, 'Jan 07, 2026', 0.00, '2026-01-07'),
+	(40415, 1002, 'Jan 08, 2026', 0.00, '2026-01-08'),
+	(40416, 1002, 'Jan 09, 2026', 0.00, '2026-01-09'),
+	(40417, 1002, 'Jan 10, 2026', 0.00, '2026-01-10'),
+	(40418, 1002, 'Jan 11, 2026', 0.00, '2026-01-11'),
+	(40419, 1002, 'Jan 12, 2026', 0.00, '2026-01-12'),
+	(40420, 1002, 'Jan 13, 2026', 0.00, '2026-01-13'),
+	(40421, 1002, 'Jan 14, 2026', 0.00, '2026-01-14'),
+	(40422, 1002, 'Jan 15, 2026', 0.00, '2026-01-15'),
+	(40423, 1002, 'Jan 16, 2026', 0.00, '2026-01-16'),
+	(40424, 1002, 'Jan 17, 2026', 0.00, '2026-01-17'),
+	(40425, 1002, 'Jan 18, 2026', 0.00, '2026-01-18'),
+	(40426, 1002, 'Jan 19, 2026', 0.00, '2026-01-19'),
+	(40427, 1002, 'Jan 20, 2026', 0.00, '2026-01-20'),
+	(40428, 1002, 'Jan 21, 2026', 0.00, '2026-01-21'),
+	(40429, 1002, 'Jan 22, 2026', 0.00, '2026-01-22'),
+	(40430, 1002, 'Jan 23, 2026', 0.00, '2026-01-23'),
+	(40431, 1002, 'Jan 24, 2026', 0.00, '2026-01-24'),
+	(40432, 1002, 'Jan 25, 2026', 0.00, '2026-01-25'),
+	(40433, 1002, 'Jan 26, 2026', 0.00, '2026-01-26'),
+	(40434, 1002, 'Jan 27, 2026', 0.00, '2026-01-27'),
+	(40435, 1002, 'Jan 28, 2026', 0.00, '2026-01-28'),
+	(40436, 1002, 'Jan 29, 2026', 0.00, '2026-01-29'),
+	(40437, 1002, 'Jan 30, 2026', 0.00, '2026-01-30'),
+	(40438, 1002, 'Jan 31, 2026', 0.00, '2026-01-31'),
+	(40439, 1002, 'Feb 01, 2026', 0.00, '2026-02-01'),
+	(40440, 1002, 'Feb 02, 2026', 0.00, '2026-02-02'),
+	(40441, 1002, 'Feb 03, 2026', 0.00, '2026-02-03'),
+	(40442, 1002, 'Feb 04, 2026', 0.00, '2026-02-04'),
+	(40443, 1002, 'Feb 05, 2026', 0.00, '2026-02-05'),
+	(40444, 1002, 'Feb 06, 2026', 0.00, '2026-02-06'),
+	(40445, 1002, 'Feb 07, 2026', 0.00, '2026-02-07'),
+	(40446, 1002, 'Feb 08, 2026', 0.00, '2026-02-08'),
+	(40447, 1002, 'Feb 09, 2026', 0.00, '2026-02-09'),
+	(40448, 1002, 'Feb 10, 2026', 200.00, '2026-02-10'),
+	(40449, 1002, 'Feb 11, 2026', 0.00, '2026-02-11'),
+	(40450, 1002, 'Feb 12, 2026', 0.00, '2026-02-12'),
+	(40451, 1002, 'Feb 13, 2026', 0.00, '2026-02-13'),
+	(40452, 1002, 'Feb 14, 2026', 0.00, '2026-02-14'),
+	(40453, 1002, 'Feb 15, 2026', 0.00, '2026-02-15'),
+	(40454, 1002, 'Feb 16, 2026', 300.00, '2026-02-16');
 /*!40000 ALTER TABLE `tr_graph_gross_current` ENABLE KEYS */;
 
 -- Dumping structure for table db_luvimar.tr_graph_net_current
@@ -794,15 +948,15 @@ CREATE TABLE IF NOT EXISTS `tr_graph_net_current` (
   `total_sales` decimal(9,2) NOT NULL,
   `od_date` date DEFAULT NULL,
   PRIMARY KEY (`sg_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=653 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=1741 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Dumping data for table db_luvimar.tr_graph_net_current: 4 rows
 /*!40000 ALTER TABLE `tr_graph_net_current` DISABLE KEYS */;
 INSERT INTO `tr_graph_net_current` (`sg_id`, `branch_id`, `date_name`, `total_sales`, `od_date`) VALUES
-	(649, 1002, 'Sep 03, 2025', 0.00, '2025-09-03'),
-	(650, 1002, 'Sep 04, 2025', 0.00, '2025-09-04'),
-	(651, 1002, 'Sep 05, 2025', 0.00, '2025-09-05'),
-	(652, 1002, 'Sep 06, 2025', 0.00, '2025-09-06');
+	(1737, 1002, 'Feb 13, 2026', 0.00, '2026-02-13'),
+	(1738, 1002, 'Feb 14, 2026', 0.00, '2026-02-14'),
+	(1739, 1002, 'Feb 15, 2026', 0.00, '2026-02-15'),
+	(1740, 1002, 'Feb 16, 2026', 110.00, '2026-02-16');
 /*!40000 ALTER TABLE `tr_graph_net_current` ENABLE KEYS */;
 
 -- Dumping structure for table db_luvimar.tr_graph_product_current
@@ -815,12 +969,15 @@ CREATE TABLE IF NOT EXISTS `tr_graph_product_current` (
   `od_date` date DEFAULT NULL,
   `pd_type` varchar(70) NOT NULL,
   PRIMARY KEY (`sg_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table db_luvimar.tr_graph_product_current: 1 rows
+-- Dumping data for table db_luvimar.tr_graph_product_current: 4 rows
 /*!40000 ALTER TABLE `tr_graph_product_current` DISABLE KEYS */;
 INSERT INTO `tr_graph_product_current` (`sg_id`, `branch_id`, `pd_id`, `pd_name`, `total_qty`, `od_date`, `pd_type`) VALUES
-	(1, 0, 1, '10lbs', 7.00, '2025-08-31', 'pc');
+	(1, 0, 1, '10lbs', 11.00, '2026-02-16', 'pc'),
+	(2, 0, 2, 'Dry Chemical Fire Extinguisher 10lbs', 2.00, '2026-02-16', 'pc'),
+	(3, 0, 3, 'Emergency Light', 5.00, '2025-09-06', 'pc'),
+	(4, 0, 4, 'sample product', 1.00, '2026-02-10', 'pc');
 /*!40000 ALTER TABLE `tr_graph_product_current` ENABLE KEYS */;
 
 -- Dumping structure for table db_luvimar.tr_log
@@ -833,9 +990,9 @@ CREATE TABLE IF NOT EXISTS `tr_log` (
   `log_action_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `action_by` (`action_by`)
-) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=228 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table db_luvimar.tr_log: 59 rows
+-- Dumping data for table db_luvimar.tr_log: 227 rows
 /*!40000 ALTER TABLE `tr_log` DISABLE KEYS */;
 INSERT INTO `tr_log` (`id`, `action`, `description`, `category`, `action_by`, `log_action_date`) VALUES
 	(1, 'Product added', '10lbs', 'product', '1002', '2025-08-21 12:04:59'),
@@ -896,7 +1053,175 @@ INSERT INTO `tr_log` (`id`, `action`, `description`, `category`, `action_by`, `l
 	(56, 'Job order Item deleted', 'Job order item', 'product', '1002', '2025-09-06 09:17:58'),
 	(57, 'Production Report added', '3', 'production', '1002', '2025-09-06 09:18:14'),
 	(58, 'Production Report added', '133', 'production', '1002', '2025-09-06 09:32:07'),
-	(59, 'Production Report added', '1', 'production', '1002', '2025-09-06 09:36:22');
+	(59, 'Production Report added', '1', 'production', '1002', '2025-09-06 09:36:22'),
+	(60, 'Product added', 'Dry Chemical Fire Extinguisher 10lbs', 'product', '1002', '2025-09-06 14:10:55'),
+	(61, 'Customer added', 'Juan De la Cruz', 'customer', '1002', '2025-09-06 14:12:38'),
+	(62, 'job order added', '', 'product', '1002', '2025-09-06 14:15:29'),
+	(63, 'Production modified', '', 'product', '1002', '2025-09-06 14:23:04'),
+	(64, 'Product added', 'Dry Chemical Fire Extinguisher 10lbs', 'product', '1002', '2025-09-06 14:27:43'),
+	(65, 'Product added', 'Emergency Light', 'product', '1002', '2025-09-06 14:43:46'),
+	(66, 'Customer added', 'Walk In', 'customer', '1002', '2025-09-06 14:44:59'),
+	(67, 'Beginning balance added', '2025-09-06 14:46:57 - 1000', 'beginning balance', '1002', '2025-09-06 14:46:57'),
+	(68, 'Expense added', '500', 'expense', '1002', '2025-09-06 00:00:00'),
+	(69, 'Product modified', 'Emergency Light', 'product', '1002', '2026-01-05 10:12:31'),
+	(70, 'job order added', '', 'product', '1002', '2026-01-06 16:31:23'),
+	(71, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-06 16:34:31'),
+	(72, 'job order added', '', 'product', '1002', '2026-01-07 09:37:48'),
+	(73, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 09:37:51'),
+	(74, 'job order added', '', 'product', '1002', '2026-01-07 09:38:01'),
+	(75, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 09:38:04'),
+	(76, 'job order added', '', 'product', '1002', '2026-01-07 10:51:29'),
+	(77, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 10:51:41'),
+	(78, 'job order added', '', 'product', '1002', '2026-01-07 11:16:57'),
+	(79, 'job order added', '', 'product', '1002', '2026-01-07 11:17:04'),
+	(80, 'job order added', '', 'product', '1002', '2026-01-07 14:25:39'),
+	(81, 'job order added', '', 'product', '1002', '2026-01-07 14:25:47'),
+	(82, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 14:32:05'),
+	(83, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 14:32:05'),
+	(84, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 14:32:20'),
+	(85, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 14:32:21'),
+	(86, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 15:00:32'),
+	(87, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 15:00:33'),
+	(88, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 15:01:01'),
+	(89, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 15:01:02'),
+	(90, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 15:07:38'),
+	(91, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 15:07:39'),
+	(92, 'job order added', '', 'product', '1002', '2026-01-07 15:14:59'),
+	(93, 'job order added', '', 'product', '1002', '2026-01-07 15:15:10'),
+	(94, 'job order added', '', 'product', '1002', '2026-01-07 16:10:25'),
+	(95, 'job order added', '', 'product', '1002', '2026-01-07 16:10:34'),
+	(96, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 16:10:50'),
+	(97, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 16:11:13'),
+	(98, 'job order added', '', 'product', '1002', '2026-01-07 16:11:22'),
+	(99, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-07 16:33:02'),
+	(100, 'job order added', '', 'product', '1002', '2026-01-07 16:33:16'),
+	(101, 'job order added', '', 'product', '1002', '2026-01-07 16:33:23'),
+	(102, 'job order added', '', 'product', '1002', '2026-01-07 16:36:22'),
+	(103, 'job order added', '', 'product', '1002', '2026-01-07 16:36:29'),
+	(104, 'job order added', '', 'product', '1002', '2026-01-07 16:38:09'),
+	(105, 'job order added', '', 'product', '1002', '2026-01-07 16:38:30'),
+	(106, 'job order added', '', 'product', '1002', '2026-01-07 16:40:55'),
+	(107, 'job order added', '', 'product', '1002', '2026-01-07 16:41:02'),
+	(108, 'job order added', '', 'product', '1002', '2026-01-07 16:46:39'),
+	(109, 'job order added', '', 'product', '1002', '2026-01-07 16:46:49'),
+	(110, 'job order added', '', 'product', '1002', '2026-01-07 16:50:55'),
+	(111, 'job order added', '', 'product', '1002', '2026-01-07 16:50:59'),
+	(112, 'job order added', '', 'product', '1002', '2026-01-07 16:51:03'),
+	(113, 'job order added', '', 'product', '1002', '2026-01-07 16:56:16'),
+	(114, 'job order added', '', 'product', '1002', '2026-01-07 16:56:19'),
+	(115, 'job order added', '', 'product', '1002', '2026-01-07 16:56:23'),
+	(116, 'job order added', '', 'product', '1002', '2026-01-07 17:00:25'),
+	(117, 'job order added', '', 'product', '1002', '2026-01-07 17:00:30'),
+	(118, 'job order added', '', 'product', '1002', '2026-01-07 17:00:34'),
+	(119, 'job order added', '', 'product', '1002', '2026-01-07 17:04:59'),
+	(120, 'job order added', '', 'product', '1002', '2026-01-07 17:05:02'),
+	(121, 'job order added', '', 'product', '1002', '2026-01-07 17:05:06'),
+	(122, 'job order added', '', 'product', '1002', '2026-01-07 17:07:33'),
+	(123, 'job order added', '', 'product', '1002', '2026-01-07 17:07:49'),
+	(124, 'job order added', '', 'product', '1002', '2026-01-07 17:07:52'),
+	(125, 'job order added', '', 'product', '1002', '2026-01-07 17:11:16'),
+	(126, 'job order added', '', 'product', '1002', '2026-01-07 17:11:20'),
+	(127, 'job order added', '', 'product', '1002', '2026-01-07 17:11:29'),
+	(128, 'job order added', '', 'product', '1002', '2026-01-07 17:13:34'),
+	(129, 'job order added', '', 'product', '1002', '2026-01-07 17:13:37'),
+	(130, 'job order added', '', 'product', '1002', '2026-01-07 17:13:43'),
+	(131, 'job order added', '', 'product', '1002', '2026-01-07 17:14:09'),
+	(132, 'job order added', '', 'product', '1002', '2026-01-07 17:14:12'),
+	(133, 'job order added', '', 'product', '1002', '2026-01-07 17:14:19'),
+	(134, 'job order added', '', 'product', '1002', '2026-01-07 17:17:35'),
+	(135, 'job order added', '', 'product', '1002', '2026-01-07 17:17:39'),
+	(136, 'job order added', '', 'product', '1002', '2026-01-07 17:17:42'),
+	(137, 'job order added', '', 'product', '1002', '2026-01-07 17:19:55'),
+	(138, 'job order added', '', 'product', '1002', '2026-01-07 17:19:59'),
+	(139, 'job order added', '', 'product', '1002', '2026-01-07 17:20:02'),
+	(140, 'job order added', '', 'product', '1002', '2026-01-07 17:21:17'),
+	(141, 'job order added', '', 'product', '1002', '2026-01-07 17:21:23'),
+	(142, 'job order added', '', 'product', '1002', '2026-01-07 17:21:28'),
+	(143, 'job order added', '', 'product', '1002', '2026-01-07 17:23:42'),
+	(144, 'job order added', '', 'product', '1002', '2026-01-07 17:23:56'),
+	(145, 'job order added', '', 'product', '1002', '2026-01-07 17:23:59'),
+	(146, 'job order added', '', 'product', '1002', '2026-01-07 17:26:32'),
+	(147, 'job order added', '', 'product', '1002', '2026-01-07 17:26:35'),
+	(148, 'job order added', '', 'product', '1002', '2026-01-07 17:26:38'),
+	(149, 'job order added', '', 'product', '1002', '2026-01-07 17:27:44'),
+	(150, 'job order added', '', 'product', '1002', '2026-01-07 17:27:47'),
+	(151, 'job order added', '', 'product', '1002', '2026-01-07 17:27:50'),
+	(152, 'job order added', '', 'product', '1002', '2026-01-07 17:29:22'),
+	(153, 'job order added', '', 'product', '1002', '2026-01-07 17:29:26'),
+	(154, 'job order added', '', 'product', '1002', '2026-01-07 17:29:28'),
+	(155, 'job order added', '', 'product', '1002', '2026-01-09 17:17:03'),
+	(156, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-09 17:17:09'),
+	(157, 'Expense added', '', 'expense', '1002', '2026-01-09 00:00:00'),
+	(158, 'Customer added', 'Luvimar', 'customer', '1002', '2026-01-09 21:07:56'),
+	(159, 'job order added', '', 'product', '1002', '2026-01-09 21:09:10'),
+	(160, 'job order added', '', 'product', '1002', '2026-01-09 21:10:38'),
+	(161, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-09 21:20:43'),
+	(162, 'job order added', '', 'product', '1002', '2026-01-09 21:23:52'),
+	(163, 'job order added', '', 'product', '1002', '2026-01-09 21:24:09'),
+	(164, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-09 21:24:24'),
+	(165, 'Production modified', '', 'product', '1002', '2026-01-09 21:26:31'),
+	(166, 'job order added', '', 'product', '1002', '2026-01-09 21:37:45'),
+	(167, 'job order added', '', 'product', '1002', '2026-01-09 21:37:55'),
+	(168, 'job order added', '', 'product', '1002', '2026-01-09 21:40:40'),
+	(169, 'job order added', '', 'product', '1002', '2026-01-09 21:40:46'),
+	(170, 'job order added', '', 'product', '1002', '2026-01-09 21:40:52'),
+	(171, 'job order added', '', 'product', '1002', '2026-01-09 21:42:20'),
+	(172, 'job order added', '', 'product', '1002', '2026-01-18 11:01:46'),
+	(173, 'job order added', '', 'product', '1002', '2026-01-18 11:01:53'),
+	(174, 'job order added', '', 'product', '1002', '2026-01-18 11:01:58'),
+	(175, 'job order added', '', 'product', '1002', '2026-01-18 11:02:45'),
+	(176, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-18 11:04:16'),
+	(177, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-18 11:04:24'),
+	(178, 'job order added', '', 'product', '1002', '2026-01-18 11:05:33'),
+	(179, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-01-18 11:05:36'),
+	(180, 'Expense added', '', 'expense', '1002', '2026-01-19 00:00:00'),
+	(181, 'Expense Category deleted', '2', 'expense', '1002', '2026-01-19 10:33:32'),
+	(182, 'Expense Category deleted', '1', 'expense', '1002', '2026-01-19 10:52:31'),
+	(183, 'Expense added', '', 'expense', '1002', '2026-01-19 00:00:00'),
+	(184, 'Expense added', '', 'expense', '1002', '2026-01-19 00:00:00'),
+	(185, 'Expense added', '', 'expense', '1002', '2026-01-19 00:00:00'),
+	(186, 'Expense NAme', '3', 'expense', '1002', '2026-01-19 11:01:20'),
+	(187, 'Expense NAme', '3', 'expense', '1002', '2026-01-19 11:01:23'),
+	(188, 'Expense NAme', '3', 'expense', '1002', '2026-01-19 11:04:05'),
+	(189, 'Expense NAme', '5', 'expense', '1002', '2026-01-19 11:07:06'),
+	(190, 'Expense NAme', '4', 'expense', '1002', '2026-01-19 11:07:08'),
+	(191, 'Expense Category deleted', '5', 'expense', '1002', '2026-01-19 11:07:14'),
+	(192, 'Expense Category deleted', '4', 'expense', '1002', '2026-01-19 11:07:16'),
+	(193, 'Expense Category deleted', '3', 'expense', '1002', '2026-01-19 11:07:18'),
+	(194, 'Expense added', '', 'expense', '1002', '2026-01-24 00:00:00'),
+	(195, 'Expense added', '1000', 'expense', '1002', '2026-01-24 00:00:00'),
+	(196, 'job order added', '', 'product', '1002', '2026-01-24 11:41:02'),
+	(197, 'job order added', '', 'product', '1002', '2026-01-24 11:41:18'),
+	(198, 'job order added', '', 'product', '1002', '2026-01-24 11:41:29'),
+	(199, 'job order added', '', 'product', '1002', '2026-01-24 12:27:21'),
+	(200, 'job order added', '', 'product', '1002', '2026-01-24 12:27:35'),
+	(201, 'job order added', '', 'product', '1002', '2026-01-24 12:27:48'),
+	(202, 'Customer added', 'luvim', 'customer', '1002', '2026-02-01 19:31:19'),
+	(203, 'job order added', '', 'product', '1002', '2026-02-01 19:32:13'),
+	(204, 'Production modified', '', 'product', '1002', '2026-02-01 19:33:10'),
+	(205, 'Product modified', 'Dry Chemical Fire Extinguisher 10lbs', 'product', '1002', '2026-02-01 19:35:04'),
+	(206, 'Expense added', '', 'expense', '1002', '2026-02-01 00:00:00'),
+	(207, 'Expense added', '155', 'expense', '1002', '2026-02-01 00:00:00'),
+	(208, 'Expense added', '100', 'expense', '1002', '2026-02-01 00:00:00'),
+	(209, 'Product modified', 'Dry Chemical Fire Extinguisher 10lbs', 'product', '1002', '2026-02-01 19:40:39'),
+	(210, 'Expense added', '100', 'expense', '1002', '2026-02-09 00:00:00'),
+	(211, 'Product modified', 'Emergency Light', 'product', '1002', '2026-02-09 22:21:57'),
+	(212, 'job order added', '', 'product', '1002', '2026-02-09 22:27:17'),
+	(213, 'Product added', 'sample product', 'product', '1002', '2026-02-10 12:49:58'),
+	(214, 'Product added', 'Flashligh', 'product', '1002', '2026-02-13 21:23:50'),
+	(215, 'Expense added', '1000', 'expense', '1002', '2026-02-13 00:00:00'),
+	(216, 'Expense Category deleted', '7', 'expense', '1002', '2026-02-13 22:33:47'),
+	(217, 'Expense Category deleted', '6', 'expense', '1002', '2026-02-13 22:33:51'),
+	(218, 'Expense Category deleted', '2', 'expense', '1002', '2026-02-13 22:33:54'),
+	(219, 'job order added', '', 'product', '1002', '2026-02-16 12:24:21'),
+	(220, 'job order added', '', 'product', '1002', '2026-02-16 12:38:43'),
+	(221, 'job order added', '', 'product', '1002', '2026-02-16 12:38:58'),
+	(222, 'Job order Item deleted', 'Job order item', 'product', '1002', '2026-02-16 12:39:12'),
+	(223, 'Production modified', '', 'product', '1002', '2026-02-16 12:47:10'),
+	(224, 'Production modified', '', 'product', '1002', '2026-02-16 12:49:15'),
+	(225, 'Product modified', 'Dry Chemical Fire Extinguisher 10lbs', 'product', '1002', '2026-02-16 13:32:36'),
+	(226, 'Expense added', '', 'expense', '1002', '2026-02-16 00:00:00'),
+	(227, 'Expense added', '100', 'expense', '1002', '2026-02-16 00:00:00');
 /*!40000 ALTER TABLE `tr_log` ENABLE KEYS */;
 
 -- Dumping structure for table db_luvimar.tr_login_attempt
@@ -911,9 +1236,9 @@ CREATE TABLE IF NOT EXISTS `tr_login_attempt` (
   `datetime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `idnumber` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table db_luvimar.tr_login_attempt: 17 rows
+-- Dumping data for table db_luvimar.tr_login_attempt: 35 rows
 /*!40000 ALTER TABLE `tr_login_attempt` DISABLE KEYS */;
 INSERT INTO `tr_login_attempt` (`id`, `rand`, `ip`, `username`, `password`, `status`, `auth`, `datetime`, `idnumber`) VALUES
 	(1, 3877, '::1', 'admin', '1234', 0, 0, '2025-08-21 11:56:55', ''),
@@ -932,7 +1257,25 @@ INSERT INTO `tr_login_attempt` (`id`, `rand`, `ip`, `username`, `password`, `sta
 	(14, 2390, '::1', 'admin', '1234', 0, 0, '2025-09-04 16:16:01', ''),
 	(15, 5984, '::1', 'admin', '1234', 0, 0, '2025-09-05 21:12:53', ''),
 	(16, 8153, '::1', 'admin', '1234', 0, 0, '2025-09-06 07:29:04', ''),
-	(17, 5726, '::1', 'admin', '1234', 0, 0, '2025-09-06 09:09:25', '');
+	(17, 5726, '::1', 'admin', '1234', 0, 0, '2025-09-06 09:09:25', ''),
+	(18, 6724, '::1', 'admin', '1234', 0, 0, '2025-09-06 14:06:11', ''),
+	(19, 8848, '::1', 'admin', '1234', 0, 0, '2025-09-09 13:16:29', ''),
+	(20, 7422, '::1', 'admin', '1234', 0, 0, '2026-01-02 17:42:01', ''),
+	(21, 6337, '::1', 'admin', '1234', 0, 0, '2026-01-05 10:00:51', ''),
+	(22, 4625, '::1', 'admin', '1234', 0, 0, '2026-01-06 09:28:22', ''),
+	(23, 7996, '::1', 'admin', '1234', 0, 0, '2026-01-07 09:37:13', ''),
+	(24, 7938, '::1', 'admin', '1234', 0, 0, '2026-01-09 17:00:15', ''),
+	(25, 5395, '::1', 'admin', '1234', 0, 0, '2026-01-09 21:02:34', ''),
+	(26, 6363, '::1', 'admin', '1234', 0, 0, '2026-01-18 10:55:37', ''),
+	(27, 1052, '::1', 'admin', '1234', 0, 0, '2026-01-19 09:38:02', ''),
+	(28, 2914, '::1', 'admin', '1234', 0, 0, '2026-01-24 11:06:38', ''),
+	(29, 3594, '::1', 'admin', '1234', 0, 0, '2026-02-01 19:26:21', ''),
+	(30, 2878, '::1', 'admin', '1234', 0, 0, '2026-02-01 19:29:20', ''),
+	(31, 5350, '::1', 'admin', '1234', 0, 0, '2026-02-09 22:20:29', ''),
+	(32, 5890, '::1', 'admin', '1234', 0, 0, '2026-02-10 11:43:09', ''),
+	(33, 8016, '::1', 'admin', '1234', 0, 0, '2026-02-13 21:10:48', ''),
+	(34, 5043, '::1', 'admin', '1234', 0, 0, '2026-02-13 21:31:57', ''),
+	(35, 3192, '::1', 'admin', '1234', 0, 0, '2026-02-16 12:18:44', '');
 /*!40000 ALTER TABLE `tr_login_attempt` ENABLE KEYS */;
 
 -- Dumping structure for table db_luvimar.tr_payment

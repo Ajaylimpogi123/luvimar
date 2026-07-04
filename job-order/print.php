@@ -53,7 +53,7 @@ if ($joId) {
         </style>
         <div class="header">
             <h3>LUVIMAR FIRE CONTROL AVENUE</h3>
-            <p>Terra Plaza, Cor. Rizal - Gatualas Sts., Bacolod City</p>
+            <p>Terra Plaza, Cor. Rizal - Gatuslao Sts., Bacolod City</p>
             <p>Tel. Nos: 476-2612 / 708-6185 / 213-2714</p>
             <p>Mobile Nos: 0949-3934805 / 0912-5374747</p>
             <strong>JOB ORDER SLIP</strong> - <strong>No. ' . $Job_order_no . '</strong>
@@ -72,8 +72,8 @@ if ($joId) {
         ';
 
 
-        $jol = $conn->prepare("SELECT * FROM tbl_jo_list jol, tbl_jo_items joi,  bs_customer cus, bs_user us 
-        WHERE jol.jo_id = '$joId' AND joi.joi_id = jol.joi_id  AND jol.user_id = us.user_id AND cus.cust_id = joi.cust_id AND joi.is_submitted = '1'");
+        $jol = $conn->prepare("SELECT * FROM tbl_jo_list jol, tbl_jo_items joi,  bs_user us 
+        WHERE jol.jo_id = '$joId' AND joi.joi_id = jol.joi_id  AND jol.user_id = us.user_id  AND joi.is_submitted = '1'");
         $jol->execute();
 
         $counter = 1;
@@ -82,14 +82,22 @@ if ($joId) {
 
         while ($jol_data = $jol->fetch()) {
             $date = $jol_data['joi_date_added'];
-            $custName = $jol_data['client_name'];
+
+            $custId = $jol_data['cust_id'];
+            
             $qty = $jol_data['qty'];
             $decription = $jol_data['description'];
             $jo_decription = $jol_data['job_description'];
             $date_needed = $jol_data['date_needed'];
             $remarks = $jol_data['remarks'];
 
-            // Example static row (replace with actual DB query if needed)
+            $cus = $conn->prepare("SELECT * FROM bs_customer WHERE cust_id = '$custId' AND is_deleted != '1'");
+            $cus->execute();
+            
+            while($cus_data = $cus->fetch()){
+
+            $custName = $cus_data['client_name'];
+         // Example static row (replace with actual DB query if needed)
             $html .= '
             <tr>
                 <td> ' . date("F j, Y", strtotime($date)) . '</td>
@@ -101,6 +109,11 @@ if ($joId) {
                 <td>' . $remarks . '</td>
             </tr>
         ';
+
+
+            }
+
+          
         };
         $html .= '</table>';
 

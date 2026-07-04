@@ -81,11 +81,22 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 							$sel_data = $sel->fetch();
 
 							$branchId = $sel_data['branch_id'];
+							$priId = $sel_data['pri_id'];
 
-							$cust = $conn->prepare("SELECT * FROM bs_branch WHERE branch_id = '$branchId'");
+							$pri = $conn->prepare("SELECT * FROM tbl_pr_items WHERE pri_id = '$priId' AND is_deleted != '1'");
+							$pri->execute();
+							$pri_data = $pri->fetch();
+							$custId = $pri_data['cust_id']; 
+
+							$brn = $conn->prepare("SELECT * FROM bs_branch WHERE branch_id = '$branchId'");
+							$brn->execute();
+							$brn_data = $brn->fetch();
+							$branchName = $brn_data['branch_name'];
+
+							$cust = $conn->prepare("SELECT * FROM bs_customer WHERE cust_id = '$custId'");
 							$cust->execute();
 							$cust_data = $cust->fetch();
-							$custName = $cust_data['branch_name'];
+							$custName = $cust_data['customer_name'];
 
 							$status = $sql_data['status'];
 
@@ -110,7 +121,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 							<tr>
 								<td><?php echo $jo_data['job_order_number']; ?></td>
 								<td><?php echo $sql_data['pr_num']; ?></td>
-								<td><?php echo $custName; ?></td>
+								<td><?php echo $branchName; ?></td>
 								<td><?php echo $custName; ?></td>
 								<td><?php echo $status ?></td>
 								<td><?php echo date("F j, Y", strtotime($sql_data['date_added'])); ?></td>
@@ -122,10 +133,10 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 										echo "-- --";
 									} ?>
 									<?php if ($user_data['is_prod_d_access'] == 1) { ?>
-										<a class="btn btn-danger" href="javascript:del(<?php echo $sql_data['pr_id']; ?>);">
+										<!-- <a class="btn btn-danger" href="javascript:del(<?php echo $sql_data['pr_id']; ?>);">
 											<i class="icon-trash icon-white"></i>
 											Delete
-										</a>
+										</a> -->
 									<?php } else {
 										echo "-- --";
 									} ?>

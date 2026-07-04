@@ -82,7 +82,7 @@ if ($errorMessage == 'Added successfully') {
 							<select id="selectError4" name="pdId" id="pid" data-rel="chosen" required>
 								<option value="">-SELECT-</b></option>
 								<?php
-								$prd = $conn->prepare("SELECT * FROM tbl_product WHERE is_deleted != '1' AND pd_id NOT IN (SELECT pd_id FROM tbl_jo_items_new WHERE is_deleted != '1' AND is_submitted != 1)");
+								$prd = $conn->prepare("SELECT * FROM tbl_product WHERE is_deleted != '1' AND cat_id != '6' AND pd_id NOT IN (SELECT pd_id FROM tbl_jo_items_new WHERE is_deleted != '1' AND is_submitted != 1)");
 								$prd->execute();
 								if ($prd->rowCount() > 0) {
 									while ($prd_data = $prd->fetch()) {
@@ -141,7 +141,7 @@ if ($errorMessage == 'Added successfully') {
 					<div class="control-group">
 						<label class="control-label" for="focusedInput">Date Needed</label>
 						<div class="controls">
-							<input class="input-xlarge focused" id="date" name="date_needed" type="date" />
+							<input class="input-xlarge focused" id="date" name="date_needed" type="date" required />
 							<div id="status"></div>
 						</div>
 					</div>

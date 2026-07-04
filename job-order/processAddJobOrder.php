@@ -29,11 +29,11 @@ if ($joId) {
 
         $var_in = $conn->prepare("INSERT INTO tbl_jo_list (joi_id, jo_id, pd_id, cust_id, branch_id, user_id, added_by) VALUES ('$sel_data[joi_id]', '$joId', '$item_pid', '$custId', '$branch_id', '$userId', '$userId')");
         $var_in->execute();
-    }
 
-    // then submit the voucher	
+            // then submit the voucher	
     $up = $conn->prepare("UPDATE tbl_jo_items SET is_submitted = 1
 								WHERE added_by = '$userId' AND cust_id = '$custId'");
     $up->execute();
+    }
 }
 header('Location: index.php?view=list&error=Added successfully.');

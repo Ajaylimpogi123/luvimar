@@ -77,7 +77,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 							<td width="20px;">&nbsp;</td>
 							<td class="tdlabel">Qty</td>
 							<td width="20px;">&nbsp;</td>
-							<td class="tdlabel">Balance</td>
+							<td class="tdlabel">Stock</td>
 							<td width="20px;">&nbsp;</td>
 							<td class="tdlabel">Released By</td>
 						</tr>

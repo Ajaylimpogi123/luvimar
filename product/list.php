@@ -11,7 +11,7 @@ $user->execute();
 $user_data = $user->fetch();
 
 /* Select books from database */
-$sql = $conn->prepare("SELECT * FROM tbl_product WHERE is_deleted != '1'");
+$sql = $conn->prepare("SELECT * FROM tbl_product WHERE is_deleted != '1' AND cat_parent_id != '2' ORDER BY pd_name");
 $sql->execute();
 
 $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error'] : '&nbsp;'
@@ -56,9 +56,11 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 				<thead>
 					<tr>
 						<th>Name</th>
+						<th>Type</th>
 						<th>Serial #</th>
 						<th>Picture</th>
 						<th>Qty</th>
+						<th style="text-align: center;">Status</th>
 						<th>Expiration</th>
 						<th>Actions</th>
 					</tr>
@@ -67,6 +69,10 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 					<?php
 					if ($sql->rowCount() > 0) {
 						while ($sql_data = $sql->fetch()) {
+
+
+							
+
 							$expiration = $sql_data['pd_expiration'] ?? '';
 							if ($sql_data['pd_thumbnail']) {
 								$image = WEB_ROOT . 'images/product/' . $sql_data['pd_thumbnail'];
@@ -96,10 +102,25 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 					?>
 							<!-- Start display list of products !-->
 							<tr>
-								<td><?php echo $sql_data['pd_name7']; ?></td>
+								<td><?php echo $sql_data['pd_name']; ?><?php echo $sql_data['pd_description']; ?></td>
+								<td><?php echo $sql_data['pd_keyword']; ?></td>
 								<td><?php echo $sql_data['pd_barcode']; ?></td>
 								<td><img class="dashboard-avatar" alt="<?php echo $sql_data['pd_name']; ?>" src="<?php echo $image; ?>" /></td>
 								<td><?php echo number_format($sql_data['pc_qty']); ?></td>
+								<td style="text-align:center;">
+									<span 
+										style="
+											display:inline-block;
+											padding:6px 14px;
+											border-radius:20px;
+											font-size:13px;
+											font-weight:600;
+											color:#fff;
+											background: <?= $sql_data['pc_qty'] > 0 ? '#28a745' : '#dc3545' ?>;
+										">
+										<?= ucfirst($sql_data['pc_qty'] > 0 ? 'available' : 'Sold') ?>
+									</span>
+								</td>
 								<td><?php echo !empty($expiration) ? date("F j, Y", strtotime($expiration)) : ''; ?></td>
 								<td class="center">
 									<?php if ($user_data['is_prod_e_access'] == 1) { ?>

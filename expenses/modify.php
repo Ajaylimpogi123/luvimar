@@ -64,6 +64,36 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 								</div>
 							  </div>
 							</fieldset>
+
+							<div class="control-group">
+						<label class="control-label" for="focusedInput">VAT/non-VAT</label>
+						<div class="controls">
+						<select name="vat" required id="">
+							<option value="<?php echo $sql_data['vat']; ?>"><?php echo $sql_data['vat']; ?></option>
+							<option value="VAT">VAT</option>
+							<option value="non-VAT">non-VAT</option>
+						</select>
+
+							<div id="status"></div>
+						</div>
+					</div>
+
+					
+					<div class="control-group">
+						<label class="control-label" for="focusedInput">TIN Number</label>
+						<div class="controls">
+							<input class="input-xlarge focused" id="amount" name="tin" type="number" value="<?php echo $sql_data['tin_no']; ?>" required autocomplete=off />
+							<div id="status"></div>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="focusedInput">OR Number</label>
+						<div class="controls">
+							<input class="input-xlarge focused" id="amount" name="orno" type="number" value="<?php echo $sql_data['or_no']; ?>" required autocomplete=off />
+							<div id="status"></div>
+						</div>
+					</div>
 					</div>
 							<div class="form-actions">
 								<input name="id" type="hidden" id="id" value="<?php echo $exid; ?>"></td>

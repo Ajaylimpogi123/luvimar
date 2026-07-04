@@ -117,14 +117,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 						<div class="controls">
 							<select name="branch" id="branch" required>
 								<option value="0">Main Branch</option>
-								<option value="1">Branch 1</option>
-								<option value="2">Branch 2</option>
-								<option value="3">Branch 3</option>
-								<option value="4">Branch 4</option>
-								<option value="5">Branch 5</option>
-								<option value="6">Branch 6</option>
-								<option value="7">Branch 7</option>
-								<option value="8">Branch 8</option>
+						
 							</select>
 							<div id="status"></div>
 						</div>

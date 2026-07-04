@@ -30,8 +30,10 @@ if ($stype == 0) {
 	$typ_state = "";
 } else if ($stype == 'Cash') {
 	$typ_state = "AND payment_mode = 'Cash'";
+} else if($stype == 'collection') {
+	$typ_state = "AND payment_mode = 'collection'";
 } else {
-	$typ_state = "AND payment_mode = 'Gcash'";
+	$typ_state = "AND payment_mode = '$stype'";
 }
 
 if ($rmk == 0) {
@@ -75,187 +77,308 @@ if ($din1 != 00 || $dout1 != 00) {
 
 $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error'] : '&nbsp;'
 ?>
-
+<!DOCTYPE html>
+<html>
 <head>
 	<title>Sales Report</title>
 	<link rel="shortcut icon" href="<?php echo WEB_ROOT; ?>images/favicon.png">
-	<style rel="stylesheet">
-		.tdlabel {
-			color: #000 !important;
-			font-family: Arial !important;
-			font-weight: bold;
-			font-size: 14px;
+	<style>
+		* {
+			box-sizing: border-box;
+			
 		}
 
-		.tddata {
-			color: #000 !important;
-			font-family: Arial !important;
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #1a1a1a;
+			margin: 0 20% 0 20%;
+		
+		}
+
+		      .report-header {
+            text-align: center;
+            margin-bottom: 18px;
+            border-bottom: 3px solid #000;
+            padding-bottom: 14px;
+        }
+
+
+		.report-header img {
+			height: 70px;
+			width: 140px;
+			object-fit: contain;
+		}
+
+		.report-header h3 {
+			margin: 0 0 4px 0;
+			font-size: 20px;
+			letter-spacing: 0.5px;
+		}
+
+		.report-header h4 {
+			margin: 2px 0;
 			font-size: 13px;
+			font-weight: normal;
+			color: #444;
+		}
+
+		.order-block {
+			margin-bottom: 14px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			overflow: hidden;
+			page-break-inside: avoid;
+		}
+
+		.order-meta {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 4px 28px;
+			align-items: baseline;
+			padding: 10px 14px;
+			background: #333333;
+			color: #fff;
+		}
+
+		.order-meta .meta-item {
+			font-size: 12.5px;
+		}
+
+		.order-meta .meta-item .lbl {
+			color: #bbb;
+			font-size: 11px;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			display: block;
+			margin-bottom: 1px;
+		}
+
+		.order-meta .meta-ref {
+			font-size: 15px;
+			font-weight: bold;
+		}
+
+		.item-table {
+			width: 100%;
+			border-collapse: collapse;
+			font-size: 12.5px;
+			table-layout: fixed;
+		}
+
+		.item-table th {
+			background: #f0f1f3;
+			text-align: left;
+			font-size: 11px;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			color: #555;
+			padding: 6px 10px;
+			border-bottom: 1px solid #ddd;
+		}
+
+		.item-table th.num,
+		.item-table td.num {
+			text-align: right;
+		}
+
+		.item-table th.center,
+		.item-table td.center {
+			text-align: center;
+		}
+
+		.item-table td {
+			padding: 7px 10px;
+			border-bottom: 1px solid #f0f0f0;
+			vertical-align: top;
+		}
+
+		.col-product  { width: 32%; }
+		.col-serial   { width: 20%; }
+		.col-qty      { width: 14%; }
+		.col-price    { width: 17%; }
+		.col-total    { width: 17%; }
+
+		.no-items td {
+			text-align: center;
+			color: #999;
+			font-style: italic;
+			padding: 14px;
+		}
+
+		.order-summary {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+			gap: 16px;
+			padding: 10px 14px;
+			background: #fafafa;
+			border-top: 1px solid #ddd;
+		}
+
+		.order-summary .left-notes {
+			font-size: 11.5px;
+			color: #555;
+			line-height: 1.5;
+		}
+
+		.order-summary .left-notes .remarks {
+			color: #2e7d32;
+			font-style: italic;
+			display: block;
+		}
+
+		.order-summary .order-total {
+			font-size: 14px;
+			font-weight: bold;
+			white-space: nowrap;
+		}
+
+		.grand-total-bar {
+			display: flex;
+			justify-content: flex-end;
+			padding: 16px 14px 6px 14px;
+			border-top: 3px double #000;
+			margin-top: 10px;
+			font-size: 17px;
+			font-weight: bold;
+		}
+
+		.nothing-follows {
+			text-align: center;
+			font-style: italic;
+			color: #777;
+			padding-top: 14px;
+			letter-spacing: 1px;
 		}
 	</style>
 </head>
-<table style="margin:auto;">
-	<tr>
-		<td><img src="<?php echo WEB_ROOT; ?>images/branch_logo/<?php echo $img; ?>" style="height: 80px; width:160px;" /></td>
-		<td>&nbsp; &nbsp;</td>
-		<td>
+<body>
+
+	<div class="report-header">
+		<img src="<?php echo WEB_ROOT; ?>images/branch_logo/<?php echo $img; ?>" alt="logo">
+		<div>
 			<h3>Sales Report</h3>
-			<h4><?php echo $wfrom; ?><?php echo $t_from; ?> to <?php echo $wto; ?><?php echo $t_to; ?></h4>
+			<h4><?php echo $wfrom; ?><?php echo $t_from; ?> &nbsp;to&nbsp; <?php echo $wto; ?><?php echo $t_to; ?></h4>
+			<h4>Terra Plaza, Cor. Rizal - Gatuslao Sts., Bacolod City</h4>
+		</div>
+	</div>
 
-			<h4>Terra Plaza, Cor. Rizal - Gatualas Sts., Bacolod City
-			</h4>
-		</td>
-	</tr>
-	<table>
-		<br />
-		<table style="margin:auto;">
-			<tr>
-				<td>
-					<table style="padding:7px;" border="0">
-						<!--<tr colspan="21">
-				<td>
-					<form method="post" action="sales_print.php">
-						<input type="hidden" name="from" value="<?php echo $dfrom; ?>" />
-						<input type="hidden" name="to" value="<?php echo $dto; ?>" />
-						<input type="submit" name="submit" value="Print" style="background:#66ff33; border:solid 1px #000000;" />
-					</form>
-				</td>
-			</tr>!-->
+	<?php
+	$emp = $conn->prepare("SELECT * FROM $branch.tbl_order
+							WHERE ($oddate BETWEEN '$from' and '$to') $typ_state $rmk_state AND is_deleted != '1'
+							ORDER BY $oddate");
+	$emp->execute();
+
+	if ($emp->rowCount() > 0) {
+		$grand_total = 0;
+
+		while ($emp_data = $emp->fetch()) {
+			$fullname = utf8_encode(ucwords(strtolower($emp_data['customer_name'])));
+			$datereleased = date("M d, Y | h:i a", strtotime($emp_data['od_date']));
+
+			$rby = $conn->prepare("SELECT * FROM $branch.bs_user WHERE user_id = '$emp_data[released_by]'");
+			$rby->execute();
+
+			if ($rby->rowCount() > 0) {
+				$rby_data = $rby->fetch();
+				$released_by = utf8_encode(ucwords(strtolower($rby_data['lastname']))) . ',&nbsp;' . ucwords(strtolower($rby_data['firstname']));
+			} else {
+				$released_by = '- -';
+			}
+			$grand_total += $emp_data['od_total_amt_due'];
+
+			$lst = $conn->prepare("SELECT * FROM $branch.tbl_order_item i, $branch.tbl_product p
+									WHERE i.od_id = '$emp_data[od_id]' AND i.pd_id = p.pd_id");
+			$lst->execute();
+			$items = $lst->fetchAll();
+			$remarksText = '';
+	?>
+			<div class="order-block">
+
+				<div class="order-meta">
+					<div class="meta-item meta-ref"><?php echo $emp_data['ref_num']; ?></div>
+					<div class="meta-item">
+						<span class="lbl">Date Released</span><?php echo $datereleased; ?>
+					</div>
+					<div class="meta-item">
+						<span class="lbl">Customer</span><?php echo $fullname; ?>
+					</div>
+					<div class="meta-item">
+						<span class="lbl">Payment Mode</span><?php echo $emp_data['payment_mode']; ?>
+					</div>
+					<div class="meta-item">
+						<span class="lbl">Discount</span>&#x20B1;<?php echo number_format($emp_data['od_discount'], 2); ?> | <?php echo number_format($emp_data['percent_discount'], 0); ?>%
+					</div>
+				</div>
+
+				<table class="item-table">
+					<colgroup>
+						<col class="col-product">
+						<col class="col-serial">
+						<col class="col-qty">
+						<col class="col-price">
+						<col class="col-total">
+					</colgroup>
+					<thead>
 						<tr>
-							<td class="tdlabel">#</td>
-							<td width="20px;">&nbsp;</td>
-							<td class="tdlabel">Date Released</td>
-							<td width="20px;">&nbsp;</td>
-							<td class="tdlabel">Customer</td>
-							<td width="20px;">&nbsp;</td>
-							<td class="tdlabel">Payment Mode</td>
-							<td width="20px;">&nbsp;</td>
-
-							<td class="tdlabel">Discount</td>
-							<td width="20px;">&nbsp;</td>
-							<td class="tdlabel" valign="top">
-								<table border="0">
-									<tr>
-										<td class="tdlabel" width="170">Product</td>
-										<td width="20px;">&nbsp;</td>
-										<td class="tdlabel" width="40">Qty</td>
-										<td width="20px;">&nbsp;</td>
-										<td class="tdlabel" width="70">Price</td>
-										<td width="20px;">&nbsp;</td>
-										<td class="tdlabel" width="70" style="text-align:right;">Total</td>
-									</tr>
-								</table>
-							</td>
-							<td width="20px;">&nbsp;</td>
-							<td class="tdlabel">Released By</td>
-							<td width="20px;">&nbsp;</td>
-							<td class="tdlabel">OR #</td>
+							<th>Product</th>
+							<th>Serial #</th>
+							<th class="center">Qty</th>
+							<th class="num">Price</th>
+							<th class="num">Total</th>
 						</tr>
-						<tr>
-							<td colspan="15">
-								<hr color='black' />
-							</td>
-						</tr>
-						<tbody>
-							<?php
-							$emp = $conn->prepare("SELECT * FROM $branch.tbl_order
-													WHERE ($oddate BETWEEN '$from' and '$to') $typ_state $rmk_state AND is_deleted != '1'																
-														ORDER BY $oddate");
-							$emp->execute();
-							if ($emp->rowCount() > 0) {
-								$ctr1 = 1;
-								$total = 0;
-								$total_discount = 0;
-								$grand_total = 0;
-								while ($emp_data = $emp->fetch()) {
-									$fullname = utf8_encode(ucwords(strtolower($emp_data['customer_name'])));
-									$datereleased = date("M d, Y | h:i a", strtotime($emp_data['od_date']));
-
-									$rby = $conn->prepare("SELECT * FROM $branch.bs_user WHERE user_id = '$emp_data[released_by]'");
-									$rby->execute();
-
-									if ($rby->rowCount() > 0) {
-										$rby_data = $rby->fetch();
-										$released_by = utf8_encode(ucwords(strtolower($rby_data['lastname']))) . ',&nbsp;' . ucwords(strtolower($rby_data['firstname']));
-									} else {
-										$released_by = '- -';
-									}
-									$grand_total += $emp_data['od_total_amt_due'];
+					</thead>
+					<tbody>
+						<?php if (count($items) > 0) { ?>
+							<?php foreach ($items as $lst_data) {
+								$total_amt_due = $lst_data['od_qty'] * $lst_data['od_price'];
+								if (!empty($lst_data['remarks'])) {
+									$remarksText = $lst_data['remarks'];
+								}
 							?>
-									<tr>
-										<td class="tddata" valign="top"><?php echo $ctr1++; ?>. </td>
-										<td width="20px;">&nbsp;</td>
-										<td class="tddata" valign="top"><?php echo $datereleased; ?></td>
-										<td width="20px;">&nbsp;</td>
-										<td class="tddata" valign="top"><?php echo $fullname; ?></td>
-										<td width="20px;">&nbsp;</td>
-										<td class="tddata" valign="top"><?php echo $emp_data['payment_mode']; ?></td>
-										<td width="20px;">&nbsp;</td>
+								<tr>
+									<td><?php echo $lst_data['pd_name']; ?></td>
+									<td><?php echo $lst_data['pd_barcode']; ?></td>
+									<td class="center"><?php echo $lst_data['od_qty']; ?> <?php echo $lst_data['pd_type']; ?></td>
+									<td class="num"><?php echo number_format($lst_data['od_price'], 2); ?></td>
+									<td class="num"><?php echo number_format($total_amt_due, 2); ?></td>
+								</tr>
+							<?php } ?>
+						<?php } else { ?>
+							<tr class="no-items">
+								<td colspan="5">No items recorded for this order</td>
+							</tr>
+						<?php } ?>
+					</tbody>
+				</table>
 
-										<td class="tddata" valign="top">&#x20B1;<?php echo number_format($emp_data['od_discount'], 2); ?> | <?php echo number_format($emp_data['percent_discount'], 0); ?>%</td>
-										<td width="20px;">&nbsp;</td>
-										<td class="tddata" valign="top">
-											<table border="0">
-												<?php
-												$lst = $conn->prepare("SELECT * FROM $branch.tbl_order_item i, $branch.tbl_product p
-																				WHERE i.od_id = '$emp_data[od_id]' AND i.pd_id = p.pd_id");
-												$lst->execute();
-												if ($lst->rowCount() > 0) {
-													$total_amount = 0;
-													while ($lst_data = $lst->fetch()) {
-														$total_amt_due = $lst_data['od_qty'] * $lst_data['od_price'];
-														$total_amount += $total_amt_due;
-												?>
-														<tr>
-															<td class="tddata" valign="top" width="170"><?php echo $lst_data['pd_name']; ?></td>
-															<td width="20px;">&nbsp;</td>
-															<td class="tddata" valign="top" width="40"><?php echo $lst_data['od_qty']; ?> <?php echo $lst_data['pd_type']; ?></td>
-															<td width="20px;">&nbsp;</td>
-															<td class="tddata" valign="top" width="70"><?php echo number_format($lst_data['od_price'], 2); ?></td>
-															<td width="20px;">&nbsp;</td>
-															<td class="tddata" valign="top" width="70" style="text-align:right;"><?php echo number_format($total_amt_due, 2); ?></td>
-														</tr>
-													<?php
-													} // End While
-													?>
-													<tr>
-														<?php if ($rmk == 0) {
-														} else { ?>
-															<td colspan="4" style="padding-left:17px; font-size:12px; color:#339900;">*<?php echo $lst_data['remarks']; ?>*</td>
-														<?php } ?>
-														<td colspan="7" class="tddata" style="text-align:right;"><b>&#x20B1; <?php echo number_format($emp_data['od_total_amt_due'], 2); ?></b><br /><br /></td>
-													</tr>
-												<?php
-												} else {
-												}
-												?>
-											</table>
-										</td>
-										<td width="20px;">&nbsp;</td>
-										<td class="tddata" valign="top"><?php echo $released_by; ?></td>
-										<td width="20px;">&nbsp;</td>
-										<td class="tddata" valign="top"><?php echo $emp_data['invoice_num']; ?></td>
-									</tr>
-								<?php
-								} // End While
-								?>
-								<tr>
-									<td colspan="15">
-										<hr color='black' />
-									</td>
-								</tr>
-								<tr>
-									<td colspan="13" class="tddata" style="text-align:right;"><b>&#x20B1; <?php echo number_format($grand_total, 2); ?></b><br /></td>
-								</tr>
-								<tr style="border-top: 1px;">
-									<td colspan="15" align="center">*** Nothing Follows ***</td>
-								</tr>
-							<?php
-							} else {
-							}
-							?>
-						</tbody>
-					</table>
-				</td>
-			</tr>
-		</table>
+				<div class="order-summary">
+					<div class="left-notes">
+						Released by: <?php echo $released_by; ?>
+						<?php if ($rmk != 0 && $remarksText !== '') { ?>
+							<span class="remarks">*<?php echo $remarksText; ?>*</span>
+						<?php } ?>
+					</div>
+					<div class="order-total">
+						Order Total: &#x20B1; <?php echo number_format($emp_data['od_total_amt_due'], 2); ?>
+					</div>
+				</div>
+
+			</div>
+	<?php
+		} // End while ($emp_data)
+	?>
+			<div class="grand-total-bar">
+				Grand Total: &#x20B1; <?php echo number_format($grand_total, 2); ?>
+			</div>
+			<div class="nothing-follows">*** Nothing Follows ***</div>
+	<?php
+	} else {
+	?>
+			<div class="nothing-follows">*** No Records Found ***</div>
+	<?php
+	}
+	?>
+
+</body>
+</html>

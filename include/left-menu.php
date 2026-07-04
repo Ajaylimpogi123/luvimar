@@ -12,7 +12,7 @@
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="nav-header hidden-tablet">Category</li>
 						<?php
-							$cat = $conn->prepare("SELECT * FROM tbl_category WHERE cat_parent_id = '0' AND is_deleted != '1' ORDER BY cat_name");
+							$cat = $conn->prepare("SELECT * FROM tbl_category WHERE cat_parent_id = '0' AND cat_id != '2' AND is_deleted != '1' ORDER BY cat_name");
 							$cat->execute();
 							if($cat->rowCount() > 0)
 							{

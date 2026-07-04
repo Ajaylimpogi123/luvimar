@@ -11,7 +11,7 @@ $user->execute();
 $user_data = $user->fetch();
 
 /* Select books from database */
-$sql = $conn->prepare("SELECT * FROM tbl_job_order ORDER BY jo_id DESC");
+$sql = $conn->prepare("SELECT * FROM tbl_job_order WHERE is_deleted != 1 ORDER BY jo_id DESC");
 $sql->execute();
 
 $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error'] : '&nbsp;'
@@ -21,8 +21,8 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 		<div class="box-header well" data-original-title>
 			<h2><i class="icon-th"></i> List of Job Order</h2>
 			<?php if ($user_data['is_prod_a_access'] == 1) { ?>
-				&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:add();" class="btn btn-success">Add REFILL</a>
-				&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.php?view=add_new" class="btn btn-success">Add BRANDNEW</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:add();" class="btn btn-success">Add JOB ORDER</a>
+				<!-- &nbsp;&nbsp;&nbsp;&nbsp;<a href="index.php?view=add_new" class="btn btn-success">Add BRANDNEW</a> -->
 			<?php } else {
 			} ?>
 			<div class="box-icon">
@@ -62,29 +62,25 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 							$sel = $conn->prepare("SELECT * FROM tbl_jo_list WHERE jo_id = '$joId' AND is_deleted != '1'");
 							$sel->execute();
 							$sel_data = $sel->fetch();
-							$joi_id = $sel_data['joi_id'] ?? '';
+							$joi_id = $sel_data['joi_id'];
 
-							$sel1 = $conn->prepare("SELECT * FROM tbl_jo_list_new WHERE jo_id = '$joId' AND is_deleted != '1'");
-							$sel1->execute();
-							$sel1_data = $sel1->fetch();
-							$join_id = $sel1_data['join_id'] ?? '';
+					
 
-							$custId = $sel_data['cust_id'] ?? $sel1_data['cust_id'];
+							$custId = $sel_data['cust_id'];
 
 							$sel3 = $conn->prepare("SELECT * FROM tbl_jo_items WHERE joi_id = '$joi_id' AND is_deleted != '1'");
 							$sel3->execute();
 							$sel3_data = $sel3->fetch();
 
-							$sel4 = $conn->prepare("SELECT * FROM tbl_jo_items_new WHERE join_id = '$join_id' AND is_deleted != '1'");
-							$sel4->execute();
-							$sel4_data = $sel4->fetch();
-
-							$Job_Description = $sel3_data['job_description'] ?? $sel4_data['job_description'] ?? '';
+						
+							$Job_Description = $sel3_data['job_description'];
 
 							$cust = $conn->prepare("SELECT * FROM bs_customer WHERE cust_id = '$custId'");
 							$cust->execute();
 							$cust_data = $cust->fetch();
 							$custName = $cust_data['client_name'];
+
+
 
 							$status = $sql_data['status'];
 
@@ -109,13 +105,9 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 								<td><?php echo date("F j, Y", strtotime($sql_data['date_added'])); ?></td>
 								<td class="center">
 									<?php if ($user_data['is_prod_e_access'] == 1) { ?>
-										<?php if ($Job_Description == 'refill') { ?>
+									
 											<a class="btn btn-primary" href="print.php?joId=<?php echo $joId; ?>" class="btn btn-small" target=_new><i class="icon-edit icon-white"></i>Print</a>
-										<?php } else {
-										?>
-											<a class="btn btn-primary" href="print_new.php?joId=<?php echo $joId; ?>" class="btn btn-small" target=_new><i class="icon-edit icon-white"></i>Print NEW</a>
-										<?php
-										} ?>
+									
 									<?php } else {
 										echo "-- --";
 									} ?>

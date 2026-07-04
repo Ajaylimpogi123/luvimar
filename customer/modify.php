@@ -97,6 +97,22 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 							  </div>
 							  
 							  <div class="control-group">
+								<label class="control-label" for="focusedInput">Second Contact No.</label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="scn" name="scn" type="text" value="<?php echo $sql_data['s_contactno']; ?>" autocomplete=off />
+								  <div id="status"></div>
+								</div>
+							  </div>
+
+							  <div class="control-group">
+								<label class="control-label" for="focusedInput">Messenger</label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="messenger" name="messenger" type="text" value="<?php echo $sql_data['messenger']; ?>" autocomplete=off />
+								  <div id="status"></div>
+								</div>
+							  </div>
+							  
+							  <div class="control-group">
 								<label class="control-label" for="focusedInput">Email</label>
 								<div class="controls">
 								  <input class="input-xlarge focused" id="email" name="email" type="text" value="<?php echo $sql_data['email']; ?>" autocomplete=off />

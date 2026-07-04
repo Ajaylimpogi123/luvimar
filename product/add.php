@@ -45,7 +45,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 							<select name="category" id="category" required>
 								<option value="0">-- Select --</option>
 								<?php
-								$cat = $conn->prepare("SELECT * FROM tbl_category WHERE cat_parent_id = '0' AND is_deleted != '1' ORDER BY cat_name");
+								$cat = $conn->prepare("SELECT * FROM tbl_category WHERE cat_parent_id = '0' AND is_deleted != '1' AND cat_id != '2' ORDER BY cat_name");
 								$cat->execute();
 								while ($cat_data = $cat->fetch()) {
 									$categoryname = $cat_data['cat_name'];
@@ -53,7 +53,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 								?>
 									<optgroup label="<?php echo $categoryname; ?>">
 										<?php
-										$slp = $conn->prepare("SELECT * FROM tbl_category WHERE cat_parent_id = '$categoryid' AND is_deleted != '1' ORDER BY cat_name");
+										$slp = $conn->prepare("SELECT * FROM tbl_category WHERE cat_parent_id = '$categoryid' AND is_deleted != '1' AND cat_id != '2' ORDER BY cat_name");
 										$slp->execute();
 										while ($slp_data = $slp->fetch()) {
 										?>
@@ -70,10 +70,22 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 						</div>
 					</div>
 
+					<?php
+					$bar = $conn->prepare("SELECT MAX(CAST(pd_barcode AS UNSIGNED)) AS last_barcode FROM tbl_product WHERE is_deleted != '1'");
+					$bar->execute();
+					$bar_data = $bar->fetch();
+
+					$lastBarcode = $bar_data['last_barcode'];
+					// Increment
+					$lastBarcode++;
+
+					// Format barcode to 7 digits (e.g. 2026001)
+					$serial_inc = str_pad($lastBarcode, 7, STR_PAD_LEFT);
+					?>
 					<div class="control-group">
 						<label class="control-label" for="focusedInput">Serial Number</label>
 						<div class="controls">
-							<input class="input-xlarge focused" id="barcode" name="barcode" type="text" />
+							<input class="input-xlarge focused" id="barcode"  name="barcode" type="text" />
 							<div id="status"></div>
 						</div>
 					</div>

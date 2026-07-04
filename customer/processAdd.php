@@ -12,6 +12,8 @@ checkUser();
 	$address = mysqli_real_escape_string($link, $_POST['address']);
 	$cp = mysqli_real_escape_string($link, $_POST['cp']);
 	$cn = mysqli_real_escape_string($link, $_POST['cn']);
+	$scn = mysqli_real_escape_string($link, $_POST['scn']);
+	$messenger = mysqli_real_escape_string($link, $_POST['messenger']);
 	$email = mysqli_real_escape_string($link, $_POST['email']);
 	
 	$images = uploadimage('fileImage', SRV_ROOT . 'images/customer/');
@@ -84,8 +86,8 @@ function uploadimage($inputName, $uploadDir)
 				{
 					
 					/* Insert Customer */
-					$sql = $conn->prepare("INSERT INTO bs_customer (client_name, address, customer_name, contact_person, contactno, email, image, thumbnail, date_added, is_deleted)
-								VALUES ('$cname', '$address', '$custname', '$cp', '$cn', '$email', '$mainImage', '$thumbnail', '$today_date1', '0')");
+					$sql = $conn->prepare("INSERT INTO bs_customer (client_name, address, customer_name, contact_person, contactno, s_contactno, messenger, image, thumbnail, date_added, is_deleted)
+								VALUES ('$cname', '$address', '$custname', '$cp', '$cn', '$scn', '$messenger', '$mainImage', '$thumbnail', '$today_date1', '0')");
 					$sql->execute();
 					/* End Customer */
 				

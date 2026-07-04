@@ -42,6 +42,7 @@ if ($chk->rowCount() > 0) {
     $id = $conn->lastInsertId();
     $uid = md5($id);
 
+    
     $up = $conn->prepare("UPDATE tbl_pr_items SET uid = '$uid' WHERE pri_id = '$id'");
     $up->execute();
 

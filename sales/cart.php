@@ -49,18 +49,18 @@ displayError();
 						<td width="10px;">&nbsp;</td>
 						<td width="100px;"><b>Serial #</b></td>
 						<td width="10px;">&nbsp;</td>
-						<td width="100px;"><b>Product</b></td>
+						<td width="100px;"><b>Product Name</b></td>
 						<td width="10px;">&nbsp;</td>
-						<td width="100px;" style="text-align: center;"><b>Description</b></td>
-						<td width="10px;">&nbsp;</td>
+						<!-- <td width="100px;" style="text-align: center;"><b>remarks</b></td>
+						<td width="10px;">&nbsp;</td> -->
 						<!-- <td width="150px;" style="text-align: center;"><b>Job Description</b></td>
 						<td width="10px;">&nbsp;</td> -->
-						<td width="100px;"><b>Price</b></td>
+						<td width="100px;" style="text-align: center;"><b>Price</b></td>
 						<td width="10px;">&nbsp;</td>
 						<td width="70px;"><b>Qty</b></td>
-						<td width="10px;"></td>
+						<!-- <td width="10px;"></td>
 
-						<td width="100px;"><b>Sub-Total</b></td>
+						<td width="100px;"><b>Sub-Total</b></td> -->
 
 					</tr>
 					<?php
@@ -101,23 +101,9 @@ displayError();
 							<td><span class="border_cart"><?php echo $sql_data['pd_barcode']; ?></td>
 							<td width="10px;">&nbsp;</td>
 							<td><span class="border_cart"></span><?php echo $sql_data['pd_name7']; ?></td>
-							<td width="10px;">&nbsp;</td>
-							<td><span class="border_cart"></span><input type="text" name="desc_<?php echo $sql_data['ct_id']; ?>[]" value="<?php echo $sql_data['description']; ?>"></td>
 							<!-- <td width="10px;">&nbsp;</td>
-							<td style="justify-content: space-between; gap: 2px; display: flex; padding-top: 15px">
-								<span class="border_cart"></span>
-								<label>
-									<input type="radio" name="description_<?php echo $sql_data['ct_id']; ?>[]"
-										value="brandnew" onclick="toggleRadio(this)"
-										<?php if (isset($sql_data['job_description']) && strpos($sql_data['job_description'], 'brandnew') !== false) echo 'checked'; ?>> brandnew
-								</label>
-								<label>
-									<input type="radio" name="description_<?php echo $sql_data['ct_id']; ?>[]"
-										value="refill" onclick="toggleRadio(this)"
-										<?php if (isset($sql_data['job_description']) && strpos($sql_data['job_description'], 'refill') !== false) echo 'checked'; ?>> refill
-								</label>
-							</td> -->
-
+							<td><span class="border_cart"></span><input type="text" name="desc_<?php echo $sql_data['ct_id']; ?>[]" value="<?php echo $sql_data['description']; ?>"></td> -->
+	
 							<script>
 								let lastChecked = null;
 
@@ -144,19 +130,32 @@ displayError();
 
 							<td width="10px;">&nbsp;</td>
 
-							<td><span class="border_cart"></span>Php <?php echo number_format($sql_data['ct_price'], 2); ?></td>
+							<!-- <td align="center">
+								<span class="border_cart" style="display: flex; align-items: center; gap: 5px;">Php 
+								<input class="box" required style="width: 110px;" type="number" name="price_<?php echo $sql_data['ct_id']; ?>[]" 
+								value="<?php echo $sql_data['ct_price']; ?>"
+								onKeyUp="checkNumber(this);" autocomplete=off>
+								</span>	
+							</td> -->
+							<td align="center">
+								<span class="border_cart" style="display: flex; align-items: center; gap: 5px;">Php 
+								<input class="box" required style="width: 110px;" type="number" name="price_<?php echo $sql_data['ct_id']; ?>[]" 
+								
+								onKeyUp="checkNumber(this);" autocomplete=off>
+								</span>	
+							</td>
 
 							<td width="10px;">&nbsp;</td>
-							<td align="center">
-								<input name="qty_<?php echo $sql_data['ct_id']; ?>[]" type="text" id="txtQty[]" size="5" value="<?php echo $sql_data['ct_qty']; ?>" class="box" onKeyUp="checkNumber(this);" style="width:40px;" autocomplete=off>
+							<td >
+								<input readonly name="qty_<?php echo $sql_data['ct_id']; ?>[]" type="text" id="txtQty[]" size="5" value="<?php echo $sql_data['ct_qty']; ?>" class="box2" onKeyUp="checkNumber(this);" style="width:40px;" autocomplete=off>
 								<?php echo $tp; ?>
 								<input name="hidCartId[]" type="hidden" value="<?php echo $sql_data['ct_id']; ?>">
 								<input name="hidProductId[]" type="hidden" value="<?php echo $sql_data['pd_id']; ?>">
 							</td>
 
-							<td width="10px;">&nbsp;</td>
+							<!-- <td width="10px;">&nbsp;</td>
 
-							<td><span class="border_cart"></span>Php <?php echo number_format($subTotal, 2); ?></td>
+							<td><span class="border_cart"></span>Php <?php echo number_format($subTotal, 2); ?></td> -->
 
 							<td width="10px;">&nbsp;</td>
 							<td><input name="btnDelete" type="button" id="btnDelete" value="Delete" onClick="window.location.href='index.php?view=cart&action=delete&cid=<?php echo $sql_data['ct_id']; ?>';" class="btn btn-danger"></td>
@@ -177,9 +176,61 @@ displayError();
 						<td></td>
 						<td></td>
 						<td></td>
-						<td></td>
-						<td colspan="2"><span class="blue" style="font-size:18px; font-weight:bold;">Total:</span></td>
-						<td colspan="3"><span class="blue" style="font-size:18px; font-weight:bold;">Php <?php echo number_format($total, 2); ?></span></td>
+				
+					
+						<!-- <td colspan="2" style="text-align: right;"><span class="blue" style="font-size:18px; font-weight:bold;">Total Price:</span></td> -->
+						<!-- <td colspan="2" style="text-align: center;"><span class="blue" style="font-size:18px; font-weight:bold;">Php <?php echo number_format($total, 2); ?></span></td> -->
+<td colspan="4" style="text-align:right; padding:12px 20px;">
+
+    <div style="
+        display:flex;
+        justify-content:flex-end;
+        align-items:center;
+        gap:8px;
+    ">
+
+     <span style="
+    display:inline-block;
+    font-size:18px;
+    font-weight:600;
+    color:#444;
+    margin-right:8px;
+    white-space:nowrap;
+">
+    Total Price:
+</span>
+
+        <span style="
+            font-size:18px;
+            font-weight:bold;
+            color:#444;
+        ">
+            Php
+        </span>
+
+        <input
+            type="text"
+            id="total"
+            readonly
+            value="0"
+            style="
+                width:100px;
+                border:none;
+                background:transparent;
+                font-size:22px;
+                font-weight:bold;
+       
+                text-align:left;
+                outline:none;
+                margin-top: 10px;
+                padding-top: 5px;
+            "
+        >
+
+    </div>
+
+</td>
+
 					</tr>
 					<tr>
 						<td><br /></td>
@@ -206,3 +257,20 @@ displayError();
 		?>
 	</div>
 </div>
+
+<script>
+function calculateTotal() {
+    let total = 0;
+
+    document.querySelectorAll('.box').forEach(input => {
+        console.log(input.value); // check actual values
+        total += parseFloat(input.value) || 0;
+    });
+
+    document.getElementById('total').value = total;
+}
+
+document.querySelectorAll('.box').forEach(input => {
+    input.addEventListener('input', calculateTotal);
+});
+</script>

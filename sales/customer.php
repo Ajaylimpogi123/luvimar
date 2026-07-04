@@ -21,6 +21,15 @@ if (isset($_POST['hidCartId'])) {
 			}
 		}
 
+		if (isset($_POST['price_' . $prid])) {
+			$prices = $_POST['price_' . $prid];
+
+			foreach ($prices as $price) {
+				$prce = $conn->prepare("UPDATE tbl_cart SET ct_price = '$price' WHERE ct_id = '$prid' AND user_id = '$userId'");
+				$prce->execute();
+			}
+		}	
+
 		if (isset($_POST['description_' . $prid])) {
 
 			$descriptions = $_POST['description_' . $prid];
@@ -152,23 +161,23 @@ if (isset($_POST['disc']) && $_POST['disc'] > 0) {
 			const gcashRadio = document.getElementById("optionsRadios2");
 			const originalAmount = parseFloat(<?php echo $total; ?>);
 			const amtdueInput = document.getElementById("amtdue");
-			const displaySpan = document.getElementById("displayAmount");
+			// const displaySpan = document.getElementById("displayAmount");
 
-			if (gcashRadio.checked) {
-				// Add 2% charge
-				let additional = originalAmount * 0.02;
-				let newTotal = originalAmount + additional;
-				amtdueInput.value = newTotal.toFixed(2);
-				displaySpan.innerHTML = "Php " + newTotal.toLocaleString(undefined, {
-					minimumFractionDigits: 2
-				});
-			} else {
-				// Use original total
-				amtdueInput.value = originalAmount.toFixed(2);
-				displaySpan.innerHTML = "Php " + originalAmount.toLocaleString(undefined, {
-					minimumFractionDigits: 2
-				});
-			}
+			// if (gcashRadio.checked) {
+			// 	// Add 2% charge
+			// 	let additional = originalAmount * 0.02;
+			// 	let newTotal = originalAmount + additional;
+			// 	amtdueInput.value = newTotal.toFixed(2);
+			// 	displaySpan.innerHTML = "Php " + newTotal.toLocaleString(undefined, {
+			// 		minimumFractionDigits: 2
+			// 	});
+			// } else {
+			// 	// Use original total
+			// 	amtdueInput.value = originalAmount.toFixed(2);
+			// 	displaySpan.innerHTML = "Php " + originalAmount.toLocaleString(undefined, {
+			// 		minimumFractionDigits: 2
+			// 	});
+			// }
 		}
 	</script>
 </head>
@@ -189,19 +198,17 @@ if (isset($_POST['disc']) && $_POST['disc'] > 0) {
 									<input type="radio" class="payment_method" name="top" id="optionsRadios1" value="Cash" onchange="updatePaymentMethod()" />Cash
 								</label>
 								<br />
-								<!-- <label class="radio">
-									<input type="radio" class="payment_method" name="top" id="optionsRadios2" value="gcash" onchange="updatePaymentMethod()" />G-cash
-								</label> -->
-								<!-- <label class="radio">
-									<input type="radio" class="payment_method" name="top" id="optionsRadios3" value="Charge" />Stock Transfer
-								</label> -->
+								<label class="radio">
+									<input type="radio" class="payment_method" name="top" id="optionsRadios2" value="collection" onchange="updatePaymentMethod()" />Collection
+								</label>
+			
 							</div>
 						</td>
 					</tr>
 					<tr id="cust_name" style="display: none;">
 						<td width="150">Customer Name</td>
 						<td>
-							<select name="fname" id="selectError" data-rel="chosen">
+							<select required name="fname" id="selectError" data-rel="chosen">
 								<option value="">-SELECT-</option>
 								<?php
 								$cus = $conn->prepare("SELECT * FROM bs_customer WHERE is_deleted != '1' ORDER BY client_name; ");
@@ -210,7 +217,7 @@ if (isset($_POST['disc']) && $_POST['disc'] > 0) {
 									while ($cus_data = $cus->fetch()) {
 								?>
 										<option value="<?php echo $cus_data['cust_id']; ?>">
-											<?php echo $cus_data['client_name']; ?>
+											<?php echo $cus_data['client_name']; ?> - <strong><?php echo $cus_data['customer_name']; ?></strong>
 										</option>
 								<?php
 									}
@@ -228,10 +235,10 @@ if (isset($_POST['disc']) && $_POST['disc'] > 0) {
 						</td>
 					</tr>
 
-					<tr id="cash_jo">
+					<tr id="cash_jo" style="display:none">
 						<td width="150"><span class="blue" style="font-size:14px; font-weight:bold;">Job Order #</span></td>
 						<td>
-							<input name="jonum" type="text" id="ornum" size="30" maxlength="50" style="font-size:16px; font-weight:bold;" autocomplete=off required />
+							<input name="jonum" type="text" id="ornum" size="30" maxlength="50" style="font-size:16px; font-weight:bold;" autocomplete=off />
 						</td>
 					</tr>
 
@@ -262,10 +269,19 @@ if (isset($_POST['disc']) && $_POST['disc'] > 0) {
 					<tr class="cash_section">
 						<td width="150"><span class="blue" style="font-size:18px; font-weight:bold;">Amount Due</span></td>
 						<td>
+							
 							<span class="blue" style="font-size:18px; font-weight:bold;" id="displayAmount">Php <?php echo number_format($total, 2); ?></span>
 							<input type="hidden" name="amtdue" id="amtdue" value="<?php echo $total; ?>" onFocus="startCalc1();" onBlur="stopCalc1();" />
 						</td>
 					</tr>
+
+					<tr id="tr_due">
+						<td width="150"><span class="blue" style="font-size:14px; font-weight:bold;">&#x20B1; Due Date</span></td>
+						<td>
+							<input name="duedate" type="date" id="duedate"  size="30" maxlength="50" style="font-size:16px; font-weight:bold;" onKeyUp="checkNumber(this);" onFocus="startCalc1();" onBlur="stopCalc1();" autocomplete=off />
+						</td>
+					</tr>
+
 					<tr class="cash_section">
 						<td width="150"><span class="blue" style="font-size:14px; font-weight:bold;">&#x20B1; Discount</span></td>
 						<td>
@@ -398,10 +414,12 @@ if (isset($_POST['disc']) && $_POST['disc'] > 0) {
 					<tr>
 						<!--<td width="100px;"><b>Image</b></td>
 								<td width="10px;">&nbsp;</td>!-->
-						<td width="100px;"><b>Product</b></td>
+						<td width="100px;"><b>Serial #</b></td>
 						<td width="10px;">&nbsp;</td>
-						<td width="150px;"><b>Description</b></td>
+						<td width="100px;"><b>Product Name</b></td>
 						<td width="10px;">&nbsp;</td>
+						<!-- <td width="150px;"><b>Remarks</b></td>
+						<td width="10px;">&nbsp;</td> -->
 						<!-- <td width="150px;"><b>Job Description</b></td>
 						<td width="10px;">&nbsp;</td> -->
 						<td width="100px;"><b>Price</b></td>
@@ -432,10 +450,12 @@ if (isset($_POST['disc']) && $_POST['disc'] > 0) {
 						<tr>
 							<!--<td width="80" align="center"><img src="<?php echo $pd_thumbnail; ?>" border="0"></td>
 												<td width="10px;">&nbsp;</td>!-->
+							<td><span class="border_cart"></span><?php echo word_split($sql1_data['pd_barcode'], 2); ?></td>
+							<td width="10px;">&nbsp;</td>
 							<td><span class="border_cart"></span><?php echo word_split($sql1_data['pd_name'], 2); ?></td>
 							<td width="10px;">&nbsp;</td>
-							<td><span class="border_cart"></span><?php echo $sql1_data['description']; ?></td>
-							<td width="10px;">&nbsp;</td>
+							<!-- <td><span class="border_cart"></span><?php echo $sql1_data['description']; ?></td>
+							<td width="10px;">&nbsp;</td> -->
 							<!-- <td><span class="border_cart"></span><?php echo $sql1_data['job_description']; ?></td>
 							<td width="10px;">&nbsp;</td> -->
 							<td><span class="border_cart"></span>Php <?php echo number_format($sql1_data['ct_price'], 2); ?></td>
@@ -472,58 +492,125 @@ if (isset($_POST['disc']) && $_POST['disc'] > 0) {
 		</div>
 	</div>
 </div>
-
 <script>
-	$(document).ready(function() {
-		// Hide all on load
-		$(".cash_section, .charge_section, .other_section").hide();
 
-		$(".payment_method").on("change", function() {
-			var value_checked = $(this).val();
+$(document).ready(function () {
 
-			if (value_checked === "Cash" || value_checked === "Charge") {
-				$(".cash_section").show().find("select, input").attr("required", true);
-				$(".charge_section").hide().find("select, input").removeAttr("required");
-			} else {
-				$(".charge_section").show().find("select, input").attr("required", true);
-				$(".cash_section").hide().find("select, input").removeAttr("required");
-			}
-		});
-	});
-</script>
+    const paymentInput = document.getElementById("payment");
+    const submitBtn = document.getElementById("btnSubmit");
 
-<script type="text/javascript">
-	const paymentInput = document.getElementById('payment');
-	const submitBtn = document.getElementById('btnSubmit');
+    // Disable submit only if cash selected and payment empty
+    paymentInput.addEventListener("input", function () {
+        submitBtn.disabled = false;
+    });
 
-	paymentInput.addEventListener('input', function() {
-		submitBtn.disabled = paymentInput.value.trim() === '';
-	});
-	// 1. On load: hide all conditional rows
-	$("#cust_name, #cust_name10, #cash_payment, #cust_name4, #cash_jo, #cust_name5, #cust_name6, #cust_name8, #cust_name9, #rmethod1, #rmethod2, #rmethod3").hide();
+    // =========================
+    // HIDE EVERYTHING ON LOAD
+    // =========================
+    $(
+        "#cust_name," +
+        "#cust_name2," +
+        "#cash_jo," +
+        "#cust_name10," +
+        ".cash_section," +
+        "#cash_payment," +
+        "#tr_due," +
+        "#cust_name4," +
+        "#cust_name5," +
+        "#cust_name6," +
+        "#cust_name8," +
+        "#cust_name9," +
+        "#rmethod1," +
+        "#rmethod2," +
+        "#rmethod3"
+    ).hide();
 
+    // Remove required initially
+    $("input, select").prop("required", false);
 
-	$(".payment_method").click(function() {
-		var value_checked = $(this).val();
+    // =========================
+    // PAYMENT METHOD CLICK
+    // =========================
+    $(".payment_method").on("change", function () {
 
-		// Toggle Customer Name row
-		if (value_checked === "Cash") {
-			$("#cust_name").show().find("select").attr("required", true);
-		} else {
-			$("#cust_name").hide().find("select").removeAttr("required");
-		}
+        var method = $(this).val();
 
-		// Toggle Charge row
-		if (value_checked === "Charge") {
-			$("#cust_name10").show().find("select").attr("required", true);
-			$("#cash_payment, #cust_name4, #cash_jo").hide().find("select").removeAttr("required");
-		} else {
-			$("#cust_name10").hide().find("select").removeAttr("required");
-			$("#cash_payment, #cust_name4, #cash_jo").show().find("select").attr("required", true);
-		}
+        // Reset first
+        $(
+            "#cust_name," +
+            "#cash_payment," +
+            "#cust_name4," +
+			"#tr_due," +
+            ".cash_section"
+        ).hide();
 
-		// Other rows
-		$("#cust_name5, #cust_name6, #cust_name8, #cust_name9, #rmethod1, #rmethod2, #rmethod3")
-			.toggle(value_checked === "Charge");
-	});
+        //---------------------------------
+        // CASH
+        //---------------------------------
+        if (method === "Cash") {
+
+            // Show sections
+            $(".cash_section").show();
+
+            // Customer
+            $("#cust_name")
+                .show()
+                .find("select")
+                .prop("required", true);
+
+            // Payment + Change
+            $("#cash_payment").show();
+            $("#cust_name4").show();
+
+            // Payment required
+            $("#payment")
+                .val("")
+                .prop("required", true);
+
+            $("#change").val("");
+
+			        // Hide payment/change
+            $("#duedate")
+			.val(NULL)
+			.hide();
+            $("#tr_due").hide();
+
+        }
+
+        //---------------------------------
+        // COLLECTION
+        //---------------------------------
+        else if (method === "collection") {
+
+            // Show sections except payment
+            $(".cash_section").show();
+
+            // duedate required
+			 $("#tr_due").show();
+            $("#duedate")
+                .show()
+                .prop("required", true);
+
+            // Customer required
+            $("#cust_name")
+                .show()
+                .find("select")
+                .prop("required", true);
+
+            // Hide payment/change
+            $("#cash_payment").hide();
+            $("#cust_name4").hide();
+
+            // Auto value
+            $("#payment")
+                .val(0)
+                .prop("required", false);
+
+            $("#change").val(0);
+        }
+
+    });
+
+});
+
 </script>

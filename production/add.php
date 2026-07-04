@@ -65,7 +65,7 @@ if ($errorMessage == 'Added successfully') {
 					</div> -->
 
 					<div class="control-group">
-						<label class="control-label" for="focusedInput">Customer</label>
+						<label class="control-label" for="focusedInput">Branch</label>
 						<div class="controls">
 							<select name="branch" id="selectError" data-rel="chosen" required>
 								<?php

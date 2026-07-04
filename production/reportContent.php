@@ -1,4 +1,4 @@
-<div class="box span10">
+<div class="box span12" >
     <div class="box-header well" data-original-title>
 
         <?php
@@ -12,7 +12,7 @@
         <h2><i class="icon-shopping-cart"></i> Production Report Content</h2>
     </div>
 
-    <div class="box-content">
+    <div class="box-content" >
         <!-- Default Modals -->
         <!-- <div class="d-flex flex-wrap gap-2">
             <button id="openModalBtn">Open Modal</button>
@@ -37,12 +37,12 @@
                         <td width="10px;">&nbsp;</td>
                         <!-- <td width="100px;"><b>Product Name</b></td>
                         <td width="10px;">&nbsp;</td> -->
-                        <td width="100px;"><b>Serial #</b></td>
-                        <td width="10px;">&nbsp;</td>
+                        <!-- <td width="100px;"><b>Serial #</b></td>
+                        <td width="10px;">&nbsp;</td> -->
                         <td width="100px;"><b>Qty</b></td>
                         <td width="10px;">&nbsp;</td>
-                        <td width="150px;"><b>Price</b></td>
-                        <td width="10px;">&nbsp;</td>
+                        <!-- <td width="150px;"><b>Price</b></td>
+                        <td width="10px;">&nbsp;</td> -->
                         <td width="150px;"><b>Description</b></td>
                         <td width="10px;">&nbsp;</td>
                         <td width="150px;"><b>Partial Replacement</b></td>
@@ -53,19 +53,31 @@
                     </tr>
                     <?php
 
-                    $total = 0;
+                    $total = 0; $total_price = 0;
                     while ($sql1_data = $sql1->fetch()) {
                         $total +=  $sql1_data['pr_qty'];
+                       
+                        
                         $br_id = $sql1_data['branch_id'];
                         $prId = $sql1_data['pd_id'];
-
-                        $prd = $conn->prepare("SELECT * FROM tbl_product WHERE pd_id = '$prId'");
+                        $custId = $sql1_data['cust_id']; 
+                         // get from product table
+                        $prd = $conn->prepare("SELECT * FROM tbl_product WHERE pd_id = '$prId' AND is_deleted != '1'");
                         $prd->execute();
                         $prd_data = $prd->fetch();
 
-                       $cus = $conn->prepare("SELECT * FROM bs_branch WHERE is_deleted != '1' AND branch_id = '$br_id' ORDER BY branch_name; ");
-								$cus->execute();
-                                $cus_data = $cus->fetch();
+                        $price = $prd_data['pc_price'];
+                        $total_price += $price;
+                        $cus = $conn->prepare("SELECT * FROM bs_branch WHERE is_deleted != '1' AND branch_id = '$br_id' ORDER BY branch_name; ");
+                        $cus->execute();
+                        $cus_data = $cus->fetch();
+
+                        $cust = $conn->prepare("SELECT * FROM bs_customer WHERE cust_id = '$custId'");
+                        $cust->execute();
+                        $cust_data = $cust->fetch();
+                        $custName = $cust_data['customer_name'];
+
+
                     ?>
 
 
@@ -73,17 +85,19 @@
 
                         <tr>
 
-                            <td><span class="border_cart"></span><?php echo $cus_data['branch_name']; ?></td>
+                            <!-- <td><span class="border_cart"></span><?php echo $cus_data['branch_name']; ?></td>
+                            <td width="10px;">&nbsp;</td> -->
+                            <td><span class="border_cart"></span><?php echo $custName; ?></td>
                             <td width="10px;">&nbsp;</td>
                             <!-- <td><span class="border_cart"></span><?php echo $prd_data['pd_name']; ?></td>
                             <td width="10px;">&nbsp;</td> -->
-                            <td><span class="border_cart"></span><input readonly name="pr_serial_<?php echo $prId; ?>[]" type="text" size="5" value="<?php echo $prd_data['pd_barcode']; ?>" class="box" style="width:100px;" autocomplete=off></td>
-                            <td width="10px;">&nbsp;</td>
+                            <td style="display: none"><span class="border_cart"></span><input readonly name="pr_serial_<?php echo $prId; ?>[]" type="text" size="5" value="<?php echo $prd_data['pd_barcode']; ?>" class="box" style="width:100px;" autocomplete=off></td>
+                            <td style="display: none" width="10px;">&nbsp;</td>
                             <td><span class="border_cart"><input readonly name="pr_qty_<?php echo $prId; ?>[]" type="text" size="5" value="<?php echo $sql1_data['pr_qty']; ?>" class="box" style="width:50px;" autocomplete=off>
                                 </span></td>
                             <td width="10px;">&nbsp;</td>
-                            <td><span class="border_cart"><input name="pr_price_<?php echo $prId; ?>[]" type="text" size="5" value="<?php echo $prd_data['pc_price']; ?>" class="box" style="width:50px;" autocomplete=off></span></td>
-                            <td width="10px;">&nbsp;</td>
+                            <!-- <td><span class="border_cart"><input readonly name="pr_price_<?php echo $prId; ?>[]" type="text" size="5" value="<?php echo $prd_data['pc_price']; ?>" class="box" style="width:50px;" autocomplete=off></span></td>
+                            <td width="10px;">&nbsp;</td> -->
                             <input type="hidden" name="prdId[]" value="<?php echo $prId; ?>">
 
                             <td><span class="border_cart"><a href=""></a></span><?php echo $sql1_data['pr_description']; ?></td>
@@ -98,6 +112,15 @@
                             <td><a class="btn btn-danger" href="processDelete.php?uid=<?php echo $sql1_data['uid']; ?>"> <i class="icon-trash icon-white"></i>Delete</a></td>
                             <td width="10px;">&nbsp;</td>
 
+                            <!-- inputs -->
+                            <input type="hidden" name="pd_name_<?php echo $prId; ?>[]" value="<?php echo $prd_data['pd_name']; ?>">
+                            <input type="hidden" name="pd_name7_<?php echo $prId; ?>[]" value="<?php echo $prd_data['pd_name7']; ?>">
+                            <input type="hidden" name="pd_description_<?php echo $prId; ?>[]" value="<?php echo $prd_data['pd_description']; ?>">
+                            <input type="hidden" name="pd_keyword_<?php echo $prId; ?>[]" value="<?php echo $prd_data['pd_keyword']; ?>">
+                            <input type="hidden" name="pd_cost_<?php echo $prId; ?>[]" value="<?php echo $prd_data['pd_cost']; ?>">
+                            <input type="hidden" name="cat_id_<?php echo $prId; ?>[]" value="<?php echo $prd_data['cat_id']; ?>">
+                            <input type="hidden" name="cat_parent_id_<?php echo $prId; ?>[]" value="<?php echo $prd_data['cat_parent_id']; ?>">
+                            <input type="hidden" name="date_added_<?php echo $prId; ?>[]" value="<?php echo $prd_data['date_added']; ?>">
                         </tr>
                     <?php
                     } // End For
@@ -109,13 +132,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><span class="border_cart"></span>Total Qty:</td>
+                        <td><span class="border_cart"></span><strong>Total Qty:</strong></td>
                         <td></td>
                         <td><span class="border_cart"></span> <?php echo $total; ?></td>
                         <td></td>
+                        <td><strong>Total Price:</strong></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>₱<?php echo $total_price; ?></td>
 
                     </tr>
                 </table>

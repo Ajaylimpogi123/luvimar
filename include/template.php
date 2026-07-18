@@ -36,12 +36,12 @@ $sett_data = $sett->fetch();
 	<meta name="author" content="<?php echo $sett_data['developer']; ?>">
 
 	<!-- The styles -->
-	<?php include($_SERVER["DOCUMENT_ROOT"] . '/' . $sett_data['directory'] . '/global-library/global-css.php'); ?>
+	<?php require_once SRV_ROOT . '/global-library/global-css.php'; ?>
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elemepowertruck -->
 	<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<?php include($_SERVER["DOCUMENT_ROOT"] . '/' . $sett_data['directory'] . '/global-library/misc-js.php'); ?>
+	<?php require_once SRV_ROOT . '/global-library/misc-js.php'; ?>
 </head>
 
 <body onLoad="document.getElementById('siteLoader').style.display = 'none'; document.frm.pid.focus();">
@@ -55,7 +55,8 @@ $sett_data = $sett->fetch();
 
 	<!-- topbar starts -->
 	<div class="navbar">
-		<?php include($_SERVER["DOCUMENT_ROOT"] . '/' . $sett_data['directory'] . '/include/header.php'); ?>
+	
+		<?php require_once SRV_ROOT . 'include/header.php';?>
 	</div>
 	<!--<div style="height:85px; width:100%;"></div>!-->
 	<!-- topbar ends -->
@@ -64,7 +65,7 @@ $sett_data = $sett->fetch();
 
 			<!-- left menu starts -->
 
-			<?php include($_SERVER["DOCUMENT_ROOT"] . '/' . $sett_data['directory'] . '/include/left-menu.php'); ?>
+			<?php require_once SRV_ROOT . '/include/left-menu.php'; ?>
 
 			<!-- left menu ends -->
 
@@ -136,16 +137,16 @@ $sett_data = $sett->fetch();
 				<!-- end notifications for product below minimum qty -->
 				<!-- end notifications for product below minimum qty -->
 
-				<?php if ($sql_data['is_category_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/category"><i class="icon-th-large"></i><span class="hidden-tablet"> CATEGORY</span></a>&nbsp;|&nbsp;<?php endif; ?>
+				<?php if ($sql_data['is_category_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>category"><i class="icon-th-large"></i><span class="hidden-tablet"> CATEGORY</span></a>&nbsp;|&nbsp;<?php endif; ?>
 
-					<?php if ($sql_data['is_product_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/product"><i class="icon-th"></i><span class="hidden-tablet"> INVENTORY</span></a>&nbsp;|&nbsp;<?php endif; ?>
-					<?php if ($sql_data['is_product_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/raw-product"><i class="icon-th"></i><span class="hidden-tablet"> RAW MATERIALS</span></a>&nbsp;|&nbsp;<?php endif; ?>
+					<?php if ($sql_data['is_product_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>product"><i class="icon-th"></i><span class="hidden-tablet"> INVENTORY</span></a>&nbsp;|&nbsp;<?php endif; ?>
+					<?php if ($sql_data['is_product_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>raw-product"><i class="icon-th"></i><span class="hidden-tablet"> RAW MATERIALS</span></a>&nbsp;|&nbsp;<?php endif; ?>
 
-						<?php if ($sql_data['is_customer_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/customer"><i class="icon-user"></i><span class="hidden-tablet">
+						<?php if ($sql_data['is_customer_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>customer"><i class="icon-user"></i><span class="hidden-tablet">
 									<font size="2">CUSTOMER</font>
 								</span></a>&nbsp;|&nbsp;<?php endif; ?>
-							<?php if ($sql_data['is_job_order_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/job-order"><i class="icon-file"></i><span class="hidden-tablet"> JOB ORDER</span></a>&nbsp;|&nbsp;<?php endif; ?>
-								<?php if ($sql_data['is_production_report_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/production"><i class="icon-file"></i><span class="hidden-tablet"> PRODUCTION REPORT</span></a>&nbsp;|&nbsp;<?php endif; ?>
+							<?php if ($sql_data['is_job_order_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>job-order"><i class="icon-file"></i><span class="hidden-tablet"> JOB ORDER</span></a>&nbsp;|&nbsp;<?php endif; ?>
+								<?php if ($sql_data['is_production_report_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>production"><i class="icon-file"></i><span class="hidden-tablet"> PRODUCTION REPORT</span></a>&nbsp;|&nbsp;<?php endif; ?>
 									<!-- <?php if ($sql_data['is_supplier_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/supplier"><i class="icon icon-black icon-users"></i><span class="hidden-tablet"> SUPPLIER</span></a>&nbsp;|&nbsp;<?php endif; ?> -->
 
 									<!-- <?php if ($sql_data['is_receive_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/receive"><i class="icon-list"></i><span class="hidden-tablet">
@@ -156,18 +157,18 @@ $sett_data = $sett->fetch();
 												<font size="2">RETURN</font>
 											</span></a>&nbsp;|&nbsp;<?php endif; ?> -->
 
-									<?php if ($sql_data['is_sales_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/order"><i class="icon-file"></i><span class="hidden-tablet"> SALES HISTORY</span></a>&nbsp;|&nbsp;<?php endif; ?>
+									<?php if ($sql_data['is_sales_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>order"><i class="icon-file"></i><span class="hidden-tablet"> SALES HISTORY</span></a>&nbsp;|&nbsp;<?php endif; ?>
 
 
 										<!-- <?php if ($sql_data['is_sales_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/branch"><i class="icon-file"></i><span class="hidden-tablet"> BRANCH</span></a>&nbsp;|&nbsp;<?php endif; ?> -->
 
 										<!-- <?php if ($sql_data['is_delivery_access'] == 1): ?><a href="javascript:delivery();"><i class="icon-road"></i><span class="hidden-tablet"> DELIVERY</span></a>&nbsp;|&nbsp;<?php endif; ?> -->
 
-										<?php if ($sql_data['is_expense_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/expenses"><i class="icon-book"></i><span class="hidden-tablet"> EXPENSE</span></a>&nbsp;|&nbsp;<?php endif; ?>
+										<?php if ($sql_data['is_expense_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>expenses"><i class="icon-book"></i><span class="hidden-tablet"> EXPENSE</span></a>&nbsp;|&nbsp;<?php endif; ?>
 										
-											<?php if ($sql_data['is_receivable_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/receivable"><i class="icon-book"></i><span class="hidden-tablet"> COLLECTION</span></a>&nbsp;|&nbsp;<?php endif; ?>
+											<?php if ($sql_data['is_receivable_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>receivable"><i class="icon-book"></i><span class="hidden-tablet"> COLLECTION</span></a>&nbsp;|&nbsp;<?php endif; ?>
 
-											<?php if ($sql_data['is_report_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>/report"><i class="icon-list-alt"></i><span class="hidden-tablet"> REPORTS</span></a>&nbsp;|&nbsp;<?php endif; ?>
+											<?php if ($sql_data['is_report_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>report"><i class="icon-list-alt"></i><span class="hidden-tablet"> REPORTS</span></a>&nbsp;|&nbsp;<?php endif; ?>
 
 												<?php if ($sql_data['is_user_access'] == 1): ?><a href="<?php echo WEB_ROOT; ?>user"><i class="icon icon-black icon-users"></i><span class="hidden-tablet"> USERS</span></a><?php endif; ?>
 
@@ -181,7 +182,7 @@ $sett_data = $sett->fetch();
 		<hr />
 
 		<footer>
-			<?php include($_SERVER["DOCUMENT_ROOT"] . '/' . $sett_data['directory'] . '/include/footer.php'); ?>
+			<?php require_once SRV_ROOT . '/include/footer.php'; ?>
 		</footer>
 
 	</div><!--/.fluid-container-->
@@ -190,7 +191,7 @@ $sett_data = $sett->fetch();
 	<!-- external javascript
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<?php include($_SERVER["DOCUMENT_ROOT"] . '/' . $sett_data['directory'] . '/global-library/global-js.php'); ?>
+	<?php require_once SRV_ROOT . '/global-library/global-js.php'; ?>
 
 
 </body>

@@ -27,8 +27,8 @@ $brnId = 1006; // Default Branch ID (Luvimar Main Branch Bacolod)
 // 									VALUES ('$custid', '$ordernum', '$drnum', '$ponum', '$recby', '$tidays', '$custname', '$amtdue', '$disc', '$perdisc', '$total_due', '$cost', '$payment', '$total_change', '$discId', '$today_date1', '$today_date2', '$paiddate', '$newDate', '$deliverydate', '$deladd', '$driver', '$isdelivery', '$paid', '$charge', '$userId', '$remarks')");
 // $sql->execute();
 
-$sql = $conn->prepare("INSERT INTO tbl_order(cust_id, branch_id, ref_num,  dr_num,  customer_name, payment_mode, transaction_code, od_amount_due, od_discount, percent_discount, od_total_amt_due, od_cost, od_payment, od_change, dc_id, od_date, od_date_1, od_paid_date, date_due,  is_paid, is_charge, released_by, remarks)
-											VALUES ('$custid', '$brnId', '$refnum', '$drnum', '$custname', '$pmode', '$transac','$amtdue', '$disc', '$perdisc', '$total_due', '$cost', '$payment', '$total_change', '$discId', '$today_date1', '$today_date2', '$paiddate', '$duedate',  '$paid', '$charge', '$userId', '$remarks')");
+$sql = $conn->prepare("INSERT INTO tbl_order(cust_id, branch_id, invoice_num, ref_num,  dr_num,  customer_name, payment_mode, transaction_code, od_amount_due, od_discount, percent_discount, od_total_amt_due, od_cost, od_payment, od_change, dc_id, od_date, od_date_1, od_paid_date, date_due,  is_paid, is_charge, released_by, remarks)
+											VALUES ('$custid', '$brnId', '$cinum', '$refnum', '$drnum', '$custname', '$pmode', '$transac','$amtdue', '$disc', '$perdisc', '$total_due', '$cost', '$payment', '$total_change', '$discId', '$today_date1', '$paiddate', '$paiddate', '$duedate',  '$paid', '$charge', '$userId', '$remarks')");
 $sql->execute();
 
 // get the order id

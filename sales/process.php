@@ -72,7 +72,8 @@ function saveOrder()
 		$transac = '';
 		$paid = 1;
 		$charge = 0;
-		$paiddate = $today_date2;
+		$paiddate = mysqli_real_escape_string($link, $_POST['date_purchase']);
+		$cinum = mysqli_real_escape_string($link, $_POST['cinum']);
 		// $ponum = mysqli_real_escape_string($link, $_POST['ponum']);
 		// $recby = mysqli_real_escape_string($link, $_POST['recby']);
 

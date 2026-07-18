@@ -204,7 +204,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead>
 							  <tr>
-								<th>Ref No.</th>
+								<th>Invoice No.</th>
 								  <th>Customer</th>								  
 								  <th>Payment Mode</th>								  
 																  
@@ -228,7 +228,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 							?>
 										<!-- Start display list of orders !-->
 										<tr>											
-											<td><?php echo $sql_data['ref_num']; ?></td>
+											<td><?php echo $sql_data['invoice_num']; ?></td>
 											<td><?php echo $cname; ?></td>
 											<td><?php echo $sql_data['payment_mode']; ?></td>
 											

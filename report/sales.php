@@ -265,7 +265,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 
 	<?php
 	$emp = $conn->prepare("SELECT * FROM $branch.tbl_order
-							WHERE ($oddate BETWEEN '$from' and '$to') $typ_state $rmk_state AND is_deleted != '1'
+							WHERE ($oddate BETWEEN '$from' and '$to') $typ_state $rmk_state AND is_deleted != '1' AND is_paid != 0
 							ORDER BY $oddate");
 	$emp->execute();
 
@@ -296,7 +296,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 			<div class="order-block">
 
 				<div class="order-meta">
-					<div class="meta-item meta-ref"><?php echo $emp_data['ref_num']; ?></div>
+					<div class="meta-item meta-ref"><?php echo $emp_data['invoice_num']; ?></div>
 					<div class="meta-item">
 						<span class="lbl">Date Released</span><?php echo $datereleased; ?>
 					</div>

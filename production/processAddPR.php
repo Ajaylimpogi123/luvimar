@@ -12,15 +12,32 @@ $jo->execute();
 $jo_data = $jo->fetch();
 
 $jo_num = $jo_data['jo_id'];
-$pr_num = $_POST['prNum'];
+$pr_num = $_POST['prNum'] ?? null;
 
-if (isset($_POST['prdId']) && is_array($_POST['prdId'])) {
+if (isset($_POST['prNum']) && trim($_POST['prNum']) !== '') {
 
     try {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conn->beginTransaction();
 
-        $prdId = $_POST['prdId'];
+        // ===============================
+        // GET THE ACTUAL PENDING LINE ITEMS DIRECTLY FROM THE DB.
+        // This is the exact same set of rows shown on the submission
+        // page. Pulling straight from the DB (instead of rebuilding
+        // everything from a pile of parallel hidden POST arrays) means
+        // there is nothing that can fall out of sync or go missing.
+        // ===============================
+        $pending = $conn->prepare("
+            SELECT * FROM tbl_pr_items
+            WHERE is_deleted != '1' AND is_submitted != '1'
+            ORDER BY pri_id ASC
+        ");
+        $pending->execute();
+        $pendingItems = $pending->fetchAll(PDO::FETCH_ASSOC);
+
+        if (count($pendingItems) === 0) {
+            throw new Exception("No pending items to submit.");
+        }
 
         // ===============================
         // GET LAST BARCODE
@@ -35,149 +52,115 @@ if (isset($_POST['prdId']) && is_array($_POST['prdId'])) {
         $lastBarcode = (int)($inc_data['last_barcode'] ?? 0);
 
         // ===============================
-        // STORE GENERATED BARCODES PER pdid
-        // KEY: pdid => [barcode1, barcode2, ...]
+        // STORE GENERATED BARCODES PER LINE ITEM
+        // KEY: pri_id => [barcode1, barcode2, ...]
+        // Keyed by pri_id (the specific row), never by pd_id, so two
+        // rows ordering the same product can never overwrite each
+        // other's barcodes.
         // ===============================
-        $generatedBarcodes = []; // <-- collect barcodes here
+        $generatedBarcodes = [];
 
-        foreach ($prdId as $pdid) {
+        foreach ($pendingItems as $row) {
 
-            if (
-                isset($_POST['pr_qty_' . $pdid]) &&
-                isset($_POST['pr_price_' . $pdid]) &&
-                isset($_POST['pd_name_' . $pdid]) &&
-                isset($_POST['pd_name7_' . $pdid]) &&
-                isset($_POST['pd_description_' . $pdid]) &&
-                isset($_POST['pd_keyword_' . $pdid]) &&
-                isset($_POST['pd_cost_' . $pdid]) &&
-                isset($_POST['cat_id_' . $pdid]) &&
-                isset($_POST['cat_parent_id_' . $pdid]) &&
-                isset($_POST['date_added_' . $pdid])
-            ) {
-                $qtys           = $_POST['pr_qty_' . $pdid];
-                $prices         = $_POST['pr_price_' . $pdid];
-                $pd_names       = $_POST['pd_name_' . $pdid];
-                $pd_names7      = $_POST['pd_name7_' . $pdid];
-                $pd_descriptions = $_POST['pd_description_' . $pdid];
-                $pd_keywords    = $_POST['pd_keyword_' . $pdid];
-                $pd_costs       = $_POST['pd_cost_' . $pdid];
-                $cat_ids        = $_POST['cat_id_' . $pdid];
-                $cat_parent_ids = $_POST['cat_parent_id_' . $pdid];
-                $date_addeds    = $_POST['date_added_' . $pdid];
+            $priId = $row['pri_id'];
+            $pdId  = $row['pd_id'];
+            $qty   = (int)$row['pr_qty'];
 
-                foreach ($qtys as $index => $qty) {
+            // Pull the product's info straight from tbl_product - the
+            // single source of truth, instead of a matching hidden field.
+            $prd = $conn->prepare("
+                SELECT * FROM tbl_product WHERE pd_id = :pd_id AND is_deleted != '1'
+            ");
+            $prd->execute([':pd_id' => $pdId]);
+            $prd_data = $prd->fetch(PDO::FETCH_ASSOC);
 
-                    $qty            = (int)$qty;
-                    $price          = (float)($prices[$index] ?? 0);
-                    $pd_name        = $pd_names[$index] ?? '';
-                    $pd_name7       = $pd_names7[$index] ?? '';
-                    $pd_description = $pd_descriptions[$index] ?? '';
-                    $pd_keyword     = $pd_keywords[$index] ?? '';
-                    $pd_cost        = $pd_costs[$index] ?? '';
-                    $cat_id         = (int)($cat_ids[$index] ?? 0);
-                    $cat_parent_id  = (int)($cat_parent_ids[$index] ?? 0);
-                    $date_added     = (int)($date_addeds[$index] ?? 0);
+            if (!$prd_data) {
+                throw new Exception("Product not found for pd_id: " . $pdId);
+            }
 
-                    // Update PR item qty
-                    $updatePr = $conn->prepare("
-                        UPDATE tbl_pr_items SET pr_qty = :qty WHERE pd_id = :pd_id
-                    ");
-                    $updatePr->execute([':qty' => $qty, ':pd_id' => $pdid]);
+            $price          = $prd_data['pc_price'];
+            $pd_name        = $prd_data['pd_name'];
+            $pd_name7       = $prd_data['pd_name7'];
+            $pd_description = $prd_data['pd_description'];
+            $pd_keyword     = $prd_data['pd_keyword'];
+            $pd_cost        = $prd_data['pd_cost'];
+            $cat_id         = $prd_data['cat_id'];
+            $cat_parent_id  = $prd_data['cat_parent_id'];
+            $date_added     = $prd_data['date_added'];
 
-                    // ===============================
-                    // INSERT PRODUCTS & COLLECT BARCODES
-                    // ===============================
-                    $generatedBarcodes[$pdid] = []; // initialize array for this product
+            // Initialize once per line item - never overwritten by
+            // another row that happens to share the same pd_id.
+            $generatedBarcodes[$priId] = [];
 
-                    for ($i = 1; $i <= $qty; $i++) {
-                        $lastBarcode++;
-                        $newBarcode = str_pad($lastBarcode, 7, "0", STR_PAD_LEFT);
+            for ($i = 1; $i <= $qty; $i++) {
+                $lastBarcode++;
+                $newBarcode = str_pad($lastBarcode, 7, "0", STR_PAD_LEFT);
 
-                        // ✅ Collect each generated barcode
-                        $generatedBarcodes[$pdid][] = $newBarcode;
+                $generatedBarcodes[$priId][] = $newBarcode;
 
-                        $insertProduct = $conn->prepare("
-                            INSERT INTO tbl_product (
-                                cat_id, cat_parent_id, pd_barcode,
-                                pd_name, pd_name7, pd_description,
-                                pd_keyword, pd_cost, pc_price,
-                                pc_qty, is_deleted, is_sold, date_added
-                            ) VALUES (
-                                :cat_id, :cat_parent_id, :barcode,
-                                :pd_name, :pd_name7, :pd_description,
-                                :pd_keyword, :pd_cost, :price,
-                                1, 0, 0, :date_added
-                            )
-                        ");
+                $insertProduct = $conn->prepare("
+                    INSERT INTO tbl_product (
+                        cat_id, cat_parent_id, pd_barcode,
+                        pd_name, pd_name7, pd_description,
+                        pd_keyword, pd_cost, pc_price,
+                        pc_qty, is_deleted, is_sold, date_added
+                    ) VALUES (
+                        :cat_id, :cat_parent_id, :barcode,
+                        :pd_name, :pd_name7, :pd_description,
+                        :pd_keyword, :pd_cost, :price,
+                        1, 0, 0, :date_added
+                    )
+                ");
 
-                        $result = $insertProduct->execute([
-                            ':cat_id'        => $cat_id,
-                            ':cat_parent_id' => $cat_parent_id,
-                            ':barcode'       => $newBarcode,
-                            ':pd_name'       => $pd_name,
-                            ':pd_name7'      => $pd_name7,
-                            ':pd_description'=> $pd_description,
-                            ':pd_keyword'    => $pd_keyword,
-                            ':pd_cost'       => $pd_cost,
-                            ':price'         => $price,
-                            ':date_added'    => $date_added
-                        ]);
+                $result = $insertProduct->execute([
+                    ':cat_id'         => $cat_id,
+                    ':cat_parent_id'  => $cat_parent_id,
+                    ':barcode'        => $newBarcode,
+                    ':pd_name'        => $pd_name,
+                    ':pd_name7'       => $pd_name7,
+                    ':pd_description'=> $pd_description,
+                    ':pd_keyword'     => $pd_keyword,
+                    ':pd_cost'        => $pd_cost,
+                    ':price'          => $price,
+                    ':date_added'     => $date_added
+                ]);
 
-                        if (!$result) {
-                            $error = $insertProduct->errorInfo();
-                            throw new Exception("Insert Failed: " . $pd_name . " - " . $error[2]);
-                        }
-                    }
+                if (!$result) {
+                    $error = $insertProduct->errorInfo();
+                    throw new Exception("Insert Failed: " . $pd_name . " - " . $error[2]);
                 }
             }
         }
 
-        $conn->commit();
-
-    } catch (Exception $e) {
-        if ($conn->inTransaction()) {
-            $conn->rollBack();
-        }
-        echo "<pre>TRANSACTION FAILED\n\n" . $e->getMessage() . "</pre>";
-        exit;
-    }
-
-    // ===============================
-    // INSERT PRODUCTION REPORT
-    // ===============================
-    $req = $conn->prepare("
-        INSERT INTO tbl_production_report (jo_id, pr_num, status, added_by, date_added)
-        VALUES (:jo_num, :pr_num, 'completed', :userId, :today)
-    ");
-    $req->execute([
-        ':jo_num'  => $jo_num,
-        ':pr_num'  => $pr_num,
-        ':userId'  => $userId,
-        ':today'   => $today_date2
-    ]);
-    $prId = $conn->lastInsertId();
-
-    if ($prId) {
-
-        $item = $conn->prepare("
-            SELECT * FROM tbl_pr_items
-            WHERE is_submitted = 0 AND is_deleted != '1' AND added_by = :userId
+        // ===============================
+        // INSERT PRODUCTION REPORT
+        // ===============================
+        $req = $conn->prepare("
+            INSERT INTO tbl_production_report (jo_id, pr_num, status, added_by, date_added)
+            VALUES (:jo_num, :pr_num, 'completed', :userId, :today)
         ");
-        $item->execute([':userId' => $userId]);
+        $req->execute([
+            ':jo_num'  => $jo_num,
+            ':pr_num'  => $pr_num,
+            ':userId'  => $userId,
+            ':today'   => $today_date2
+        ]);
+        $prId = $conn->lastInsertId();
 
-        while ($item_data = $item->fetch()) {
+        // ===============================
+        // INSERT tbl_pr_list ROWS + MARK EACH LINE ITEM SUBMITTED
+        // ===============================
+        foreach ($pendingItems as $row) {
+            $priId    = $row['pri_id'];
+            $item_pid = $row['pd_id'];
+            $branchId = $row['branch_id'];
 
-            $priId    = $item_data['pri_id'];
-            $item_pid = $item_data['pd_id'];
-            $branchId = $item_data['branch_id'];
-
-            // ✅ Get the collected barcodes for this pd_id
-            // implode them as comma-separated string to save in pr_serial
-            $serialNumbers = isset($generatedBarcodes[$item_pid])
-                ? implode(', ', $generatedBarcodes[$item_pid])
+            // ✅ looked up per LINE ITEM (pri_id) - guaranteed to match
+            // exactly the barcodes generated for this row's own quantity
+            $serialNumbers = isset($generatedBarcodes[$priId])
+                ? implode(', ', $generatedBarcodes[$priId])
                 : '';
 
-            // ✅ Save serial numbers into tbl_pr_list.pr_serial
             $var_in = $conn->prepare("
                 INSERT INTO tbl_pr_list 
                     (pri_id, pr_id, pd_id, branch_id, user_id, added_by, pr_date_added, pr_serial)
@@ -192,14 +175,16 @@ if (isset($_POST['prdId']) && is_array($_POST['prdId'])) {
                 ':userId'   => $userId,
                 ':userId2'  => $userId,
                 ':today'    => $today_date2,
-                ':serial'   => $serialNumbers  // ✅ comma-separated barcodes
+                ':serial'   => $serialNumbers
             ]);
 
-            $up = $conn->prepare("
-                UPDATE tbl_pr_items SET is_submitted = 1
-                WHERE added_by = :userId AND branch_id = :branchId
-            ");
-            $up->execute([':userId' => $userId, ':branchId' => $branchId]);
+            // ✅ FIXED: mark only THIS specific line item as submitted.
+            // The old query matched on (added_by, branch_id), which would
+            // also flip is_submitted = 1 for any OTHER product going to
+            // the same branch - marking unrelated items as submitted
+            // before they'd actually been processed.
+            $up = $conn->prepare("UPDATE tbl_pr_items SET is_submitted = 1 WHERE pri_id = :pri_id");
+            $up->execute([':pri_id' => $priId]);
         }
 
         $up1 = $conn->prepare("UPDATE tbl_job_order SET status = 'completed' WHERE jo_id = :jo_num");
@@ -208,7 +193,17 @@ if (isset($_POST['prdId']) && is_array($_POST['prdId'])) {
         $uid = MD5($prId);
         $upt = $conn->prepare("UPDATE tbl_production_report SET uid = :uid WHERE pr_id = :prId");
         $upt->execute([':uid' => $uid, ':prId' => $prId]);
-    }
 
-    header('Location: index.php?view=list&error=Added successfully.');
+        $conn->commit();
+
+        header('Location: index.php?view=list&error=Added successfully.');
+        exit;
+
+    } catch (Exception $e) {
+        if ($conn->inTransaction()) {
+            $conn->rollBack();
+        }
+        echo "<pre>TRANSACTION FAILED\n\n" . $e->getMessage() . "</pre>";
+        exit;
+    }
 }

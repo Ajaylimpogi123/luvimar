@@ -337,12 +337,6 @@ if (isset($_POST['disc']) && $_POST['disc'] > 0) {
 						</td>
 					</tr>
 
-					<tr id="cust_name5" style="display:none">
-						<td width="150"><span class="blue" style="font-size:14px; font-weight:bold;">Invoice #</span></td>
-						<td>
-							<input name="cinum" type="text" id="cinum" size="30" maxlength="50" style="font-size:16px; font-weight:bold;" autocomplete=off />
-						</td>
-					</tr>
 
 					<!-- <tr>
 						<td width="250"><span class="blue" style="font-size:14px; font-weight:bold;">Releasing Method</span></td>
@@ -385,6 +379,21 @@ if (isset($_POST['disc']) && $_POST['disc'] > 0) {
 							<input name="remarks" type="text" id="remarks" style="font-size:13px; font-weight:normal;" autocomplete=off />
 						</td>
 					</tr>
+					
+					<tr class="cash_section">
+						<td width="150"><span class="blue" style="font-size:14px; font-weight:bold;">Invoice #</span></td>
+						<td>
+							<input  name="cinum" type="text" id="cinum" style="font-size:16px; font-weight:bold;" autocomplete=off />
+						</td>
+					</tr>
+
+					<tr class="cash_section" >
+						<td width="150"><span class="blue" style="font-size:14px; font-weight:bold;">Delivery Date</span></td>
+						<td>
+							<input name="date_purchase" type="date" id="txtFromDate"  style="font-size:16px; font-weight:bold;" autocomplete=off />
+						</td>
+					</tr>
+
 					<tr class="cash_section">
 						<input type="hidden" name="discId" id="discId" value="<?php echo $dcId; ?>" />
 						<input type="hidden" name="cost" id="cost" value="<?php echo $cost; ?>" />

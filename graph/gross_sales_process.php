@@ -29,7 +29,7 @@ for ($currentDateTS = $fromDateTS; $currentDateTS <= $toDateTS; $currentDateTS +
 	$dd = $currentDateStr;
 	//echo $dd . "<br />";
 
-	$ord = $conn->prepare("SELECT SUM(od_total_amt_due) as total_sales FROM tbl_order WHERE od_date_1 = '$dd' AND is_deleted != '1'");
+	$ord = $conn->prepare("SELECT SUM(od_total_amt_due) AS total_sales FROM tbl_order WHERE od_date_1 = '$dd' AND is_deleted != '1'");
 	$ord->execute();
 	$ord_data = $ord->fetch();
 	$total_sales = $ord_data['total_sales'];

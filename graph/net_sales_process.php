@@ -33,7 +33,7 @@ checkUser();
 		$ord = $conn->prepare("SELECT SUM(od_cost) as total_sales FROM tbl_order WHERE od_date_1 = '$dd' AND is_deleted != '1'");
 		$ord->execute();
 		$ord_data = $ord->fetch();
-		$total_sales = $ord_data['total_sales'];
+		$total_sales = $ord_data['total_sales'] ?? 0;
 		
 		$dtname = date("M d, Y", strtotime($dd));
 		

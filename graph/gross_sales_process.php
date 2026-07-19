@@ -32,11 +32,11 @@ for ($currentDateTS = $fromDateTS; $currentDateTS <= $toDateTS; $currentDateTS +
 	$ord = $conn->prepare("SELECT SUM(od_total_amt_due) AS total_sales FROM tbl_order WHERE od_date_1 = '$dd' AND is_deleted != '1'");
 	$ord->execute();
 	$ord_data = $ord->fetch();
-	$total_sales = $ord_data['total_sales'];
+	$total_sales = $ord_data['total_sales'] ?? 0;
 
 	$dtname = date("M d, Y", strtotime($dd));
 
-	$in = $conn->prepare("INSERT INTO tr_graph_gross_current (branch_id, date_name, total_sales, od_date) VALUES ('$userId', '$dtname', $total_sales, '$dd')");
+	$in = $conn->prepare("INSERT INTO tr_graph_gross_current (branch_id, date_name, total_sales, od_date) VALUES ('$userId', '$dtname', '$total_sales', '$dd')");
 	$in->execute();
 ?>
 	<!--<tr>

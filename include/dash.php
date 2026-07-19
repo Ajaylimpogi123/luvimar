@@ -29,12 +29,12 @@ $self = WEB_ROOT . 'encrypt.php';
 	<meta name="author" content="<?php echo $sett_data['developer']; ?>">	
 
 	<!-- The styles -->
-	<?php include ($_SERVER["DOCUMENT_ROOT"] . '/' . $sett_data['directory'] . '/global-library/global-css.php'); ?>	
+	<?php require_once SRV_ROOT . '/global-library/global-css.php'; ?>	
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elemepowertruck -->
 	<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<?php include ($_SERVER["DOCUMENT_ROOT"] . '/' . $sett_data['directory'] . '/global-library/misc-js.php'); ?>	
+	<?php require_once SRV_ROOT . '/global-library/misc-js.php'; ?>	
 </head>
 
 <body onLoad="document.getElementById('siteLoader').style.display = 'none'; document.frm.pid.focus();">
@@ -48,7 +48,7 @@ $self = WEB_ROOT . 'encrypt.php';
 	
 	<!-- topbar starts -->
 	<div class="navbar">
-		<?php include ($_SERVER["DOCUMENT_ROOT"] . '/' . $sett_data['directory'] . '/include/header.php'); ?>
+		<?php require_once SRV_ROOT . '/include/header.php'; ?>
 	</div>
 	
 	<!-- topbar ends -->
@@ -65,7 +65,7 @@ $self = WEB_ROOT . 'encrypt.php';
 		<hr />		
 
 		<footer>
-			<?php include ($_SERVER["DOCUMENT_ROOT"] . '/' . $sett_data['directory'] . '/include/footer.php'); ?>
+			<?php require_once SRV_ROOT . '/include/footer.php'; ?>
 		</footer>
 		
 	</div><!--/.fluid-container-->
@@ -74,7 +74,7 @@ $self = WEB_ROOT . 'encrypt.php';
 	<!-- external javascript
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<?php include ($_SERVER["DOCUMENT_ROOT"] . '/' . $sett_data['directory'] . '/global-library/global-js.php'); ?>
+	<?php require_once SRV_ROOT . '/global-library/global-js.php'; ?>
 	
 		
 </body>

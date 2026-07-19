@@ -36,7 +36,7 @@ for ($currentDateTS = $fromDateTS; $currentDateTS <= $toDateTS; $currentDateTS +
 
 	$dtname = date("M d, Y", strtotime($dd));
 
-	$in = $conn->prepare("INSERT INTO tr_graph_gross_current (branch_id, date_name, total_sales, od_date) VALUES ('$userId', '$dtname', '$total_sales', '$dd')");
+	$in = $conn->prepare("INSERT INTO tr_graph_gross_current (branch_id, date_name, total_sales, od_date) VALUES ('$userId', '$dtname', $total_sales, '$dd')");
 	$in->execute();
 ?>
 	<!--<tr>

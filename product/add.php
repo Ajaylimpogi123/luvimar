@@ -57,8 +57,9 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 										$slp->execute();
 										while ($slp_data = $slp->fetch()) {
 										?>
-											<option value="<?php echo $slp_data['cat_id']; ?>"><?php echo $slp_data['cat_name']; ?></option>
-										<?php
+	
+									<option value="<?php echo $slp_data['cat_id']; ?>" data-parent="<?php echo $slp_data['cat_parent_id']; ?>"> <?php echo $slp_data['cat_name']; ?></option>
+									<?php
 										} // End While
 										?>
 									</optgroup>
@@ -90,10 +91,26 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 						</div>
 					</div>
 
-					<div class="control-group">
+						<div class="control-group">
 						<label class="control-label" for="focusedInput">Product Name</label>
 						<div class="controls">
-							<input class="input-xlarge focused" id="pdname" name="pdname" type="text" autocomplete=off required />
+							<?php 
+							$name = $conn->prepare("SELECT * FROM tr_name WHERE is_deleted != '1' ORDER BY prod_name");
+							$name->execute();
+
+							?>
+								<select name="pdname" id="selectError" data-rel="chosen" required>
+										<option value="0">-- Select --</option>
+										<?php
+										while ($name_data = $name->fetch()) {
+											$prodname = $name_data['prod_name'];
+											$prodid = $name_data['n_id'];
+										?>
+											<option value="<?php echo $prodname; ?>"><?php echo $prodname; ?></option>
+										<?php
+										} // End While
+										?>
+								</select>
 							<div id="status"></div>
 						</div>
 					</div>
@@ -171,3 +188,59 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
 
 	</div>
 </div><!--/span-->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    var category = document.getElementById("category");
+    var qty = document.getElementById("pc_qty");
+
+    function toggleQty() {
+
+        var option = category.options[category.selectedIndex];
+
+        if (!option) return;
+
+        var parent = option.getAttribute("data-parent");
+
+        // Finish Product (Parent ID = 1)
+        if (parent == "1") {
+
+            qty.value = "1";
+            qty.readOnly = true;
+            qty.style.backgroundColor = "#eeeeee";
+            qty.style.cursor = "not-allowed";
+
+        }
+
+        // Other Safety Products (Parent ID = 5)
+        else if (parent == "5") {
+
+            qty.readOnly = false;
+            qty.style.backgroundColor = "";
+            qty.style.cursor = "";
+
+            if (qty.value == "1") {
+                qty.value = "";
+            }
+
+        }
+
+        // All other categories
+        else {
+
+            qty.readOnly = false;
+            qty.style.backgroundColor = "";
+            qty.style.cursor = "";
+
+        }
+
+    }
+
+    category.addEventListener("change", toggleQty);
+
+    // Run on page load
+    toggleQty();
+
+});
+</script>

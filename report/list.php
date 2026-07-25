@@ -72,6 +72,7 @@ $errorMessage = (isset($_GET['error']) && $_GET['error'] != '') ? $_GET['error']
                     <select name="branch" class="form-control" required>
                         <option value="">--Select Branch--</option>
                         <option value="db_luvimar">Bacolod</option>
+                        <option value="db_luvimar_cebu">Bacolod</option>
                     </select>
 
                     <input type="text"

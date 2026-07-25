@@ -7,7 +7,16 @@ $sql->execute();
 $sql_data = $sql->fetch();
 
 date_default_timezone_set("Asia/Manila");
+require_once 'global-library/sms-expiration-functions.php';
 
+// Run the expiration SMS check once per calendar day, not on every reload
+$today_sms_check = date('Y-m-d');
+if (!isset($_SESSION['sms_expiration_last_check']) || $_SESSION['sms_expiration_last_check'] !== $today_sms_check) {
+    checkAndSendExpirationSMS($conn);
+    $_SESSION['sms_expiration_last_check'] = $today_sms_check;
+}
+
+/* Format the fields to be displayed for user */
 /* Format the fields to be displayed for user */
 $fullname = ucwords(strtolower($sql_data['firstname'])) . '&nbsp;' . ucwords(strtolower($sql_data['lastname']));
 /* End Format */

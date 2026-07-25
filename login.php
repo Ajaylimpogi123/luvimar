@@ -39,7 +39,7 @@ $sett_data = $sett->fetch();
 	<meta name="description" content="<?php echo $sett_data['developer']; ?>">
 	<meta name="author" content="<?php echo $sett_data['developer']; ?>">
 	<!-- The styles -->
-	<?php include($_SERVER["DOCUMENT_ROOT"] . '/' . $sett_data['directory'] . '/global-library/global-css.php'); ?>
+	<?php require_once SRV_ROOT . '/global-library/global-css.php'; ?>
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -131,7 +131,7 @@ $sett_data = $sett->fetch();
 	<!-- external javascript
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<?php include($_SERVER["DOCUMENT_ROOT"] . '/' . $sett_data['directory'] . '/global-library/global-js.php'); ?>
+	<?php require_once SRV_ROOT . '/global-library/global-js.php'; ?>
 	<div style="text-align:center;">&copy; <?php echo $sett_data['system_title']; ?> <?php echo $sett_data['year_developed']; ?>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Developed by: <?php echo $sett_data['developer']; ?> | <?php echo $sett_data['website']; ?>
 	</div>
@@ -139,5 +139,5 @@ $sett_data = $sett->fetch();
 
 </html>
 
-<!--<? php // } // End Check 
+<!--<?php // } // End Check 
 	?>!-->
